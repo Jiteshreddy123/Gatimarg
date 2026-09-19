@@ -537,6 +537,79 @@
       font-weight: 700;
     }
 
+    /* ---- NEIGHBORING CORRIDORS SPILLBACK MATRIX STYLES ---- */
+    .neighbor-route-card {
+      background: #090E1D;
+      border: 1px solid var(--surface-border);
+      border-radius: 8px;
+      padding: 14px;
+      transition: all 0.2s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .neighbor-route-card:hover {
+      border-color: rgba(56, 189, 248, 0.4);
+      transform: translateY(-1px);
+    }
+
+    .neighbor-route-card.critical {
+      border-left: 4px solid #EF4444;
+      background: linear-gradient(135deg, rgba(239, 68, 68, 0.05), #090E1D 70%);
+    }
+
+    .neighbor-route-card.severe {
+      border-left: 4px solid #F59E0B;
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.05), #090E1D 70%);
+    }
+
+    .neighbor-route-card.moderate {
+      border-left: 4px solid #38BDF8;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.05), #090E1D 70%);
+    }
+
+    .neighbor-route-card.controlled {
+      border-left: 4px solid #10B981;
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), #090E1D 70%);
+    }
+
+    .spillback-pipeline-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #060A14;
+      border: 1px solid var(--surface-border);
+      border-radius: 8px;
+      padding: 10px 14px;
+      overflow-x: auto;
+      margin: 12px 0 16px;
+    }
+
+    .spillback-node {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: #0D1527;
+      border: 1px solid var(--surface-border);
+      border-radius: 6px;
+      padding: 6px 10px;
+      font-size: 11px;
+      white-space: nowrap;
+    }
+
+    .spillback-arrow {
+      color: #EF4444;
+      font-size: 14px;
+      font-weight: 700;
+      animation: pulseArrow 1.5s infinite;
+    }
+
+    @keyframes pulseArrow {
+      0%, 100% { opacity: 0.4; transform: translateX(0); }
+      50% { opacity: 1; transform: translateX(3px); }
+    }
+
     /* ---- BUTTONS ---- */
     .btn {
       display: inline-flex;
@@ -1017,7 +1090,8 @@
         { id: "SEG-150", name: "Necklace Road Alternate Diversion Loop", capacity: 1900, freeFlowSpeed: 50, currentSpeed: 42, flow: 1400, status: "diversion", shockwaveRisk: "low", festivalImpact: "open_bypass" }
       ],
 
-      // Active Incidents
+      // Active Incidents & Spatial Network Spillback Graph
+      selectedIncidentId: "INC-901",
       incidents: [
         {
           id: "INC-901",
@@ -1028,7 +1102,263 @@
           queueLengthKm: 1.85,
           shockwaveVelocityKmh: -14.2, // Upstream propagation
           upstreamThreats: ["SEG-041 (Airport Flyover)", "SEG-039 (Attapur Inflow)"],
-          recommendedDiversion: "Divert light motor vehicles to Pillar 140 underpass slip road (Avoids turning prohibition at Node 44)."
+          recommendedDiversion: "Divert light motor vehicles to Pillar 140 underpass slip road (Avoids turning prohibition at Node 44).",
+          neighboringRoutes: [
+            {
+              id: "SEG-041",
+              name: "PVNR Elevated Trunk (Pillar 110-140)",
+              relationship: "Direct Upstream Feeder",
+              distanceKm: 0.85,
+              baseSpeed: 16,
+              currentSpeed: 16,
+              freeFlowSpeed: 60,
+              speedDropPercent: -73,
+              impactLevel: "critical",
+              impactLabel: "Engulfed in Spillback",
+              etaToChoke: "0 Mins (Engulfed)",
+              queueSpilloverMeters: 850,
+              flowCapacity: "98% (2,150 / 2,200 vph)",
+              saturationPercent: 98,
+              gatingActive: false,
+              causeText: "Direct upstream shockwave has backed up past Pillar 125, halting inbound vehicles from Rajiv Gandhi International Airport flyover.",
+              gatingBenefit: "Signal metering at Pillar 100 on-ramp throttles inflow by 380 vph, preventing elevated deck gridlock."
+            },
+            {
+              id: "SEG-039",
+              name: "Attapur Inflow Feeder Arterial",
+              relationship: "Secondary Inbound Feeder",
+              distanceKm: 1.80,
+              baseSpeed: 22,
+              currentSpeed: 22,
+              freeFlowSpeed: 55,
+              speedDropPercent: -60,
+              impactLevel: "severe",
+              impactLabel: "Queue Breach Imminent",
+              etaToChoke: "ETA 6 Mins",
+              queueSpilloverMeters: 420,
+              flowCapacity: "91% (1,920 / 2,100 vph)",
+              saturationPercent: 91,
+              gatingActive: false,
+              causeText: "Vehicles attempting to merge onto PVNR ramp are backing onto Attapur surface link, creating a 420-meter tailback at Rethibowli ring.",
+              gatingBenefit: "Holding green signal at Ring Road junction stops unmitigated queue merge into the congested arterial."
+            },
+            {
+              id: "SEG-043",
+              name: "Masab Tank - Lakdikapul Rotary",
+              relationship: "Downstream Diversion Overflow",
+              distanceKm: 2.40,
+              baseSpeed: 28,
+              currentSpeed: 28,
+              freeFlowSpeed: 50,
+              speedDropPercent: -44,
+              impactLevel: "moderate",
+              impactLabel: "Diversion Spillover Surge",
+              etaToChoke: "ETA 14 Mins",
+              queueSpilloverMeters: 210,
+              flowCapacity: "84% (1,850 / 2,200 vph)",
+              saturationPercent: 84,
+              gatingActive: false,
+              causeText: "Commuters attempting to bypass the stalled ramp are spilling over into Masab Tank rotary surface link, increasing cyclic queue delay.",
+              gatingBenefit: "Extending green phase on Lakdikapul slip clears rotary tailback by 25%."
+            },
+            {
+              id: "SEG-150",
+              name: "Pillar 140 Ground Slip Road Bypass Link",
+              relationship: "Designated Relief Bypass",
+              distanceKm: 0.35,
+              baseSpeed: 38,
+              currentSpeed: 38,
+              freeFlowSpeed: 45,
+              speedDropPercent: -15,
+              impactLevel: "controlled",
+              impactLabel: "Active Legal Bypass",
+              etaToChoke: "Clear / Fluid Flow",
+              queueSpilloverMeters: 0,
+              flowCapacity: "62% (1,180 / 1,900 vph)",
+              saturationPercent: 62,
+              gatingActive: true,
+              causeText: "Designated legal route: absorbs diverted light motor vehicles away from the stalled bus bottleneck while enforcing median turn prohibitions.",
+              gatingBenefit: "Carrying 780 diverted vph safely without creating secondary deadlocks."
+            }
+          ]
+        },
+        {
+          id: "INC-902",
+          segmentId: "SEG-205",
+          title: "Vinayaka Nimajjanam Heavy Convoy Barricade at Tank Bund",
+          detectedAt: "25 mins ago",
+          confidence: "99.1%",
+          queueLengthKm: 2.80,
+          shockwaveVelocityKmh: -18.6,
+          upstreamThreats: ["SEG-206 (NTR Marg)", "SEG-090 (Panjagutta Feeder)"],
+          recommendedDiversion: "Mandatory diversion via Necklace Road - Lower Tank Bund Bypass Link (SEG-150).",
+          neighboringRoutes: [
+            {
+              id: "SEG-206",
+              name: "NTR Marg Secretariat Corridor",
+              relationship: "Direct Adjacent Arterial",
+              distanceKm: 0.60,
+              baseSpeed: 8,
+              currentSpeed: 8,
+              freeFlowSpeed: 45,
+              speedDropPercent: -82,
+              impactLevel: "critical",
+              impactLabel: "100% Barricaded Cordon",
+              etaToChoke: "0 Mins (Sealed)",
+              queueSpilloverMeters: 1600,
+              flowCapacity: "99% (Saturated)",
+              saturationPercent: 99,
+              gatingActive: false,
+              causeText: "Procession convergence completely occupies all carriageways. Traffic police barricades deployed for pedestrian security.",
+              gatingBenefit: "Pre-trip perimeter warnings route vehicles away before entering Khairatabad flyover."
+            },
+            {
+              id: "SEG-090",
+              name: "Inner Ring Road (Panjagutta - Begumpet)",
+              relationship: "Diverted Spillover Feeder",
+              distanceKm: 2.10,
+              baseSpeed: 24,
+              currentSpeed: 24,
+              freeFlowSpeed: 60,
+              speedDropPercent: -60,
+              impactLevel: "severe",
+              impactLabel: "Severe Inflow Spillback",
+              etaToChoke: "ETA 8 Mins",
+              queueSpilloverMeters: 740,
+              flowCapacity: "95% (2,480 / 2,600 vph)",
+              saturationPercent: 95,
+              gatingActive: false,
+              causeText: "Commuters turned away from Tank Bund are pushing into Begumpet and Somajiguda corridors, causing cascading standstill.",
+              gatingBenefit: "Dynamic message boards on Greenlands flyover divert north-bound traffic to Minister Road."
+            },
+            {
+              id: "SEG-301",
+              name: "Secunderabad Station Access Arterial",
+              relationship: "North Access Link",
+              distanceKm: 3.20,
+              baseSpeed: 14,
+              currentSpeed: 14,
+              freeFlowSpeed: 40,
+              speedDropPercent: -65,
+              impactLevel: "severe",
+              impactLabel: "Procession Tailback",
+              etaToChoke: "ETA 11 Mins",
+              queueSpilloverMeters: 510,
+              flowCapacity: "89% (1,600 / 1,800 vph)",
+              saturationPercent: 89,
+              gatingActive: false,
+              causeText: "Lashkar Bonalu secondary procession moving along Bible House to RP Road, congesting railway station access.",
+              gatingBenefit: "Signal priority gating at Paradise circle holds heavy commercial trucks."
+            },
+            {
+              id: "SEG-150",
+              name: "Necklace Road Alternate Diversion Loop",
+              relationship: "Designated Relief Bypass Link",
+              distanceKm: 0.90,
+              baseSpeed: 40,
+              currentSpeed: 40,
+              freeFlowSpeed: 50,
+              speedDropPercent: -20,
+              impactLevel: "controlled",
+              impactLabel: "Designated Bypass Link",
+              etaToChoke: "Fluid Traffic Flow",
+              queueSpilloverMeters: 0,
+              flowCapacity: "74% (1,400 / 1,900 vph)",
+              saturationPercent: 74,
+              gatingActive: true,
+              causeText: "Operational relief artery: traffic flowing smoothly under police signal coordination.",
+              gatingBenefit: "Saving an average of 44 minutes per bypassed trip around the lake."
+            }
+          ]
+        },
+        {
+          id: "INC-903",
+          segmentId: "SEG-089",
+          title: "Adaptive Signal Controller Breakdown at Cyber Towers Junction",
+          detectedAt: "18 mins ago",
+          confidence: "97.8%",
+          queueLengthKm: 2.10,
+          shockwaveVelocityKmh: -12.4,
+          upstreamThreats: ["SEG-118 (Gachibowli ORR Link)", "Cable Bridge West Link"],
+          recommendedDiversion: "Reroute via Mindspace Underpass slip link toward Bio-Diversity Junction.",
+          neighboringRoutes: [
+            {
+              id: "SEG-118",
+              name: "Gachibowli ORR Feeder Junction Link",
+              relationship: "Primary Inbound Expressway Feeder",
+              distanceKm: 2.60,
+              baseSpeed: 44,
+              currentSpeed: 44,
+              freeFlowSpeed: 80,
+              speedDropPercent: -45,
+              impactLevel: "severe",
+              impactLabel: "Queue Extending to Flyover",
+              etaToChoke: "ETA 7 Mins",
+              queueSpilloverMeters: 920,
+              flowCapacity: "92% (2,950 / 3,200 vph)",
+              saturationPercent: 92,
+              gatingActive: false,
+              causeText: "Uncontrolled green time on north arm causes 2.1 km tailback onto the Gachibowli elevated expressway approach.",
+              gatingBenefit: "Ramp metering on ORR exit prevents high-speed expressway queuing."
+            },
+            {
+              id: "SEG-090",
+              name: "Cable Bridge - Jubilee Hills Arterial",
+              relationship: "Eastbound Spillover Link",
+              distanceKm: 1.70,
+              baseSpeed: 26,
+              currentSpeed: 26,
+              freeFlowSpeed: 50,
+              speedDropPercent: -48,
+              impactLevel: "severe",
+              impactLabel: "Spillback Past Cable Bridge",
+              etaToChoke: "ETA 9 Mins",
+              queueSpilloverMeters: 640,
+              flowCapacity: "88% (2,450 / 2,800 vph)",
+              saturationPercent: 88,
+              gatingActive: false,
+              causeText: "Spillback from Cyber Towers junction is backing up across the Durgam Cheruvu cable bridge.",
+              gatingBenefit: "Metering Jubilee Hills Checkpost signal preserves cable bridge throughput."
+            },
+            {
+              id: "SEG-043",
+              name: "Mindspace - Inorbit Radial Feeder Link",
+              relationship: "Adjacent Commercial Arterial",
+              distanceKm: 1.10,
+              baseSpeed: 20,
+              currentSpeed: 20,
+              freeFlowSpeed: 45,
+              speedDropPercent: -55,
+              impactLevel: "moderate",
+              impactLabel: "Rotary Delay Surge",
+              etaToChoke: "ETA 12 Mins",
+              queueSpilloverMeters: 380,
+              flowCapacity: "83% (1,650 / 2,000 vph)",
+              saturationPercent: 83,
+              gatingActive: false,
+              causeText: "IT employees exiting Mindspace campus are trapped behind the junction queue spillback.",
+              gatingBenefit: "Manual officer override clears Mindspace roundabout in 4 cycles."
+            },
+            {
+              id: "SEG-150",
+              name: "Financial District Outer Flyover Bypass",
+              relationship: "Designated Relief Corridor",
+              distanceKm: 3.40,
+              baseSpeed: 64,
+              currentSpeed: 64,
+              freeFlowSpeed: 70,
+              speedDropPercent: -8,
+              impactLevel: "controlled",
+              impactLabel: "Free-Flowing Bypass",
+              etaToChoke: "Unimpeded Flow",
+              queueSpilloverMeters: 0,
+              flowCapacity: "58% (1,750 / 3,000 vph)",
+              saturationPercent: 58,
+              gatingActive: true,
+              causeText: "High-capacity grade-separated bypass operating at optimal LOS B.",
+              gatingBenefit: "Safely absorbing 1,100 vph diverted away from Cyber Towers."
+            }
+          ]
         }
       ],
 
@@ -1887,14 +2217,33 @@
 
     // ──── 2. INCIDENT & SPILLBACK RADAR VIEW ────
     function renderIncidentView() {
-      const inc = STATE.incidents[0];
+      const activeIncId = STATE.selectedIncidentId || STATE.incidents[0].id;
+      const inc = STATE.incidents.find(i => i.id === activeIncId) || STATE.incidents[0];
+      const neighbors = inc.neighboringRoutes || [];
+      const criticalCount = neighbors.filter(n => n.impactLevel === 'critical' || n.impactLevel === 'severe').length;
+      const gatedCount = neighbors.filter(n => n.gatingActive).length;
+
       return `
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
           <div>
             <h2 style="font-size: 22px;">Active Incident Radar &amp; Upstream Spillback Tracking</h2>
-            <p style="font-size: 12px; color: var(--text-secondary);">Distinguishing genuine emergencies from routine rush-hour slowdowns</p>
+            <p style="font-size: 12px; color: var(--text-secondary);">Distinguishing genuine emergencies from routine rush-hour slowdowns and containing cascading corridor gridlock</p>
           </div>
           <button class="btn btn-danger btn-sm" onclick="openSimulateIncidentModal()">+ Trigger New Incident</button>
+        </div>
+
+        <!-- Incident Switcher Tabs -->
+        <div style="display: flex; gap: 8px; margin-bottom: 16px; overflow-x: auto; padding-bottom: 4px;">
+          ${STATE.incidents.map(i => {
+            const isSel = i.id === inc.id;
+            const icon = i.segmentId === 'SEG-042' ? '🚨' : (i.segmentId === 'SEG-205' ? '🪔' : '⚡');
+            return `
+              <button class="btn ${isSel ? 'btn-brand' : 'btn-outline'} btn-sm" onclick="selectActiveIncident('${i.id}')" style="display: flex; align-items: center; gap: 6px; white-space: nowrap;">
+                <span>${icon}</span>
+                <span><strong>${i.id}:</strong> ${i.segmentId} (${i.title.substring(0, 34)}...)</span>
+              </button>
+            `;
+          }).join('')}
         </div>
 
         <div class="grid-2" style="margin-bottom: 20px;">
@@ -1905,7 +2254,7 @@
                 <span class="badge-live" style="background: rgba(239, 68, 68, 0.2); color: #F87171; border-color: rgba(239, 68, 68, 0.4);">CRITICAL ANOMALY VERIFIED</span>
                 <h3 style="font-size: 17px; margin-top: 6px;">${inc.title}</h3>
                 <div style="font-size: 11.5px; color: var(--text-secondary); margin-top: 2px;">
-                  Location: <strong>${inc.segmentId} (PVNR Expressway Ramp)</strong> · Detected: ${inc.detectedAt}
+                  Location: <strong>${inc.segmentId}</strong> · Detected: ${inc.detectedAt}
                 </div>
               </div>
               <div style="text-align: right;">
@@ -1929,7 +2278,7 @@
               <div class="stat-box">
                 <div class="stat-label">Time to Upstream Choke</div>
                 <div class="stat-value" style="color: #38BDF8; font-size: 20px;">14 Min</div>
-                <div class="stat-sub">Before Airport flyover locks</div>
+                <div class="stat-sub">Before feeder locks</div>
               </div>
             </div>
 
@@ -1937,7 +2286,7 @@
             <div style="background: #0B1120; border: 1px solid var(--surface-border); border-radius: var(--r-sm); padding: 12px; margin-bottom: 16px;">
               <strong style="font-size: 12px; color: #FBBF24;">Immediate Upstream Feeder Threat:</strong>
               <ul style="margin: 8px 0 0 16px; font-size: 12px; color: var(--text-secondary);">
-                ${inc.upstreamThreats.map(t => `<li style="margin-bottom: 4px;">${t} — Estimated queue arrival in 12–15 minutes.</li>`).join('')}
+                ${inc.upstreamThreats.map(t => `<li style="margin-bottom: 4px;">${t} — Estimated queue arrival in 10–14 minutes.</li>`).join('')}
               </ul>
             </div>
 
@@ -1954,35 +2303,174 @@
             </div>
           </div>
 
-          <!-- Right: How the Incident & Spillback Engine Works (General Approach) -->
+          <!-- Right: Kinematic Shockwave Network Topology & Wave Calculation -->
           <div class="card">
-            <h3 style="font-size: 16px; margin-bottom: 8px;">General Incident &amp; Shockwave Approach</h3>
-            <p style="font-size: 12px; color: var(--text-secondary); margin-bottom: 16px;">
-              How our system differentiates true breakdowns from normal rush-hour slowdowns and halts cascading corridor gridlock:
-            </p>
-
-            <div style="display: flex; flex-direction: column; gap: 12px;">
-              <div style="background: #090E1D; border-left: 3px solid #38BDF8; padding: 10px 14px; border-radius: 4px;">
-                <strong style="font-size: 12.5px; color: #fff;">1. Dual Metric Verification (Flow Drop vs Speed Drop)</strong>
-                <p style="font-size: 11.5px; color: var(--text-secondary); margin-top: 2px;">
-                  During standard peak hours, speeds drop but volume throughput remains near physical capacity. A genuine incident causes speeds to collapse <em>and</em> discharge flow to sharply drop while queues surge.
-                </p>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+              <div>
+                <h3 style="font-size: 16px;">Kinematic Shockwave Network Vector</h3>
+                <p style="font-size: 11px; color: var(--text-secondary);">LWR Hydrodynamic Wave Theory applied to urban arterials</p>
               </div>
+              <span class="badge-live" style="background: rgba(239, 68, 68, 0.15); color: #F87171;">Negative Velocity Wave</span>
+            </div>
 
-              <div style="background: #090E1D; border-left: 3px solid #F59E0B; padding: 10px 14px; border-radius: 4px;">
-                <strong style="font-size: 12.5px; color: #fff;">2. Upstream Wave Velocity Estimation</strong>
-                <p style="font-size: 11.5px; color: var(--text-secondary); margin-top: 2px;">
-                  By tracking the difference between inflow and choked discharge rates, the system computes the exact speed at which the stationary queue travels backward into feeder ramps.
-                </p>
+            <div style="background: #060A14; border: 1px solid var(--surface-border); border-radius: 8px; padding: 12px; margin-bottom: 14px;">
+              <div style="font-size: 11px; color: var(--text-muted); font-family: var(--font-mono);">
+                Wave Velocity Formulation:
               </div>
+              <div style="font-size: 15px; font-weight: 700; color: #38BDF8; margin: 4px 0; font-family: var(--font-mono);">
+                w = (q_discharge - q_inflow) / (k_jam - k_crit) = ${inc.shockwaveVelocityKmh} km/h
+              </div>
+              <p style="font-size: 11.5px; color: var(--text-secondary); line-height: 1.4; margin-top: 4px;">
+                Because discharge flow at the blockage is less than inflow, density surges to jam density ($k_{jam}$), driving a negative-velocity shockwave backwards through interconnected feeder links.
+              </p>
+            </div>
 
-              <div style="background: #090E1D; border-left: 3px solid #10B981; padding: 10px 14px; border-radius: 4px;">
-                <strong style="font-size: 12.5px; color: #fff;">3. Practical, Law-Enforcing Alternate Routing</strong>
-                <p style="font-size: 11.5px; color: var(--text-secondary); margin-top: 2px;">
-                  Rather than naively directing highway drivers into residential alleys or illegal U-turns, the routing engine enforces physical turn restrictions, median barriers, and green-signal capacities.
-                </p>
+            <!-- Visual Shockwave Cascade Pipeline -->
+            <div style="font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 6px;">
+              Physical Spillback Propagation Sequence:
+            </div>
+            <div class="spillback-pipeline-wrap">
+              <div class="spillback-node" style="border-color: #EF4444; background: rgba(239, 68, 68, 0.15);">
+                <span style="color: #EF4444;">💥 Epicenter:</span> <strong>${inc.segmentId}</strong>
+              </div>
+              <span class="spillback-arrow">◀</span>
+              <div class="spillback-node" style="border-color: #F59E0B;">
+                <span style="color: #F59E0B;">⚠️</span> <strong>${neighbors[0]?.id || 'Feeder 1'}</strong> (-0.8 km)
+              </div>
+              <span class="spillback-arrow">◀</span>
+              <div class="spillback-node" style="border-color: #F59E0B;">
+                <span style="color: #F59E0B;">⚠️</span> <strong>${neighbors[1]?.id || 'Feeder 2'}</strong> (-1.8 km)
+              </div>
+              <span class="spillback-arrow">➔</span>
+              <div class="spillback-node" style="border-color: #10B981; background: rgba(16, 185, 129, 0.1);">
+                <span style="color: #34D399;">✓ Legal Bypass:</span> <strong>${neighbors[3]?.id || 'Bypass'}</strong>
               </div>
             </div>
+
+            <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.5;">
+              • <strong>Unmitigated Outcome:</strong> Within 14 minutes, the queue breaches feeder junctions, paralyzing radial access.<br>
+              • <strong>Automated Gating:</strong> Metering inflow at upstream signals holds vehicles on high-capacity approaches, arresting wave expansion.
+            </div>
+          </div>
+        </div>
+
+        <!-- ════════ NEW FEATURE: CASCADING SPILLBACK IMPACT ON NEIGHBORING ROUTES ════════ -->
+        <div class="card" style="margin-bottom: 20px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; flex-wrap: wrap; gap: 12px;">
+            <div>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <h3 style="font-size: 17px; color: #fff;">⚡ Cascading Spillback: Affected Neighboring Routes &amp; Feeder Arterials</h3>
+                <span class="badge-live" style="background: rgba(245, 158, 11, 0.2); color: #F59E0B;">Live Network Propagation</span>
+              </div>
+              <p style="font-size: 12px; color: var(--text-secondary); max-width: 820px; margin-top: 4px; line-height: 1.5;">
+                Due to heavy congestion at <strong>${inc.segmentId}</strong>, backward shockwaves and diversion spillover progressively choke interconnected feeder routes. Monitor live velocity collapse, queue arrival ETAs, and deploy signal gating countermeasures.
+              </p>
+            </div>
+
+            <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+              <div style="background: #090E1D; border: 1px solid var(--surface-border); border-radius: 6px; padding: 6px 12px; font-size: 11px; color: var(--text-secondary);">
+                Perimeter Gating: <strong style="color: ${gatedCount > 0 ? '#34D399' : '#F59E0B'};">${gatedCount} / ${neighbors.length} Active</strong>
+              </div>
+              <button class="btn btn-brand btn-sm" onclick="deployAllNeighborGating('${inc.id}')">
+                🛡️ Deploy Perimeter Gating Across All Neighbors
+              </button>
+            </div>
+          </div>
+
+          <!-- Neighbor Corridors Grid -->
+          <div class="grid-2" style="gap: 14px;">
+            ${neighbors.map(n => {
+              const speedRatio = Math.round((n.currentSpeed / n.freeFlowSpeed) * 100);
+              return `
+                <div class="neighbor-route-card ${n.impactLevel}">
+                  <div>
+                    <!-- Top bar: ID, Name, Relationship, Severity -->
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; gap: 8px;">
+                      <div>
+                        <div style="display: flex; align-items: center; gap: 6px;">
+                          <strong style="font-family: var(--font-mono); color: #38BDF8; font-size: 13px;">${n.id}</strong>
+                          <span style="font-size: 10px; padding: 2px 6px; border-radius: 4px; background: rgba(56, 189, 248, 0.12); color: #38BDF8; font-weight: 600;">
+                            ${n.relationship}
+                          </span>
+                        </div>
+                        <h4 style="font-size: 14px; margin-top: 3px; color: #fff;">${n.name}</h4>
+                      </div>
+                      <span class="badge-live" style="font-size: 10px; background: ${n.impactLevel === 'critical' ? 'rgba(239,68,68,0.2)' : (n.impactLevel === 'severe' ? 'rgba(245,158,11,0.2)' : (n.impactLevel === 'controlled' ? 'rgba(16,185,129,0.2)' : 'rgba(56,189,248,0.2)'))}; color: ${n.impactLevel === 'critical' ? '#F87171' : (n.impactLevel === 'severe' ? '#FBBF24' : (n.impactLevel === 'controlled' ? '#34D399' : '#38BDF8'))};">
+                        ${n.impactLabel}
+                      </span>
+                    </div>
+
+                    <!-- Metrics Quad -->
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; background: #060A14; border: 1px solid var(--surface-border); border-radius: 6px; padding: 10px; margin: 8px 0;">
+                      <div>
+                        <div style="font-size: 9.5px; color: var(--text-muted); text-transform: uppercase;">Current Velocity</div>
+                        <div style="display: flex; align-items: baseline; gap: 4px; margin-top: 2px;">
+                          <strong style="font-size: 18px; color: ${n.currentSpeed < 20 ? '#EF4444' : (n.currentSpeed < 35 ? '#F59E0B' : '#34D399')}; font-family: var(--font-display);">
+                            ${n.currentSpeed} km/h
+                          </strong>
+                          <span style="font-size: 10px; color: var(--text-muted);">/ ${n.freeFlowSpeed} free</span>
+                          <span style="font-size: 10px; font-weight: 700; color: ${n.speedDropPercent < -50 ? '#EF4444' : (n.speedDropPercent < -20 ? '#F59E0B' : '#34D399')};">
+                            (${n.speedDropPercent > 0 ? '+' : ''}${n.speedDropPercent}%)
+                          </span>
+                        </div>
+                        <div style="height: 4px; background: #1E293B; border-radius: 2px; overflow: hidden; margin-top: 4px;">
+                          <div style="height: 100%; width: ${Math.min(100, speedRatio)}%; background: ${n.currentSpeed < 20 ? '#EF4444' : (n.currentSpeed < 35 ? '#F59E0B' : '#34D399')};"></div>
+                        </div>
+                      </div>
+
+                      <div>
+                        <div style="font-size: 9.5px; color: var(--text-muted); text-transform: uppercase;">Queue Penetration / ETA</div>
+                        <div style="font-size: 12px; font-weight: 700; color: #F59E0B; margin-top: 2px;">
+                          ${n.etaToChoke}
+                        </div>
+                        <div style="font-size: 10px; color: var(--text-secondary); margin-top: 2px;">
+                          Tailback: <strong style="color: #fff;">${n.queueSpilloverMeters}m</strong> (${n.distanceKm} km away)
+                        </div>
+                      </div>
+
+                      <div style="grid-column: span 2; margin-top: 2px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 6px;">
+                        <div style="display: flex; justify-content: space-between; font-size: 9.5px; color: var(--text-muted);">
+                          <span>Corridor Capacity Load:</span>
+                          <strong style="color: ${n.saturationPercent > 85 ? '#EF4444' : '#34D399'};">${n.flowCapacity}</strong>
+                        </div>
+                        <div style="height: 4px; background: #1E293B; border-radius: 2px; overflow: hidden; margin-top: 3px;">
+                          <div style="height: 100%; width: ${n.saturationPercent}%; background: ${n.saturationPercent > 85 ? 'linear-gradient(90deg, #F59E0B, #EF4444)' : 'linear-gradient(90deg, #10B981, #06B6D4)'};"></div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Operational Impact Cause Narrative -->
+                    <p style="font-size: 11.5px; color: var(--text-secondary); line-height: 1.45; margin-bottom: 8px;">
+                      ${n.causeText}
+                    </p>
+
+                    <!-- Active Counter-Measure Strip -->
+                    ${n.gatingActive ? `
+                      <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 6px; padding: 6px 10px; font-size: 11px; color: #34D399; margin-bottom: 10px;">
+                        ✓ <strong>Inflow Gating Active:</strong> ${n.gatingBenefit}
+                      </div>
+                    ` : `
+                      <div style="background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.25); border-radius: 6px; padding: 6px 10px; font-size: 11px; color: #FCA5A5; margin-bottom: 10px;">
+                        ⚠️ <strong>Unmitigated Inflow:</strong> Upstream traffic pours unchecked toward bottleneck.
+                      </div>
+                    `}
+                  </div>
+
+                  <!-- Action Buttons Footer -->
+                  <div style="display: flex; gap: 6px; border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 10px;">
+                    <button class="btn ${n.gatingActive ? 'btn-outline' : 'btn-brand'} btn-sm" style="flex: 1.2; font-size: 10.5px; justify-content: center;" onclick="toggleNeighborGating('${inc.id}', '${n.id}')">
+                      ${n.gatingActive ? '🚦 Disable Gating' : '⚡ Deploy Signal Metering'}
+                    </button>
+                    <button class="btn btn-outline btn-sm" style="flex: 0.9; font-size: 10.5px; justify-content: center;" onclick="focusNeighborOnMap('${n.id}')" title="Highlight on 60FPS GIS Map">
+                      🗺️ Show On Map
+                    </button>
+                    <button class="btn btn-outline btn-sm" style="flex: 0.9; font-size: 10.5px; justify-content: center;" onclick="transmitNeighborWardAlert('${n.id}')" title="Send push warning to drivers">
+                      📢 Ward Alert
+                    </button>
+                  </div>
+                </div>
+              `;
+            }).join('')}
           </div>
         </div>
       `;
@@ -2656,6 +3144,27 @@
     }
 
     // ──── 8. INTERACTIVE ACTIONS & MODALS ────
+    function closeModal() {
+      const root = document.getElementById('modalRoot');
+      if (root) root.innerHTML = '';
+    }
+
+    function showToast(msg, duration = 3200) {
+      let toast = document.getElementById('appToast');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'appToast';
+        toast.className = 'toast';
+        document.body.appendChild(toast);
+      }
+      toast.innerHTML = `<span>⚡</span> <span>${msg}</span>`;
+      toast.style.display = 'flex';
+      if (toast._timer) clearTimeout(toast._timer);
+      toast._timer = setTimeout(() => {
+        toast.style.display = 'none';
+      }, duration);
+    }
+
     function openSimulateIncidentModal() {
       const root = document.getElementById('modalRoot');
       root.innerHTML = `
@@ -2698,8 +3207,15 @@
     }
 
     function triggerSimulatedIncident() {
+      const segEl = document.getElementById('simSeg');
+      const targetSeg = segEl ? segEl.value : 'SEG-042';
       closeModal();
-      showToast("🚨 Incident injected! Spatial shockwave tracked: Queue backing up into upstream feeder.");
+      
+      const matched = STATE.incidents.find(i => i.segmentId === targetSeg);
+      if (matched) {
+        STATE.selectedIncidentId = matched.id;
+      }
+      showToast(`🚨 Anomaly activated on ${targetSeg}! Spatial shockwave and affected neighboring routes calculated.`);
       switchView('incidents');
     }
 
@@ -2764,10 +3280,87 @@
       showToast("📲 Turn-Restricted Diversion dispatched to 14,200 connected drivers via pre-trip gating!");
     }
 
+    function selectActiveIncident(incId) {
+      STATE.selectedIncidentId = incId;
+      showToast(`🔍 Focused Incident Radar on: ${incId}`);
+      render();
+    }
+
+    function toggleNeighborGating(incId, neighborId) {
+      const inc = STATE.incidents.find(i => i.id === incId);
+      if (!inc || !inc.neighboringRoutes) return;
+      const n = inc.neighboringRoutes.find(r => r.id === neighborId);
+      if (!n) return;
+
+      n.gatingActive = !n.gatingActive;
+      if (n.gatingActive) {
+        n.currentSpeed = Math.min(n.freeFlowSpeed, n.baseSpeed + 14);
+        n.speedDropPercent = Math.round(((n.currentSpeed - n.freeFlowSpeed) / n.freeFlowSpeed) * 100);
+        n.impactLevel = 'controlled';
+        n.impactLabel = 'Inflow Gated & Stabilized';
+        n.queueSpilloverMeters = Math.max(0, Math.round(n.queueSpilloverMeters * 0.35));
+        n.saturationPercent = Math.max(50, n.saturationPercent - 24);
+        showToast(`🚦 Signal Gating active on ${n.id} (${n.name}): Inflow metered by 35%, halting upstream queue spillback!`);
+      } else {
+        n.currentSpeed = n.baseSpeed;
+        n.speedDropPercent = Math.round(((n.currentSpeed - n.freeFlowSpeed) / n.freeFlowSpeed) * 100);
+        n.impactLevel = (n.id === 'SEG-041' || n.id === 'SEG-206') ? 'critical' : 'severe';
+        n.impactLabel = 'Queue Breach Risk';
+        n.queueSpilloverMeters = Math.round(n.queueSpilloverMeters / 0.35);
+        n.saturationPercent = Math.min(99, n.saturationPercent + 24);
+        showToast(`⚠️ Gating deactivated on ${n.id}: Vehicles entering corridor unchecked.`);
+      }
+      render();
+    }
+
+    function deployAllNeighborGating(incId) {
+      const inc = STATE.incidents.find(i => i.id === incId);
+      if (!inc || !inc.neighboringRoutes) return;
+      inc.neighboringRoutes.forEach(n => {
+        if (n.relationship !== 'Designated Relief Bypass') {
+          n.gatingActive = true;
+          n.currentSpeed = Math.min(n.freeFlowSpeed, n.baseSpeed + 14);
+          n.speedDropPercent = Math.round(((n.currentSpeed - n.freeFlowSpeed) / n.freeFlowSpeed) * 100);
+          n.impactLevel = 'controlled';
+          n.impactLabel = 'Inflow Gated & Stabilized';
+          n.queueSpilloverMeters = Math.max(0, Math.round(n.queueSpilloverMeters * 0.35));
+          n.saturationPercent = Math.max(50, n.saturationPercent - 24);
+        }
+      });
+      showToast(`🛡️ Perimeter Gating deployed across ALL affected neighboring routes for ${inc.id}! Spillback arrested.`);
+      render();
+    }
+
+    function focusNeighborOnMap(segId) {
+      const seg = MAP_CORRIDORS.find(c => c.id === segId);
+      if (seg) {
+        hoveredSegment = seg;
+        showToast(`🗺️ Map focused on affected corridor: ${seg.name} (${seg.id})`);
+        switchView('dashboard');
+      } else {
+        showToast(`🗺️ Focused on corridor: ${segId}`);
+      }
+    }
+
+    function transmitNeighborWardAlert(neighborId) {
+      showToast(`📢 Pre-trip ward push notification transmitted to commuters heading toward ${neighborId}!`);
+    }
+
     function resolveIncident() {
-      showToast("✓ Incident marked cleared. Network returning to calibrated baseline flow.");
-      STATE.incidents[0].queueLengthKm = 0.2;
-      STATE.incidents[0].shockwaveVelocityKmh = 0;
+      const inc = STATE.incidents.find(i => i.id === (STATE.selectedIncidentId || 'INC-901')) || STATE.incidents[0];
+      showToast(`✓ Incident ${inc.id} marked cleared. Neighboring corridors recovering to calibrated baseline flow.`);
+      inc.queueLengthKm = 0.15;
+      inc.shockwaveVelocityKmh = 0;
+      if (inc.neighboringRoutes) {
+        inc.neighboringRoutes.forEach(n => {
+          n.currentSpeed = n.freeFlowSpeed - 4;
+          n.speedDropPercent = -6;
+          n.impactLevel = 'controlled';
+          n.impactLabel = 'Recovered to Free Flow';
+          n.queueSpilloverMeters = 0;
+          n.saturationPercent = 55;
+        });
+      }
       render();
     }
 
