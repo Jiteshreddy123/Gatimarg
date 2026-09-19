@@ -290,54 +290,6 @@
       font-size: 11px;
     }
 
-    /* ---- DEMO BANNER (STORY TOUR) ---- */
-    .demo-banner {
-      background: linear-gradient(90deg, #0B132B 0%, #172554 50%, #082F49 100%);
-      border-bottom: 1px solid #1E3A8A;
-      padding: 10px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      font-size: 12px;
-    }
-
-    .demo-step-badge {
-      background: rgba(245, 158, 11, 0.2);
-      color: #FBBF24;
-      border: 1px solid rgba(245, 158, 11, 0.4);
-      padding: 2px 8px;
-      border-radius: var(--r-full);
-      font-weight: 700;
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .demo-dots {
-      display: flex;
-      gap: 5px;
-      margin-top: 6px;
-    }
-
-    .demo-dot {
-      width: 22px;
-      height: 4px;
-      border-radius: 2px;
-      background: #1E3A8A;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .demo-dot.active {
-      background: #38BDF8;
-      box-shadow: 0 0 8px #38BDF8;
-    }
-
-    .demo-dot.done {
-      background: #10B981;
-    }
-
     /* ---- CARDS & LAYOUT ---- */
     .main-container {
       max-width: 1280px;
@@ -687,37 +639,16 @@
       <button class="nav-tab active" id="tab-dashboard" onclick="switchView('dashboard')">📊 Command Center</button>
       <button class="nav-tab" id="tab-incidents" onclick="switchView('incidents')">🚨 Incident Radar</button>
       <button class="nav-tab" id="tab-festive" onclick="switchView('festive')">🪔 Jan-Vani (Festive Gate)</button>
-      <button class="nav-tab" id="tab-counterfactual" onclick="switchView('counterfactual')">🏗️ What-If Sandbox</button>
       <button class="nav-tab" id="tab-commuter" onclick="switchView('commuter')">📱 Commuter Pass</button>
       <button class="nav-tab" id="tab-audit" onclick="switchView('audit')">🛡️ Hygiene &amp; Audit</button>
     </nav>
 
     <div style="display: flex; align-items: center; gap: 10px;">
-      <button class="btn btn-festive btn-sm" onclick="startDemoTour()">✨ 10-Step Story Tour</button>
       <button class="btn btn-brand btn-sm" onclick="openSimulateIncidentModal()">+ Simulate Incident</button>
     </div>
   </header>
 
-  <!-- ===== 3. INTERACTIVE STORY TOUR BANNER ===== -->
-  <div class="demo-banner" id="demoBanner" style="display: none;">
-    <div>
-      <div style="display: flex; align-items: center; gap: 10px;">
-        <span class="demo-step-badge">Step <span id="demoStepNum">1</span>/10</span>
-        <strong id="demoStepTitle" style="color: #fff; font-size: 13.5px;">Problem Reality: Urban Bottlenecks in Hyderabad</strong>
-      </div>
-      <div id="demoStepDesc" style="color: #BAE6FD; font-size: 12px; margin-top: 3px;">
-        High-speed elevated corridors (PVNR Expressway) discharge into surface roundabouts, creating non-linear congestion shockwaves.
-      </div>
-      <div class="demo-dots" id="demoDots"></div>
-    </div>
-    <div style="display: flex; align-items: center; gap: 8px;">
-      <button class="btn btn-outline btn-sm" onclick="prevDemoStep()">← Prev</button>
-      <button class="btn btn-brand btn-sm" onclick="nextDemoStep()">Next Step →</button>
-      <button class="close-btn" onclick="stopDemoTour()" style="width: 26px; height: 26px; font-size: 11px;">✕</button>
-    </div>
-  </div>
-
-  <!-- ===== 4. MAIN VIEWPORT (DYNAMICALLY SWITCHED) ===== -->
+  <!-- ===== MAIN VIEWPORT (DYNAMICALLY SWITCHED) ===== -->
   <main class="main-container" id="mainViewport">
     <!-- Rendered via JavaScript -->
   </main>
@@ -735,8 +666,6 @@
       currentView: 'dashboard',
       simulatedWeather: 'clear', // clear | monsoon_rain
       activeFilter: 'all',
-      demoActive: false,
-      demoStep: 0,
 
       // Network Overview
       network: {
@@ -803,37 +732,6 @@
         { id: "JV-101", ward: "Khairatabad Ward 91", text: "Heavy 15-meter immersion truck moving slow near IMAX circle. Arterial lane completely blocked.", votes: 42, verified: true, time: "8 mins ago" },
         { id: "JV-102", ward: "Ranigunj Ward 78", text: "Police barricade deployed at Bible House junction. Diverting all four-wheelers towards RP Road.", votes: 29, verified: true, time: "14 mins ago" },
         { id: "JV-103", ward: "Begumpet Ward 82", text: "Pooja pandal queue extending 200 meters onto left carriageway.", votes: 16, verified: true, time: "22 mins ago" }
-      ],
-
-      // Counterfactual What-If Candidates
-      counterfactuals: [
-        {
-          id: "C-01",
-          name: "Add Grade-Separated Flyover at Mehdipatnam Inflow",
-          costCrores: 45.0,
-          capacityIncreasePct: 35,
-          delayHoursSavedDaily: 2840,
-          calculatedROI: "3.8x (Over 3 Years)",
-          recommendation: "High Priority — Immediately eliminates recurrent PVNR discharge bottleneck."
-        },
-        {
-          id: "C-02",
-          name: "Dedicated Turn Bay & Dynamic Signal Retiming at HITEC City Junction",
-          costCrores: 3.5,
-          capacityIncreasePct: 18,
-          delayHoursSavedDaily: 1120,
-          calculatedROI: "7.4x (Over 1 Year)",
-          recommendation: "Immediate Win — Low capital outlay with rapid congestion relief."
-        },
-        {
-          id: "C-03",
-          name: "Widening Surface Roundabout at Gachibowli Node 12",
-          costCrores: 18.0,
-          capacityIncreasePct: 12,
-          delayHoursSavedDaily: 480,
-          calculatedROI: "1.4x (Over 4 Years)",
-          recommendation: "Deferred — Low delay reduction due to upstream bridge choke."
-        }
       ]
     };
 
@@ -854,9 +752,6 @@
           break;
         case 'festive':
           root.innerHTML = renderFestiveView();
-          break;
-        case 'counterfactual':
-          root.innerHTML = renderCounterfactualView();
           break;
         case 'commuter':
           root.innerHTML = renderCommuterView();
@@ -1245,66 +1140,7 @@
       `;
     }
 
-    // ──── 4. COUNTERFACTUAL WHAT-IF SANDBOX VIEW ────
-    function renderCounterfactualView() {
-      return `
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-          <div>
-            <h2 style="font-size: 22px;">Counterfactual "What-If" Infrastructure Planning</h2>
-            <p style="font-size: 12px; color: var(--text-secondary);">Simulating prospective capital upgrades to quantify saved commuter hours &amp; ROI before construction</p>
-          </div>
-          <button class="btn btn-brand btn-sm" onclick="openSimulateInterventionModal()">+ Test Custom Intervention</button>
-        </div>
-
-        <div class="grid-3" style="margin-bottom: 24px;">
-          ${STATE.counterfactuals.map(c => `
-            <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
-              <div>
-                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
-                  <span style="font-family: var(--font-mono); color: #38BDF8; font-weight: 700;">${c.id}</span>
-                  <span class="badge-live" style="background: rgba(16, 185, 129, 0.15); color: #34D399;">ROI: ${c.calculatedROI}</span>
-                </div>
-                <h3 style="font-size: 16px; margin-bottom: 8px;">${c.name}</h3>
-                
-                <div class="grid-2" style="gap: 8px; margin: 12px 0;">
-                  <div class="stat-box">
-                    <div class="stat-label">Estimated Cost</div>
-                    <div class="stat-value" style="font-size: 18px; color: #F59E0B;">₹${c.costCrores} Cr</div>
-                  </div>
-                  <div class="stat-box">
-                    <div class="stat-label">Capacity Boost</div>
-                    <div class="stat-value" style="font-size: 18px; color: #34D399;">+${c.capacityIncreasePct}%</div>
-                  </div>
-                </div>
-
-                <div style="background: #090E1D; border: 1px solid var(--surface-border); border-radius: 4px; padding: 10px; font-size: 11.5px; margin-bottom: 12px;">
-                  <div style="color: #38BDF8; font-weight: 600;">Delay Reduction:</div>
-                  <div><strong>${c.delayHoursSavedDaily.toLocaleString()}</strong> vehicle-hours saved per day across corridor.</div>
-                </div>
-
-                <div style="font-size: 11.5px; color: var(--text-secondary); line-height: 1.4;">
-                  <strong>Evaluation:</strong> ${c.recommendation}
-                </div>
-              </div>
-
-              <button class="btn btn-outline btn-sm" style="margin-top: 16px;" onclick="runSimulation('${c.id}')">
-                Run Multi-Scenario Stress Test →
-              </button>
-            </div>
-          `).join('')}
-        </div>
-
-        <!-- Planning Methodology Card -->
-        <div class="card">
-          <h3 style="font-size: 16px; margin-bottom: 6px;">How Counterfactual Interventions Are Evaluated</h3>
-          <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.6;">
-            Before municipal budgets are allocated for flyovers or widening, GatiMarg modifies the digital roadway capacity matrix ($C_{s}' = C_{s} + \Delta C$) and reroutes the 15-day baseline traffic matrix. It calculates the network-wide reduction in queuing delay across 36 hidden test scenarios, balancing infrastructure investment against saved economic productivity.
-          </p>
-        </div>
-      `;
-    }
-
-    // ──── 5. COMMUTER MOBILE PASS VIEW ────
+    // ──── 4. COMMUTER MOBILE PASS VIEW ────
     function renderCommuterView() {
       return `
         <div style="text-align: center; margin-bottom: 20px;">
@@ -1450,114 +1286,6 @@
       `;
     }
 
-    // ──── 7. INTERACTIVE STORY TOUR (10 STEPS) ────
-    const DEMO_STEPS = [
-      {
-        num: 1,
-        title: "1. The Problem: Complex Metropolitan Traffic Dynamics",
-        desc: "High-speed corridors like PVNR Expressway discharge directly onto restricted surface roundabouts, creating non-linear congestion.",
-        action: () => { switchView('dashboard'); }
-      },
-      {
-        num: 2,
-        title: "2. Input Sensor Hygiene & Data Cleansing",
-        desc: "Real-world sensors freeze or produce negative speeds. GatiMarg repairs these using neighbor consensus and removes spikes.",
-        action: () => { switchView('audit'); }
-      },
-      {
-        num: 3,
-        title: "3. Multi-Horizon Forecasting (15, 30, 45, 60 Mins)",
-        desc: "Our model forecasts future flow across all 436 segments without target leakage, giving operators 1 hour of foresight.",
-        action: () => { switchView('dashboard'); }
-      },
-      {
-        num: 4,
-        title: "4. Incident Anomaly Detection (Genuine vs Peak Hour)",
-        desc: "A stalled bus on PVNR ramp drops speed AND flow simultaneously, triggering an immediate incident alert with 98.4% confidence.",
-        action: () => { switchView('incidents'); }
-      },
-      {
-        num: 5,
-        title: "5. Upstream Spillback Tracking (LWR Kinematic Wave)",
-        desc: "Congestion backs up upstream at -14.2 km/h. The radar calculates that Airport Flyover will choke in 14 minutes if unaddressed.",
-        action: () => { switchView('incidents'); }
-      },
-      {
-        num: 6,
-        title: "6. Turn-Restricted Diversion Routing",
-        desc: "The system generates legal alternate routes that respect one-ways, median dividers, and signal limits rather than narrow streets.",
-        action: () => { switchView('incidents'); }
-      },
-      {
-        num: 7,
-        title: "7. Telangana Cultural Events (Vinayaka Chavithi & Bonalu)",
-        desc: "Thousands of idol processions cause massive road barricades. GatiMarg tracks moving cordons at Hussain Sagar & Secunderabad.",
-        action: () => { switchView('festive'); }
-      },
-      {
-        num: 8,
-        title: "8. Jan-Vani: Crowdsourced Ground Pulse",
-        desc: "Local ward residents upload verified procession blockades, giving city traffic managers live ground-level visibility.",
-        action: () => { switchView('festive'); }
-      },
-      {
-        num: 9,
-        title: "9. Pre-Trip Commuter Inflow Gating (T-45 Min)",
-        desc: "Daily commuters are alerted on their phones 45 minutes prior to arriving, guiding them to legal bypasses before gridlock.",
-        action: () => { switchView('commuter'); }
-      },
-      {
-        num: 10,
-        title: "10. Counterfactual What-If Infrastructure Evaluation",
-        desc: "Urban planners simulate candidate flyovers and turn bays in a digital sandbox, estimating delay reduction and ROI.",
-        action: () => { switchView('counterfactual'); }
-      }
-    ];
-
-    function startDemoTour() {
-      STATE.demoActive = true;
-      STATE.demoStep = 0;
-      document.getElementById('demoBanner').style.display = 'flex';
-      applyDemoStep(0);
-    }
-
-    function stopDemoTour() {
-      STATE.demoActive = false;
-      document.getElementById('demoBanner').style.display = 'none';
-    }
-
-    function nextDemoStep() {
-      if (STATE.demoStep < DEMO_STEPS.length - 1) {
-        STATE.demoStep++;
-        applyDemoStep(STATE.demoStep);
-      } else {
-        stopDemoTour();
-        showToast("✨ Walkthrough Complete! All 10 problem-statement phases demonstrated.");
-      }
-    }
-
-    function prevDemoStep() {
-      if (STATE.demoStep > 0) {
-        STATE.demoStep--;
-        applyDemoStep(STATE.demoStep);
-      }
-    }
-
-    function applyDemoStep(idx) {
-      const s = DEMO_STEPS[idx];
-      if (!s) return;
-
-      document.getElementById('demoStepNum').textContent = s.num;
-      document.getElementById('demoStepTitle').textContent = s.title;
-      document.getElementById('demoStepDesc').textContent = s.desc;
-
-      const dotsContainer = document.getElementById('demoDots');
-      dotsContainer.innerHTML = DEMO_STEPS.map((_, i) => `
-        <div class="demo-dot ${i === idx ? 'active' : (i < idx ? 'done' : '')}" onclick="STATE.demoStep=${i};applyDemoStep(${i});"></div>
-      `).join('');
-
-      s.action();
-    }
 
     // ──── 8. INTERACTIVE ACTIONS & MODALS ────
     function openSimulateIncidentModal() {
