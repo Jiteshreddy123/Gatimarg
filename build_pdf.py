@@ -301,11 +301,11 @@ html_content = """<!DOCTYPE html>
     </div>
     <div class="arch-step highlight">
       <div class="arch-step-num">Stage 2</div>
-      <div class="arch-step-title">Graph AI &amp; Forecasting</div>
+      <div class="arch-step-title">Spatial-Lag Forecasting</div>
       <div class="arch-step-desc">
         <ul>
-          <li>Encodes 436 road segments &amp; 120 junctions into a directed graph</li>
-          <li>ST-GNN captures spatial dependencies between connected links</li>
+          <li>Extracts 1-hop &amp; 2-hop topological neighbor lags from network graph</li>
+          <li>Historical residual decomposition prevents small-data overfitting</li>
           <li>Calibrated 15, 30, 45 &amp; 60-minute speed/flow forecasts (zero leakage)</li>
         </ul>
       </div>
@@ -343,10 +343,10 @@ html_content = """<!DOCTYPE html>
   </div>
 
   <div class="approach-item">
-    <div class="approach-header">3.1 Spatio-Temporal Graph Neural Networks (ST-GNN)</div>
+    <div class="approach-header">3.1 Spatial-Lag Gradient Boosted Trees (LightGBM) &amp; Residual Decomposition</div>
     <div class="approach-text">
-      <strong>Why we use it:</strong> Standard time-series models treat each road independently, ignoring the fact that traffic on one road is directly shaped by bottlenecks on connected links.<br>
-      <strong>How it helps:</strong> Models physical connectivity across junctions and flyovers, delivering accurate 15 to 60-minute speed and volume forecasts across the entire road network.
+      <strong>Why we use it:</strong> Deep Spatio-Temporal Neural Networks (ST-GNNs) require massive datasets (months of telemetry) and heavily overfit on compact 15-day (4,320 time-step) datasets. LightGBM trains in minutes, natively tolerates noise, and prevents overfitting.<br>
+      <strong>How it helps:</strong> Uses topological network graph adjacency to extract 1-hop and 2-hop spatial neighbor lags, predicting residual deviations from historical medians to achieve peak accuracy on 15-day sample sizes.
     </div>
   </div>
 

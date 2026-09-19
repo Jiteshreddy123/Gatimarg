@@ -20,7 +20,7 @@
 | &nbsp; | ├─ <a href="#architecture-flowchart">2.1 Simplified System Flowchart</a> |
 | &nbsp; | └─ <a href="#architectural-stages">2.2 Core Processing Stages</a> |
 | **03** | <a href="#methodological-approach">3. Core Algorithms & Methodological Approach</a> |
-| &nbsp; | ├─ <a href="#spatio-temporal-gnn">3.1 Spatio-Temporal Graph Neural Networks (ST-GNN)</a> |
+| &nbsp; | ├─ <a href="#spatial-lag-lightgbm">3.1 Spatial-Lag Gradient Boosted Trees (LightGBM) & Residual Decomposition</a> |
 | &nbsp; | ├─ <a href="#robust-forecasting-loss">3.2 Robust Outlier-Resilient Loss Function</a> |
 | &nbsp; | ├─ <a href="#bayesian-incident-detection">3.3 Bayesian Anomaly & Incident Detection</a> |
 | &nbsp; | ├─ <a href="#shockwave-spillback">3.4 Kinematic Shockwave & Spillback Analysis</a> |
@@ -48,7 +48,7 @@ The **NeuraX Urban Traffic Flow & Incident Intelligence Platform** is a speciali
 
 Unlike conventional consumer navigation applications (which passively route drivers after congestion has already crystallized) or generic chatbots (which produce ungrounded conversational advice), this platform provides **macroscopic and microscopic intelligence**:
 1. **Continuous Network Ingestion & Robust Cleansing**: Reconciles stuck sensors, impossible negative flow readings, outlier spikes, and temporal shuffling across 436 road segments and 120 network nodes.
-2. **Spatio-Temporal Graph Forecasting (15, 30, 45, 60 Minutes Ahead)**: Produces calibrated speed, flow, and congestion indices across multi-step horizons without target leakage.
+2. **Spatial-Lag Multi-Horizon Forecasting (15, 30, 45, 60 Minutes Ahead)**: Produces calibrated speed, flow, and congestion indices using graph-topological neighbor lags and residual boosting without target leakage.
 3. **High-Precision Incident Detection & Spillback Diagnostic**: Pinpoints stalled vehicles, demand surges, and collisions while rigorously controlling false alarms.
 4. **Turn-Restriction-Aware Adaptive Diversions**: Computes feasible alternate corridors honoring geometric turn prohibitions and signal cycle capacities.
 5. **Counterfactual Infrastructure & Bottleneck Optimization**: Evaluates planning candidates (capacity expansions, turn bays, signal retiming) under simulated what-if conditions with estimated before/after impact and Return on Investment (ROI).
@@ -88,7 +88,7 @@ The platform operates as a clean, four-stage intelligence pipeline that translat
 
 ```mermaid
 flowchart LR
-    A["1. Data Ingestion & Hygiene\n• Cleans stuck sensors\n• Clips outlier spikes\n• Fixes negative values"] --> B["2. Graph AI & Forecasting\n• Spatio-Temporal GNN\n• 15, 30, 45, 60m horizons\n• No target leakage"]
+    A["1. Data Ingestion & Hygiene\n• Cleans stuck sensors\n• Clips outlier spikes\n• Fixes negative values"] --> B["2. Spatial-Lag Forecasting\n• LightGBM / GBDT\n• Topological 1/2-hop lags\n• Residual decomposition"]
     B --> C["3. Incident & Shockwave Engine\n• Bayesian change-point scoring\n• Upstream spillback radius\n• Zero false-alarm filter"]
     C --> D["4. Operational Decision Services\n• Turn-legal alternate routes\n• Festive commuter gating\n• What-If infrastructure ROI"]
 ```
@@ -97,7 +97,7 @@ flowchart LR
 ### 2.2 Core Processing Stages
 
 1. **Data Ingestion & Hygiene**: Automatically cleans corrupted field data by repairing frozen sensors using neighboring road data, removing impossible negative speeds, and clipping artificial spikes.
-2. **Graph AI & Multi-Horizon Forecasting**: Treats the 436 road segments and 120 junctions as a connected spatial network, predicting future speed, flow, and congestion at 15, 30, 45, and 60 minutes ahead.
+2. **Spatial-Lag Multi-Horizon Forecasting**: Extracts 1-hop and 2-hop topological neighbor lags from the 120-junction network graph and uses LightGBM on historical residuals to prevent overfitting on 15-day sample sizes.
 3. **Incident & Shockwave Engine**: Uses Bayesian statistical checks to catch real accidents and stalled buses while ignoring normal rush-hour slowdowns, and tracks how fast queues back up into upstream feeder roads.
 4. **Operational Decision & Advisory Services**: Delivers turn-restricted diversion routes that drivers can legally take, triggers pre-trip warnings for cultural festivals, and calculates the exact ROI of potential road construction upgrades.
 
@@ -108,10 +108,10 @@ flowchart LR
 <a id="methodological-approach"></a>
 ## 3. Core Algorithms & Methodological Approach
 
-<a id="spatio-temporal-gnn"></a>
-### 3.1 Spatio-Temporal Graph Neural Networks (ST-GNN)
-- **Why we use it**: Standard time-series models treat each road independently, ignoring the fact that traffic on one road is directly shaped by bottlenecks on connected roads.
-- **How it helps**: Learns how traffic flows across physical junctions and flyovers, delivering accurate 15 to 60-minute speed and volume forecasts across the entire road network.
+<a id="spatial-lag-lightgbm"></a>
+### 3.1 Spatial-Lag Gradient Boosted Trees (LightGBM) & Residual Decomposition
+- **Why we use it**: Deep Spatio-Temporal Neural Networks (ST-GNNs) require massive datasets (months of telemetry) and heavily overfit on compact 15-day (4,320 time-step) training sets. LightGBM trains in minutes, natively tolerates noise, and eliminates small-sample overfitting.
+- **How it helps**: Uses topological network graph adjacency to compute 1-hop and 2-hop spatial neighbor lags, predicting residual deviations from historical medians to achieve peak accuracy on 15-day sample sizes.
 
 <a id="robust-forecasting-loss"></a>
 ### 3.2 Robust Outlier-Resilient Loss Function
