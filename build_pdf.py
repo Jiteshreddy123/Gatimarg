@@ -293,20 +293,20 @@ html_content = """<!DOCTYPE html>
       <div class="arch-step-title">Data Ingestion &amp; Hygiene</div>
       <div class="arch-step-desc">
         <ul>
-          <li>Repairs stuck / frozen sensors using spatial neighbor median imputation</li>
-          <li>Clamps impossible negative flow &amp; speed values to zero</li>
-          <li>Huber quantile ceiling clips spurious sensor outlier spikes</li>
+          <li>Corrects stuck / frozen sensors using spatial neighbor consensus</li>
+          <li>Clamps impossible negative flow &amp; speed readings to zero</li>
+          <li>Filters spurious outlier spikes with robust sensor ceilings</li>
         </ul>
       </div>
     </div>
     <div class="arch-step highlight">
       <div class="arch-step-num">Stage 2</div>
-      <div class="arch-step-title">Spatial-Lag Forecasting</div>
+      <div class="arch-step-title">Near-Term Forecasting</div>
       <div class="arch-step-desc">
         <ul>
-          <li>Extracts 1-hop &amp; 2-hop topological neighbor lags from network graph</li>
-          <li>Historical residual decomposition prevents small-data overfitting</li>
-          <li>Calibrated 15, 30, 45 &amp; 60-minute speed/flow forecasts (zero leakage)</li>
+          <li>Captures spatial dependencies across connected road junctions</li>
+          <li>Combines baseline commute profiles with live road conditions</li>
+          <li>Generates 15, 30, 45 &amp; 60-min speed/flow forecasts (zero leakage)</li>
         </ul>
       </div>
     </div>
@@ -315,9 +315,9 @@ html_content = """<!DOCTYPE html>
       <div class="arch-step-title">Incident &amp; Spillback Engine</div>
       <div class="arch-step-desc">
         <ul>
-          <li>Dual-window Bayesian change-point anomaly scoring</li>
-          <li>Differentiates genuine disruptions from routine rush-hour slowdowns</li>
-          <li>LWR kinematic shockwave tracks upstream queue spillback wavefront</li>
+          <li>Monitors real-time drops against normal baseline traffic curves</li>
+          <li>Distinguishes genuine disruptions from regular peak-hour slowdowns</li>
+          <li>Tracks upstream queue growth to forecast secondary choke points</li>
         </ul>
       </div>
     </div>
@@ -326,9 +326,9 @@ html_content = """<!DOCTYPE html>
       <div class="arch-step-title">Decision &amp; Advisory Services</div>
       <div class="arch-step-desc">
         <ul>
-          <li>Turn-restricted constrained routing provides legal alternate paths</li>
-          <li>Festive geofenced pre-trip commuter warning gating (T-45 min)</li>
-          <li>Counterfactual What-If infrastructure ROI evaluation</li>
+          <li>Generates feasible alternate routes honoring legal turn rules</li>
+          <li>Triggers pre-trip warning alerts (T-45 min) for cultural festivals</li>
+          <li>Simulates candidate road infrastructure upgrades to evaluate ROI</li>
         </ul>
       </div>
     </div>
@@ -343,58 +343,58 @@ html_content = """<!DOCTYPE html>
   </div>
 
   <div class="approach-item">
-    <div class="approach-header">3.1 Spatial-Lag Gradient Boosted Trees (LightGBM) &amp; Residual Decomposition</div>
+    <div class="approach-header">3.1 Network Modeling &amp; Field Sensor Data Cleansing</div>
     <div class="approach-text">
-      <strong>Why we use it:</strong> Deep Spatio-Temporal Neural Networks (ST-GNNs) require massive datasets (months of telemetry) and heavily overfit on compact 15-day (4,320 time-step) datasets. LightGBM trains in minutes, natively tolerates noise, and prevents overfitting.<br>
-      <strong>How it helps:</strong> Uses topological network graph adjacency to extract 1-hop and 2-hop spatial neighbor lags, predicting residual deviations from historical medians to achieve peak accuracy on 15-day sample sizes.
+      <strong>How it works:</strong> Connects all 436 road segments and 120 junctions into a unified digital road network. Automatically identifies and cleans corrupted sensor readings—correcting frozen values, negative speeds, and artificial spikes by checking consensus across neighboring road links.<br>
+      <strong>Why it matters:</strong> Ensures all downstream forecasts, emergency alerts, and traffic decisions are built upon reliable, verified ground-truth data.
     </div>
   </div>
 
   <div class="approach-item">
-    <div class="approach-header">3.2 Robust Outlier-Resilient Loss Function (Huber + WAPE)</div>
+    <div class="approach-header">3.2 Baseline Traffic Profiling &amp; Multi-Horizon Forecasting (15–60 Mins)</div>
     <div class="approach-text">
-      <strong>Why we use it:</strong> Real-world traffic sensors frequently experience hardware glitches, sending wild temporary spikes that mislead standard training models.<br>
-      <strong>How it helps:</strong> Penalizes extreme sensor glitches smoothly instead of quadratically, keeping forecasting models stable and accurate even with noisy raw field telemetry.
+      <strong>How it works:</strong> Analyzes historical daily commute patterns to establish baseline speeds for each road across different times of day. Forecasts expected vehicle speeds, volumes, and congestion levels 15, 30, 45, and 60 minutes ahead without leaking future target information.<br>
+      <strong>Why it matters:</strong> Gives traffic operators and commuters early visibility into impending bottlenecks well before roads lock up into standstill traffic.
     </div>
   </div>
 
   <div class="approach-item">
-    <div class="approach-header">3.3 Bayesian Anomaly &amp; Incident Detection</div>
+    <div class="approach-header">3.3 Real-Time Incident &amp; Emergency Disruption Detection</div>
     <div class="approach-text">
-      <strong>Why we use it:</strong> Routine peak-hour congestion causes speeds to drop, but real incidents (crashes or stalled buses) cause speeds to collapse while traffic flow sharply plummets and queues surge.<br>
-      <strong>How it helps:</strong> Compares real-time conditions against expected baselines and requires persistent anomaly signals, catching genuine emergencies while keeping false alarms near zero.
+      <strong>How it works:</strong> Continuously monitors real-time speeds and vehicle flow against expected normal conditions. Distinguishes genuine disruptions (crashes, stalled vehicles, lane hazards) from normal rush-hour slowdowns by requiring persistent, sharp drops in roadway performance.<br>
+      <strong>Why it matters:</strong> Triggers immediate incident alerts for emergency responders while eliminating false alarms that waste city resources.
     </div>
   </div>
 
   <div class="approach-item">
-    <div class="approach-header">3.4 Kinematic Shockwave &amp; Spillback Analysis</div>
+    <div class="approach-header">3.4 Queue Growth &amp; Upstream Spillback Tracking</div>
     <div class="approach-text">
-      <strong>Why we use it:</strong> When a key corridor or flyover is blocked, congestion doesn't stay stationary; it backs up into upstream feeder roads like a backward-traveling wave.<br>
-      <strong>How it helps:</strong> Calculates queue growth speed and accurately predicts which connecting roads will choke 15 to 30 minutes in advance, allowing traffic managers to intervene early.
+      <strong>How it works:</strong> When a key road or flyover becomes choked, the system tracks how congestion backs up into connected upstream roads over time. It calculates queue propagation speed and identifies which feeding junctions will be blocked next.<br>
+      <strong>Why it matters:</strong> Enables traffic police to intervene at upstream junctions 15 to 30 minutes in advance, halting the chain reaction before entire corridors paralyze.
     </div>
   </div>
 
   <div class="approach-item">
-    <div class="approach-header">3.5 Turn-Restricted Diversion Routing</div>
+    <div class="approach-header">3.5 Practical &amp; Turn-Restricted Diversion Routing</div>
     <div class="approach-text">
-      <strong>Why we use it:</strong> Generic routing often suggests illegal turns, impractical U-turns, or pushes highway volumes into narrow neighborhood lanes.<br>
-      <strong>How it helps:</strong> Enforces physical turn restrictions and intersection signal capacities, providing feasible alternate routes that reduce travel times without causing secondary bottlenecks.
+      <strong>How it works:</strong> Generates feasible alternate routes that strictly honor real-world road geometry—respecting one-ways, median dividers, prohibited turns, and intersection signal limits instead of pushing highway traffic into narrow residential lanes.<br>
+      <strong>Why it matters:</strong> Delivers practical, lawful detours that redistribute traffic smoothly without triggering secondary gridlocks on side roads.
     </div>
   </div>
 
   <div class="approach-item">
-    <div class="approach-header">3.6 Counterfactual What-If Intervention Evaluator</div>
+    <div class="approach-header">3.6 Cultural &amp; Festive Mobility Coordination</div>
     <div class="approach-text">
-      <strong>Why we use it:</strong> City authorities need to know whether building a flyover, adding a lane, or adjusting signals will genuinely relieve bottlenecks before spending municipal funds.<br>
-      <strong>How it helps:</strong> Simulates candidate infrastructure changes on the road network and estimates total vehicle delay saved versus project cost to prioritize high-return improvements.
+      <strong>How it works:</strong> Handles major public celebrations (such as Vinayaka Chavithi processions and Bonalu jatara) by pairing crowdsourced ground updates from local ward residents with pre-trip alerts sent to incoming commuters 45 minutes before reaching festive zones.<br>
+      <strong>Why it matters:</strong> Solves information asymmetry by warning unfamiliar drivers early, routing them around active procession blockades seamlessly.
     </div>
   </div>
 
   <div class="approach-item">
-    <div class="approach-header">3.7 Festive Geofenced Inflow Gating &amp; Crowdsourced Reporting</div>
+    <div class="approach-header">3.7 Digital Sandbox for Infrastructure Planning ("What-If" Evaluation)</div>
     <div class="approach-text">
-      <strong>Why we use it:</strong> Major celebrations (such as Vinayaka Chavithi immersion and Bonalu) lead to extensive road closures that trap cross-city commuters unfamiliar with local diversions.<br>
-      <strong>How it helps:</strong> Automatically alerts non-local commuters 45 minutes before they reach festive zones with bypass alternatives, while enabling local ward residents to verify active procession blockades in real time.
+      <strong>How it works:</strong> Provides a simulation environment for urban planners to test proposed road upgrades (e.g., adding a lane, constructing a flyover, or retiming traffic signals) under simulated traffic demand, estimating total vehicle delay saved versus estimated project cost.<br>
+      <strong>Why it matters:</strong> Empowers municipal authorities to justify infrastructure spending with concrete return-on-investment metrics before breaking ground.
     </div>
   </div>
 

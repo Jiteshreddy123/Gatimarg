@@ -19,14 +19,14 @@
 | **02** | <a href="#system-architecture">2. System Architecture</a> |
 | &nbsp; | ├─ <a href="#architecture-flowchart">2.1 Simplified System Flowchart</a> |
 | &nbsp; | └─ <a href="#architectural-stages">2.2 Core Processing Stages</a> |
-| **03** | <a href="#methodological-approach">3. Core Algorithms & Methodological Approach</a> |
-| &nbsp; | ├─ <a href="#spatial-lag-lightgbm">3.1 Spatial-Lag Gradient Boosted Trees (LightGBM) & Residual Decomposition</a> |
-| &nbsp; | ├─ <a href="#robust-forecasting-loss">3.2 Robust Outlier-Resilient Loss Function</a> |
-| &nbsp; | ├─ <a href="#bayesian-incident-detection">3.3 Bayesian Anomaly & Incident Detection</a> |
-| &nbsp; | ├─ <a href="#shockwave-spillback">3.4 Kinematic Shockwave & Spillback Analysis</a> |
-| &nbsp; | ├─ <a href="#turn-restricted-routing">3.5 Turn-Restricted Diversion Routing</a> |
-| &nbsp; | ├─ <a href="#counterfactual-evaluation">3.6 Counterfactual What-If Intervention Evaluator</a> |
-| &nbsp; | └─ <a href="#festive-inflow-gating">3.7 Festive Geofenced Inflow Gating & Crowdsourced Reporting</a> |
+| **03** | <a href="#methodological-approach">3. General Methodological Approach</a> |
+| &nbsp; | ├─ <a href="#network-modeling-cleansing">3.1 Network Modeling & Field Sensor Data Cleansing</a> |
+| &nbsp; | ├─ <a href="#baseline-traffic-forecasting">3.2 Baseline Traffic Profiling & Multi-Horizon Forecasting (15–60 Mins)</a> |
+| &nbsp; | ├─ <a href="#realtime-incident-detection">3.3 Real-Time Incident & Emergency Disruption Detection</a> |
+| &nbsp; | ├─ <a href="#queue-spillback-tracking">3.4 Queue Growth & Upstream Spillback Tracking</a> |
+| &nbsp; | ├─ <a href="#turn-restricted-routing">3.5 Practical & Turn-Restricted Diversion Routing</a> |
+| &nbsp; | ├─ <a href="#festive-mobility-coordination">3.6 Cultural & Festive Mobility Coordination</a> |
+| &nbsp; | └─ <a href="#infrastructure-sandbox">3.7 Digital Sandbox for Infrastructure Planning ("What-If" Evaluation)</a> |
 | **04** | <a href="#quickstart-installation">4. Quickstart & Installation</a> |
 | &nbsp; | ├─ <a href="#environment-setup">4.1 Environment Setup</a> |
 | &nbsp; | └─ <a href="#dependencies-setup">4.2 Dependencies & Virtualenv</a> |
@@ -48,7 +48,7 @@ The **NeuraX Urban Traffic Flow & Incident Intelligence Platform** is a speciali
 
 Unlike conventional consumer navigation applications (which passively route drivers after congestion has already crystallized) or generic chatbots (which produce ungrounded conversational advice), this platform provides **macroscopic and microscopic intelligence**:
 1. **Continuous Network Ingestion & Robust Cleansing**: Reconciles stuck sensors, impossible negative flow readings, outlier spikes, and temporal shuffling across 436 road segments and 120 network nodes.
-2. **Spatial-Lag Multi-Horizon Forecasting (15, 30, 45, 60 Minutes Ahead)**: Produces calibrated speed, flow, and congestion indices using graph-topological neighbor lags and residual boosting without target leakage.
+2. **Multi-Horizon Traffic Forecasting (15, 30, 45, 60 Minutes Ahead)**: Produces calibrated speed, flow, and congestion predictions without future target leakage.
 3. **High-Precision Incident Detection & Spillback Diagnostic**: Pinpoints stalled vehicles, demand surges, and collisions while rigorously controlling false alarms.
 4. **Turn-Restriction-Aware Adaptive Diversions**: Computes feasible alternate corridors honoring geometric turn prohibitions and signal cycle capacities.
 5. **Counterfactual Infrastructure & Bottleneck Optimization**: Evaluates planning candidates (capacity expansions, turn bays, signal retiming) under simulated what-if conditions with estimated before/after impact and Return on Investment (ROI).
@@ -88,61 +88,60 @@ The platform operates as a clean, four-stage intelligence pipeline that translat
 
 ```mermaid
 flowchart LR
-    A["1. Data Ingestion & Hygiene\n• Cleans stuck sensors\n• Clips outlier spikes\n• Fixes negative values"] --> B["2. Spatial-Lag Forecasting\n• LightGBM / GBDT\n• Topological 1/2-hop lags\n• Residual decomposition"]
-    B --> C["3. Incident & Shockwave Engine\n• Bayesian change-point scoring\n• Upstream spillback radius\n• Zero false-alarm filter"]
-    C --> D["4. Operational Decision Services\n• Turn-legal alternate routes\n• Festive commuter gating\n• What-If infrastructure ROI"]
+    A["1. Data Ingestion & Hygiene\n• Cleans stuck sensors\n• Clips outlier spikes\n• Neighbor consensus"] --> B["2. Near-Term Forecasting\n• Spatial link dependencies\n• Baseline daily profiles\n• 15, 30, 45, 60m horizons"]
+    B --> C["3. Incident & Spillback Engine\n• Emergency disruption scoring\n• Upstream queue growth\n• Zero false alarms"]
+    C --> D["4. Operational Decision Services\n• Practical legal alternate routes\n• Festive commuter warning alerts\n• What-If infrastructure ROI"]
 ```
 
 <a id="architectural-stages"></a>
 ### 2.2 Core Processing Stages
 
-1. **Data Ingestion & Hygiene**: Automatically cleans corrupted field data by repairing frozen sensors using neighboring road data, removing impossible negative speeds, and clipping artificial spikes.
-2. **Spatial-Lag Multi-Horizon Forecasting**: Extracts 1-hop and 2-hop topological neighbor lags from the 120-junction network graph and uses LightGBM on historical residuals to prevent overfitting on 15-day sample sizes.
-3. **Incident & Shockwave Engine**: Uses Bayesian statistical checks to catch real accidents and stalled buses while ignoring normal rush-hour slowdowns, and tracks how fast queues back up into upstream feeder roads.
-4. **Operational Decision & Advisory Services**: Delivers turn-restricted diversion routes that drivers can legally take, triggers pre-trip warnings for cultural festivals, and calculates the exact ROI of potential road construction upgrades.
+1. **Data Ingestion & Hygiene**: Corrects corrupted sensor telemetry by repairing frozen values via neighboring road consensus, removing impossible negative readings, and filtering outlier spikes.
+2. **Near-Term Traffic Forecasting**: Captures spatial dependencies across connected road junctions, combining baseline commute profiles with live road conditions to generate 15, 30, 45, and 60-minute speed and flow forecasts without future target leakage.
+3. **Incident & Spillback Engine**: Monitors real-time performance drops against normal baseline traffic curves to distinguish genuine emergencies from regular peak-hour slowdowns, tracking upstream queue growth to forecast secondary choke points.
+4. **Operational Decision & Advisory Services**: Delivers practical alternate routes honoring legal turn rules, triggers pre-trip warnings for cultural festivals, and simulates candidate road infrastructure upgrades to evaluate ROI.
 
 <div align="right"><a href="#table-of-contents">▲ Back to Master Index</a></div>
 
 ---
 
 <a id="methodological-approach"></a>
-## 3. Core Algorithms & Methodological Approach
+## 3. General Methodological Approach
 
-<a id="spatial-lag-lightgbm"></a>
-### 3.1 Spatial-Lag Gradient Boosted Trees (LightGBM) & Residual Decomposition
-- **Why we use it**: Deep Spatio-Temporal Neural Networks (ST-GNNs) require massive datasets (months of telemetry) and heavily overfit on compact 15-day (4,320 time-step) training sets. LightGBM trains in minutes, natively tolerates noise, and eliminates small-sample overfitting.
-- **How it helps**: Uses topological network graph adjacency to compute 1-hop and 2-hop spatial neighbor lags, predicting residual deviations from historical medians to achieve peak accuracy on 15-day sample sizes.
+<a id="network-modeling-cleansing"></a>
+### 3.1 Network Modeling & Field Sensor Data Cleansing
+- **How it works**: Connects all 436 road segments and 120 junctions into a unified digital road network. Automatically identifies and cleans corrupted sensor readings—correcting frozen values, negative speeds, and artificial spikes by checking consensus across neighboring road links.
+- **Why it matters**: Ensures all downstream forecasts, emergency alerts, and traffic decisions are built upon reliable, verified ground-truth data.
 
-<a id="robust-forecasting-loss"></a>
-### 3.2 Robust Outlier-Resilient Loss Function
-- **Why we use it**: Real-world traffic sensors frequently experience hardware glitches, sending wild temporary spikes that mislead standard training models.
-- **How it helps**: Penalizes extreme sensor glitches smoothly instead of quadratically, keeping the forecasting models stable and accurate even with noisy raw inputs.
+<a id="baseline-traffic-forecasting"></a>
+### 3.2 Baseline Traffic Profiling & Multi-Horizon Forecasting (15–60 Mins)
+- **How it works**: Analyzes historical daily commute patterns to establish baseline speeds for each road across different times of day. Forecasts expected vehicle speeds, volumes, and congestion levels 15, 30, 45, and 60 minutes ahead without leaking future target information.
+- **Why it matters**: Gives traffic operators and commuters early visibility into impending bottlenecks well before roads lock up into standstill traffic.
 
-<a id="bayesian-incident-detection"></a>
-### 3.3 Bayesian Anomaly & Incident Detection
-- **Why we use it**: Routine peak-hour congestion causes speeds to drop, but real incidents (crashes or stalled buses) cause speeds to collapse while traffic flow sharply plummets and queues surge.
-- **How it helps**: Compares real-time conditions against expected baselines and requires persistent anomaly signals, catching genuine emergencies while keeping false alarms near zero.
+<a id="realtime-incident-detection"></a>
+### 3.3 Real-Time Incident & Emergency Disruption Detection
+- **How it works**: Continuously monitors real-time speeds and vehicle flow against expected normal conditions. Distinguishes genuine disruptions (crashes, stalled vehicles, lane hazards) from normal rush-hour slowdowns by requiring persistent, sharp drops in roadway performance.
+- **Why it matters**: Triggers immediate incident alerts for emergency responders while eliminating false alarms that waste city resources.
 
-<a id="shockwave-spillback"></a>
-### 3.4 Kinematic Shockwave & Spillback Analysis
-- **Why we use it**: When a key corridor or flyover is blocked, congestion backs up into upstream feeder roads like a backward-traveling wave.
-- **How it helps**: Calculates queue growth speed and accurately predicts which connecting roads will choke 15 to 30 minutes in advance, allowing traffic managers to intervene early.
+<a id="queue-spillback-tracking"></a>
+### 3.4 Queue Growth & Upstream Spillback Tracking
+- **How it works**: When a key road or flyover becomes choked, the system tracks how congestion backs up into connected upstream roads over time. It calculates queue propagation speed and identifies which feeding junctions will be blocked next.
+- **Why it matters**: Enables traffic police to intervene at upstream junctions 15 to 30 minutes in advance, halting the chain reaction before entire corridors paralyze.
 
 <a id="turn-restricted-routing"></a>
-### 3.5 Turn-Restricted Diversion Routing
-- **Why we use it**: Generic routing often suggests illegal turns, impractical U-turns, or pushes highway volumes into narrow neighborhood lanes.
-- **How it helps**: Enforces physical turn restrictions and intersection signal capacities, providing realistic alternate routes that reduce travel times without causing secondary bottlenecks.
+### 3.5 Practical & Turn-Restricted Diversion Routing
+- **How it works**: Generates feasible alternate routes that strictly honor real-world road geometry—respecting one-ways, median dividers, prohibited turns, and intersection signal limits instead of pushing highway traffic into narrow residential lanes.
+- **Why it matters**: Delivers practical, lawful detours that redistribute traffic smoothly without triggering secondary gridlocks on side roads.
 
-<a id="counterfactual-evaluation"></a>
-### 3.6 Counterfactual What-If Intervention Evaluator
-- **Why we use it**: City authorities need to know whether building a flyover, adding a lane, or adjusting signals will genuinely relieve congestion before committing municipal funds.
-- **How it helps**: Simulates candidate infrastructure changes on the road network and estimates total vehicle delay saved versus project cost to prioritize high-return improvements.
+<a id="festive-mobility-coordination"></a>
+### 3.6 Cultural & Festive Mobility Coordination
+- **How it works**: Handles major public celebrations (such as Vinayaka Chavithi processions and Bonalu jatara) by pairing crowdsourced ground updates from local ward residents with pre-trip alerts sent to incoming commuters 45 minutes before reaching festive zones.
+- **Why it matters**: Solves information asymmetry by warning unfamiliar drivers early, routing them around active procession blockades seamlessly.
 
-<a id="festive-inflow-gating"></a>
-### 3.7 Festive Geofenced Inflow Gating & Crowdsourced Reporting
-- **Why we use it**: Major celebrations (such as Vinayaka Chavithi immersion and Bonalu) lead to extensive road closures that trap cross-city commuters unfamiliar with local diversions.
-- **How it helps**: Automatically alerts non-local commuters 45 minutes before they reach festive zones with bypass alternatives, while enabling local ward residents to verify active procession blockades in real time.
-
+<a id="infrastructure-sandbox"></a>
+### 3.7 Digital Sandbox for Infrastructure Planning ("What-If" Evaluation)
+- **How it works**: Provides a simulation environment for urban planners to test proposed road upgrades (e.g., adding a lane, constructing a flyover, or retiming traffic signals) under simulated traffic demand, estimating total vehicle delay saved versus estimated project cost.
+- **Why it matters**: Empowers municipal authorities to justify infrastructure spending with concrete return-on-investment metrics before breaking ground.
 <div align="right"><a href="#table-of-contents">▲ Back to Master Index</a></div>
 
 ---
