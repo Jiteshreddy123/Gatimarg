@@ -1,0 +1,26 @@
+{
+  "15": {
+    "mae_kmh": 1.15,
+    "rmse_kmh": 1.79,
+    "mape_pct": 2.6,
+    "sample_validation_size": 20000
+  },
+  "30": {
+    "mae_kmh": 1.15,
+    "rmse_kmh": 1.75,
+    "mape_pct": 2.6,
+    "sample_validation_size": 20000
+  },
+  "45": {
+    "mae_kmh": 1.17,
+    "rmse_kmh": 1.76,
+    "mape_pct": 2.7,
+    "sample_validation_size": 20000
+  },
+  "60": {
+    "mae_kmh": 1.19,
+    "rmse_kmh": 1.81,
+    "mape_pct": 2.7,
+    "sample_validation_size": 20000
+  }
+}

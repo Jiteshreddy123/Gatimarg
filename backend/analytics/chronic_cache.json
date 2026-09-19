@@ -1,0 +1,4722 @@
+[
+  {
+    "segment_id": "R0123",
+    "source_node": "N032",
+    "target_node": "N044",
+    "road_class": "arterial",
+    "lanes": 3,
+    "capacity_vph": 3105.0,
+    "free_flow_speed_kmh": 40.0,
+    "grade_pct": -0.57,
+    "structural_bottleneck": true,
+    "importance_score": 1.435,
+    "recurrence_rate_pct": 100.9,
+    "congested_days_out_of_15": "15/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Uncontrolled merge: Lack of upstream metering causes shockwave turbulence."
+    ],
+    "dataset_planning_candidates": [
+      {
+        "candidate_id": "PLAN0122",
+        "intervention_type": "lane_addition",
+        "capacity_delta_vph": 900,
+        "cost_index": 8,
+        "feasibility_band": "medium"
+      }
+    ],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0293",
+    "source_node": "N077",
+    "target_node": "N078",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 50.0,
+    "grade_pct": -1.61,
+    "structural_bottleneck": true,
+    "importance_score": 1.431,
+    "recurrence_rate_pct": 100.8,
+    "congested_days_out_of_15": "15/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Signalized cycle split constraint: Signal ID SIG058 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0254",
+    "source_node": "N078",
+    "target_node": "N066",
+    "road_class": "arterial",
+    "lanes": 1,
+    "capacity_vph": 1035.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": 1.21,
+    "structural_bottleneck": true,
+    "importance_score": 1.426,
+    "recurrence_rate_pct": 100.7,
+    "congested_days_out_of_15": "15/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 1 lanes available for high arterial demand.",
+      "Uncontrolled merge: Lack of upstream metering causes shockwave turbulence."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0252",
+    "source_node": "N067",
+    "target_node": "N066",
+    "road_class": "arterial",
+    "lanes": 1,
+    "capacity_vph": 1035.0,
+    "free_flow_speed_kmh": 60.0,
+    "grade_pct": 2.77,
+    "structural_bottleneck": true,
+    "importance_score": 1.424,
+    "recurrence_rate_pct": 100.6,
+    "congested_days_out_of_15": "15/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 1 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of 2.8% induces heavy vehicle crawl speed reduction.",
+      "Uncontrolled merge: Lack of upstream metering causes shockwave turbulence."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0344",
+    "source_node": "N091",
+    "target_node": "N090",
+    "road_class": "arterial",
+    "lanes": 1,
+    "capacity_vph": 1035.0,
+    "free_flow_speed_kmh": 50.0,
+    "grade_pct": 0.17,
+    "structural_bottleneck": true,
+    "importance_score": 1.424,
+    "recurrence_rate_pct": 100.6,
+    "congested_days_out_of_15": "15/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 1 lanes available for high arterial demand.",
+      "Signalized cycle split constraint: Signal ID SIG052 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [
+      {
+        "candidate_id": "PLAN0343",
+        "intervention_type": "turn_lane",
+        "capacity_delta_vph": 450,
+        "cost_index": 5,
+        "feasibility_band": "low"
+      }
+    ],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0119",
+    "source_node": "N031",
+    "target_node": "N043",
+    "road_class": "arterial",
+    "lanes": 3,
+    "capacity_vph": 3105.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": 3.48,
+    "structural_bottleneck": true,
+    "importance_score": 1.415,
+    "recurrence_rate_pct": 100.4,
+    "congested_days_out_of_15": "15/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Geometric vertical incline: Grade of 3.5% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG008 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0312",
+    "source_node": "N093",
+    "target_node": "N081",
+    "road_class": "arterial",
+    "lanes": 1,
+    "capacity_vph": 1035.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": 0.41,
+    "structural_bottleneck": true,
+    "importance_score": 1.415,
+    "recurrence_rate_pct": 100.4,
+    "congested_days_out_of_15": "15/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 1 lanes available for high arterial demand.",
+      "Signalized cycle split constraint: Signal ID SIG060 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0379",
+    "source_node": "N099",
+    "target_node": "N111",
+    "road_class": "arterial",
+    "lanes": 3,
+    "capacity_vph": 3105.0,
+    "free_flow_speed_kmh": 60.0,
+    "grade_pct": 2.97,
+    "structural_bottleneck": true,
+    "importance_score": 1.413,
+    "recurrence_rate_pct": 100.3,
+    "congested_days_out_of_15": "15/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Geometric vertical incline: Grade of 3.0% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG082 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0172",
+    "source_node": "N046",
+    "target_node": "N045",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 40.0,
+    "grade_pct": -2.82,
+    "structural_bottleneck": true,
+    "importance_score": 1.411,
+    "recurrence_rate_pct": 100.3,
+    "congested_days_out_of_15": "15/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of -2.8% induces heavy vehicle crawl speed reduction.",
+      "Uncontrolled merge: Lack of upstream metering causes shockwave turbulence."
+    ],
+    "dataset_planning_candidates": [
+      {
+        "candidate_id": "PLAN0171",
+        "intervention_type": "turn_lane",
+        "capacity_delta_vph": 450,
+        "cost_index": 5,
+        "feasibility_band": "low"
+      }
+    ],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0345",
+    "source_node": "N090",
+    "target_node": "N102",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 40.0,
+    "grade_pct": -2.21,
+    "structural_bottleneck": true,
+    "importance_score": 1.41,
+    "recurrence_rate_pct": 100.3,
+    "congested_days_out_of_15": "15/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of -2.2% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG044 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0058",
+    "source_node": "N027",
+    "target_node": "N015",
+    "road_class": "arterial",
+    "lanes": 1,
+    "capacity_vph": 1035.0,
+    "free_flow_speed_kmh": 50.0,
+    "grade_pct": 2.73,
+    "structural_bottleneck": true,
+    "importance_score": 1.404,
+    "recurrence_rate_pct": 100.1,
+    "congested_days_out_of_15": "15/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 1 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of 2.7% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG001 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [
+      {
+        "candidate_id": "PLAN0057",
+        "intervention_type": "lane_addition",
+        "capacity_delta_vph": 900,
+        "cost_index": 8,
+        "feasibility_band": "medium"
+      }
+    ],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0206",
+    "source_node": "N055",
+    "target_node": "N054",
+    "road_class": "arterial",
+    "lanes": 1,
+    "capacity_vph": 1035.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": -2.99,
+    "structural_bottleneck": true,
+    "importance_score": 1.393,
+    "recurrence_rate_pct": 99.8,
+    "congested_days_out_of_15": "15/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 1 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of -3.0% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG023 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0391",
+    "source_node": "N102",
+    "target_node": "N114",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 50.0,
+    "grade_pct": -2.64,
+    "structural_bottleneck": true,
+    "importance_score": 1.392,
+    "recurrence_rate_pct": 99.8,
+    "congested_days_out_of_15": "15/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of -2.6% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG078 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0239",
+    "source_node": "N063",
+    "target_node": "N064",
+    "road_class": "arterial",
+    "lanes": 1,
+    "capacity_vph": 1035.0,
+    "free_flow_speed_kmh": 50.0,
+    "grade_pct": -1.94,
+    "structural_bottleneck": true,
+    "importance_score": 1.388,
+    "recurrence_rate_pct": 99.7,
+    "congested_days_out_of_15": "15/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 1 lanes available for high arterial demand.",
+      "Signalized cycle split constraint: Signal ID SIG034 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0317",
+    "source_node": "N083",
+    "target_node": "N084",
+    "road_class": "arterial",
+    "lanes": 3,
+    "capacity_vph": 3105.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": -2.66,
+    "structural_bottleneck": true,
+    "importance_score": 1.388,
+    "recurrence_rate_pct": 99.7,
+    "congested_days_out_of_15": "15/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Geometric vertical incline: Grade of -2.7% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG073 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0108",
+    "source_node": "N040",
+    "target_node": "N028",
+    "road_class": "arterial",
+    "lanes": 3,
+    "capacity_vph": 3105.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": -2.55,
+    "structural_bottleneck": true,
+    "importance_score": 1.386,
+    "recurrence_rate_pct": 99.7,
+    "congested_days_out_of_15": "15/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Geometric vertical incline: Grade of -2.5% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG016 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0195",
+    "source_node": "N051",
+    "target_node": "N063",
+    "road_class": "arterial",
+    "lanes": 3,
+    "capacity_vph": 3105.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": -3.6,
+    "structural_bottleneck": true,
+    "importance_score": 1.386,
+    "recurrence_rate_pct": 99.7,
+    "congested_days_out_of_15": "15/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Geometric vertical incline: Grade of -3.6% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG033 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [
+      {
+        "candidate_id": "PLAN0194",
+        "intervention_type": "signal_retiming",
+        "capacity_delta_vph": 250,
+        "cost_index": 2,
+        "feasibility_band": "low"
+      }
+    ],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0281",
+    "source_node": "N074",
+    "target_node": "N075",
+    "road_class": "arterial",
+    "lanes": 3,
+    "capacity_vph": 3105.0,
+    "free_flow_speed_kmh": 40.0,
+    "grade_pct": 1.3,
+    "structural_bottleneck": true,
+    "importance_score": 1.385,
+    "recurrence_rate_pct": 99.6,
+    "congested_days_out_of_15": "15/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Signalized cycle split constraint: Signal ID SIG027 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0137",
+    "source_node": "N036",
+    "target_node": "N048",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 40.0,
+    "grade_pct": 0.07,
+    "structural_bottleneck": true,
+    "importance_score": 1.383,
+    "recurrence_rate_pct": 99.6,
+    "congested_days_out_of_15": "15/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Uncontrolled merge: Lack of upstream metering causes shockwave turbulence."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0402",
+    "source_node": "N106",
+    "target_node": "N105",
+    "road_class": "arterial",
+    "lanes": 1,
+    "capacity_vph": 1035.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": 1.17,
+    "structural_bottleneck": true,
+    "importance_score": 1.381,
+    "recurrence_rate_pct": 99.5,
+    "congested_days_out_of_15": "15/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 1 lanes available for high arterial demand.",
+      "Signalized cycle split constraint: Signal ID SIG047 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0124",
+    "source_node": "N044",
+    "target_node": "N032",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": -0.44,
+    "structural_bottleneck": true,
+    "importance_score": 1.376,
+    "recurrence_rate_pct": 99.4,
+    "congested_days_out_of_15": "15/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Uncontrolled merge: Lack of upstream metering causes shockwave turbulence."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0102",
+    "source_node": "N028",
+    "target_node": "N027",
+    "road_class": "arterial",
+    "lanes": 3,
+    "capacity_vph": 3105.0,
+    "free_flow_speed_kmh": 50.0,
+    "grade_pct": 0.21,
+    "structural_bottleneck": true,
+    "importance_score": 1.375,
+    "recurrence_rate_pct": 99.4,
+    "congested_days_out_of_15": "15/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Signalized cycle split constraint: Signal ID SIG017 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0096",
+    "source_node": "N037",
+    "target_node": "N025",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 40.0,
+    "grade_pct": 3.42,
+    "structural_bottleneck": true,
+    "importance_score": 1.372,
+    "recurrence_rate_pct": 99.3,
+    "congested_days_out_of_15": "15/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of 3.4% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG068 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [
+      {
+        "candidate_id": "PLAN0095",
+        "intervention_type": "turn_lane",
+        "capacity_delta_vph": 450,
+        "cost_index": 5,
+        "feasibility_band": "low"
+      }
+    ],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0133",
+    "source_node": "N035",
+    "target_node": "N036",
+    "road_class": "arterial",
+    "lanes": 3,
+    "capacity_vph": 3105.0,
+    "free_flow_speed_kmh": 60.0,
+    "grade_pct": 1.06,
+    "structural_bottleneck": true,
+    "importance_score": 1.36,
+    "recurrence_rate_pct": 99.0,
+    "congested_days_out_of_15": "15/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Signalized cycle split constraint: Signal ID SIG070 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [
+      {
+        "candidate_id": "PLAN0132",
+        "intervention_type": "capacity_upgrade",
+        "capacity_delta_vph": 500,
+        "cost_index": 12,
+        "feasibility_band": "medium"
+      }
+    ],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0113",
+    "source_node": "N030",
+    "target_node": "N031",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": -1.19,
+    "structural_bottleneck": true,
+    "importance_score": 1.357,
+    "recurrence_rate_pct": 98.9,
+    "congested_days_out_of_15": "15/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Signalized cycle split constraint: Signal ID SIG014 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0109",
+    "source_node": "N029",
+    "target_node": "N030",
+    "road_class": "arterial",
+    "lanes": 3,
+    "capacity_vph": 3105.0,
+    "free_flow_speed_kmh": 60.0,
+    "grade_pct": 4.0,
+    "structural_bottleneck": true,
+    "importance_score": 1.356,
+    "recurrence_rate_pct": 98.9,
+    "congested_days_out_of_15": "15/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Geometric vertical incline: Grade of 4.0% induces heavy vehicle crawl speed reduction.",
+      "Uncontrolled merge: Lack of upstream metering causes shockwave turbulence."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0277",
+    "source_node": "N073",
+    "target_node": "N074",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": -0.21,
+    "structural_bottleneck": true,
+    "importance_score": 1.356,
+    "recurrence_rate_pct": 98.9,
+    "congested_days_out_of_15": "15/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Signalized cycle split constraint: Signal ID SIG026 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0114",
+    "source_node": "N031",
+    "target_node": "N030",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": -0.36,
+    "structural_bottleneck": true,
+    "importance_score": 1.35,
+    "recurrence_rate_pct": 98.7,
+    "congested_days_out_of_15": "15/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Uncontrolled merge: Lack of upstream metering causes shockwave turbulence."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0302",
+    "source_node": "N080",
+    "target_node": "N079",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 40.0,
+    "grade_pct": 2.61,
+    "structural_bottleneck": true,
+    "importance_score": 1.346,
+    "recurrence_rate_pct": 98.6,
+    "congested_days_out_of_15": "15/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of 2.6% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG057 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0098",
+    "source_node": "N027",
+    "target_node": "N026",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": 1.23,
+    "structural_bottleneck": true,
+    "importance_score": 1.345,
+    "recurrence_rate_pct": 98.6,
+    "congested_days_out_of_15": "15/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Signalized cycle split constraint: Signal ID SIG018 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [
+      {
+        "candidate_id": "PLAN0097",
+        "intervention_type": "lane_addition",
+        "capacity_delta_vph": 900,
+        "cost_index": 8,
+        "feasibility_band": "medium"
+      }
+    ],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0377",
+    "source_node": "N099",
+    "target_node": "N100",
+    "road_class": "arterial",
+    "lanes": 3,
+    "capacity_vph": 3105.0,
+    "free_flow_speed_kmh": 40.0,
+    "grade_pct": -0.35,
+    "structural_bottleneck": true,
+    "importance_score": 1.339,
+    "recurrence_rate_pct": 98.5,
+    "congested_days_out_of_15": "15/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Signalized cycle split constraint: Signal ID SIG041 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [
+      {
+        "candidate_id": "PLAN0376",
+        "intervention_type": "capacity_upgrade",
+        "capacity_delta_vph": 500,
+        "cost_index": 12,
+        "feasibility_band": "medium"
+      }
+    ],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0068",
+    "source_node": "N019",
+    "target_node": "N018",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": -3.66,
+    "structural_bottleneck": true,
+    "importance_score": 1.337,
+    "recurrence_rate_pct": 98.4,
+    "congested_days_out_of_15": "15/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of -3.7% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG004 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0080",
+    "source_node": "N022",
+    "target_node": "N021",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": -3.86,
+    "structural_bottleneck": true,
+    "importance_score": 1.33,
+    "recurrence_rate_pct": 98.2,
+    "congested_days_out_of_15": "15/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of -3.9% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG007 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0218",
+    "source_node": "N058",
+    "target_node": "N057",
+    "road_class": "arterial",
+    "lanes": 3,
+    "capacity_vph": 3105.0,
+    "free_flow_speed_kmh": 60.0,
+    "grade_pct": -3.22,
+    "structural_bottleneck": true,
+    "importance_score": 1.326,
+    "recurrence_rate_pct": 98.2,
+    "congested_days_out_of_15": "15/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Geometric vertical incline: Grade of -3.2% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG038 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0100",
+    "source_node": "N038",
+    "target_node": "N026",
+    "road_class": "arterial",
+    "lanes": 1,
+    "capacity_vph": 1035.0,
+    "free_flow_speed_kmh": 50.0,
+    "grade_pct": -3.32,
+    "structural_bottleneck": true,
+    "importance_score": 1.315,
+    "recurrence_rate_pct": 97.9,
+    "congested_days_out_of_15": "15/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 1 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of -3.3% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG018 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [
+      {
+        "candidate_id": "PLAN0099",
+        "intervention_type": "turn_lane",
+        "capacity_delta_vph": 450,
+        "cost_index": 5,
+        "feasibility_band": "low"
+      }
+    ],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0280",
+    "source_node": "N085",
+    "target_node": "N073",
+    "road_class": "arterial",
+    "lanes": 1,
+    "capacity_vph": 1035.0,
+    "free_flow_speed_kmh": 40.0,
+    "grade_pct": 3.04,
+    "structural_bottleneck": true,
+    "importance_score": 1.305,
+    "recurrence_rate_pct": 97.6,
+    "congested_days_out_of_15": "15/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 1 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of 3.0% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG075 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0304",
+    "source_node": "N091",
+    "target_node": "N079",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 40.0,
+    "grade_pct": -2.88,
+    "structural_bottleneck": true,
+    "importance_score": 1.304,
+    "recurrence_rate_pct": 97.6,
+    "congested_days_out_of_15": "15/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of -2.9% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG057 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0012",
+    "source_node": "N015",
+    "target_node": "N003",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 40.0,
+    "grade_pct": 2.42,
+    "structural_bottleneck": true,
+    "importance_score": 1.303,
+    "recurrence_rate_pct": 97.6,
+    "congested_days_out_of_15": "15/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of 2.4% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG065 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0286",
+    "source_node": "N076",
+    "target_node": "N075",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": -3.95,
+    "structural_bottleneck": true,
+    "importance_score": 1.301,
+    "recurrence_rate_pct": 97.5,
+    "congested_days_out_of_15": "15/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of -4.0% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG027 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0241",
+    "source_node": "N063",
+    "target_node": "N075",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 60.0,
+    "grade_pct": -1.03,
+    "structural_bottleneck": true,
+    "importance_score": 1.297,
+    "recurrence_rate_pct": 97.4,
+    "congested_days_out_of_15": "15/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Signalized cycle split constraint: Signal ID SIG027 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0420",
+    "source_node": "N112",
+    "target_node": "N111",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 50.0,
+    "grade_pct": -1.31,
+    "structural_bottleneck": true,
+    "importance_score": 1.295,
+    "recurrence_rate_pct": 97.4,
+    "congested_days_out_of_15": "15/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Signalized cycle split constraint: Signal ID SIG082 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0296",
+    "source_node": "N089",
+    "target_node": "N077",
+    "road_class": "arterial",
+    "lanes": 3,
+    "capacity_vph": 3105.0,
+    "free_flow_speed_kmh": 60.0,
+    "grade_pct": -3.72,
+    "structural_bottleneck": true,
+    "importance_score": 1.294,
+    "recurrence_rate_pct": 97.3,
+    "congested_days_out_of_15": "15/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Geometric vertical incline: Grade of -3.7% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG056 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0082",
+    "source_node": "N033",
+    "target_node": "N021",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": -2.6,
+    "structural_bottleneck": true,
+    "importance_score": 1.293,
+    "recurrence_rate_pct": 97.3,
+    "congested_days_out_of_15": "15/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of -2.6% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG007 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0069",
+    "source_node": "N018",
+    "target_node": "N030",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 50.0,
+    "grade_pct": 1.19,
+    "structural_bottleneck": true,
+    "importance_score": 1.291,
+    "recurrence_rate_pct": 97.3,
+    "congested_days_out_of_15": "15/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Uncontrolled merge: Lack of upstream metering causes shockwave turbulence."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0125",
+    "source_node": "N033",
+    "target_node": "N034",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": 2.97,
+    "structural_bottleneck": true,
+    "importance_score": 1.288,
+    "recurrence_rate_pct": 97.2,
+    "congested_days_out_of_15": "15/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of 3.0% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG012 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [
+      {
+        "candidate_id": "PLAN0124",
+        "intervention_type": "capacity_upgrade",
+        "capacity_delta_vph": 500,
+        "cost_index": 12,
+        "feasibility_band": "medium"
+      }
+    ],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0403",
+    "source_node": "N105",
+    "target_node": "N117",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": 2.88,
+    "structural_bottleneck": true,
+    "importance_score": 1.288,
+    "recurrence_rate_pct": 97.2,
+    "congested_days_out_of_15": "15/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of 2.9% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG077 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0115",
+    "source_node": "N030",
+    "target_node": "N042",
+    "road_class": "arterial",
+    "lanes": 3,
+    "capacity_vph": 3105.0,
+    "free_flow_speed_kmh": 50.0,
+    "grade_pct": 1.45,
+    "structural_bottleneck": true,
+    "importance_score": 1.285,
+    "recurrence_rate_pct": 97.1,
+    "congested_days_out_of_15": "15/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Uncontrolled merge: Lack of upstream metering causes shockwave turbulence."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0193",
+    "source_node": "N051",
+    "target_node": "N052",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 40.0,
+    "grade_pct": 2.8,
+    "structural_bottleneck": true,
+    "importance_score": 1.283,
+    "recurrence_rate_pct": 97.1,
+    "congested_days_out_of_15": "15/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of 2.8% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG020 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0285",
+    "source_node": "N075",
+    "target_node": "N076",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 50.0,
+    "grade_pct": -2.42,
+    "structural_bottleneck": true,
+    "importance_score": 1.27,
+    "recurrence_rate_pct": 96.8,
+    "congested_days_out_of_15": "15/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of -2.4% induces heavy vehicle crawl speed reduction.",
+      "Uncontrolled merge: Lack of upstream metering causes shockwave turbulence."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0282",
+    "source_node": "N075",
+    "target_node": "N074",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": 3.31,
+    "structural_bottleneck": true,
+    "importance_score": 1.268,
+    "recurrence_rate_pct": 96.7,
+    "congested_days_out_of_15": "15/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of 3.3% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG026 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0104",
+    "source_node": "N039",
+    "target_node": "N027",
+    "road_class": "arterial",
+    "lanes": 3,
+    "capacity_vph": 3105.0,
+    "free_flow_speed_kmh": 60.0,
+    "grade_pct": 0.83,
+    "structural_bottleneck": true,
+    "importance_score": 1.266,
+    "recurrence_rate_pct": 96.6,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Signalized cycle split constraint: Signal ID SIG017 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0291",
+    "source_node": "N076",
+    "target_node": "N088",
+    "road_class": "arterial",
+    "lanes": 3,
+    "capacity_vph": 3105.0,
+    "free_flow_speed_kmh": 50.0,
+    "grade_pct": 2.73,
+    "structural_bottleneck": true,
+    "importance_score": 1.266,
+    "recurrence_rate_pct": 96.7,
+    "congested_days_out_of_15": "15/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Geometric vertical incline: Grade of 2.7% induces heavy vehicle crawl speed reduction.",
+      "Uncontrolled merge: Lack of upstream metering causes shockwave turbulence."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0079",
+    "source_node": "N021",
+    "target_node": "N022",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 60.0,
+    "grade_pct": 3.1,
+    "structural_bottleneck": true,
+    "importance_score": 1.26,
+    "recurrence_rate_pct": 96.5,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of 3.1% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG003 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0426",
+    "source_node": "N115",
+    "target_node": "N114",
+    "road_class": "arterial",
+    "lanes": 3,
+    "capacity_vph": 3105.0,
+    "free_flow_speed_kmh": 40.0,
+    "grade_pct": 3.52,
+    "structural_bottleneck": true,
+    "importance_score": 1.257,
+    "recurrence_rate_pct": 96.4,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Geometric vertical incline: Grade of 3.5% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG078 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0265",
+    "source_node": "N069",
+    "target_node": "N081",
+    "road_class": "arterial",
+    "lanes": 3,
+    "capacity_vph": 3105.0,
+    "free_flow_speed_kmh": 50.0,
+    "grade_pct": -1.94,
+    "structural_bottleneck": true,
+    "importance_score": 1.25,
+    "recurrence_rate_pct": 96.3,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Signalized cycle split constraint: Signal ID SIG060 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0094",
+    "source_node": "N026",
+    "target_node": "N025",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 40.0,
+    "grade_pct": 2.01,
+    "structural_bottleneck": true,
+    "importance_score": 1.245,
+    "recurrence_rate_pct": 96.1,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of 2.0% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG068 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0023",
+    "source_node": "N006",
+    "target_node": "N018",
+    "road_class": "arterial",
+    "lanes": 3,
+    "capacity_vph": 3105.0,
+    "free_flow_speed_kmh": 40.0,
+    "grade_pct": -0.47,
+    "structural_bottleneck": true,
+    "importance_score": 1.244,
+    "recurrence_rate_pct": 96.1,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Signalized cycle split constraint: Signal ID SIG004 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0081",
+    "source_node": "N021",
+    "target_node": "N033",
+    "road_class": "arterial",
+    "lanes": 1,
+    "capacity_vph": 1035.0,
+    "free_flow_speed_kmh": 50.0,
+    "grade_pct": -0.24,
+    "structural_bottleneck": true,
+    "importance_score": 1.244,
+    "recurrence_rate_pct": 96.1,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 1 lanes available for high arterial demand.",
+      "Uncontrolled merge: Lack of upstream metering causes shockwave turbulence."
+    ],
+    "dataset_planning_candidates": [
+      {
+        "candidate_id": "PLAN0080",
+        "intervention_type": "turn_lane",
+        "capacity_delta_vph": 450,
+        "cost_index": 5,
+        "feasibility_band": "low"
+      }
+    ],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0116",
+    "source_node": "N042",
+    "target_node": "N030",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 40.0,
+    "grade_pct": 0.93,
+    "structural_bottleneck": true,
+    "importance_score": 1.243,
+    "recurrence_rate_pct": 96.1,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Uncontrolled merge: Lack of upstream metering causes shockwave turbulence."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0299",
+    "source_node": "N078",
+    "target_node": "N090",
+    "road_class": "arterial",
+    "lanes": 1,
+    "capacity_vph": 1035.0,
+    "free_flow_speed_kmh": 60.0,
+    "grade_pct": -2.65,
+    "structural_bottleneck": true,
+    "importance_score": 1.243,
+    "recurrence_rate_pct": 96.1,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 1 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of -2.6% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG052 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [
+      {
+        "candidate_id": "PLAN0298",
+        "intervention_type": "capacity_upgrade",
+        "capacity_delta_vph": 500,
+        "cost_index": 12,
+        "feasibility_band": "medium"
+      }
+    ],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0303",
+    "source_node": "N079",
+    "target_node": "N091",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": 1.62,
+    "structural_bottleneck": true,
+    "importance_score": 1.242,
+    "recurrence_rate_pct": 96.0,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Signalized cycle split constraint: Signal ID SIG051 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0346",
+    "source_node": "N102",
+    "target_node": "N090",
+    "road_class": "arterial",
+    "lanes": 3,
+    "capacity_vph": 3105.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": -1.32,
+    "structural_bottleneck": true,
+    "importance_score": 1.242,
+    "recurrence_rate_pct": 96.1,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Signalized cycle split constraint: Signal ID SIG052 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [
+      {
+        "candidate_id": "PLAN0345",
+        "intervention_type": "capacity_upgrade",
+        "capacity_delta_vph": 500,
+        "cost_index": 12,
+        "feasibility_band": "medium"
+      }
+    ],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0011",
+    "source_node": "N003",
+    "target_node": "N015",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 50.0,
+    "grade_pct": -3.4,
+    "structural_bottleneck": true,
+    "importance_score": 1.238,
+    "recurrence_rate_pct": 95.9,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of -3.4% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG001 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0290",
+    "source_node": "N077",
+    "target_node": "N076",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 60.0,
+    "grade_pct": -3.84,
+    "structural_bottleneck": true,
+    "importance_score": 1.238,
+    "recurrence_rate_pct": 95.9,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of -3.8% induces heavy vehicle crawl speed reduction.",
+      "Uncontrolled merge: Lack of upstream metering causes shockwave turbulence."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0301",
+    "source_node": "N079",
+    "target_node": "N080",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 50.0,
+    "grade_pct": 1.7,
+    "structural_bottleneck": true,
+    "importance_score": 1.234,
+    "recurrence_rate_pct": 95.8,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Signalized cycle split constraint: Signal ID SIG059 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0148",
+    "source_node": "N040",
+    "target_node": "N039",
+    "road_class": "arterial",
+    "lanes": 1,
+    "capacity_vph": 1035.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": -3.47,
+    "structural_bottleneck": true,
+    "importance_score": 1.233,
+    "recurrence_rate_pct": 95.8,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 1 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of -3.5% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG009 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0070",
+    "source_node": "N030",
+    "target_node": "N018",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 50.0,
+    "grade_pct": 0.69,
+    "structural_bottleneck": true,
+    "importance_score": 1.229,
+    "recurrence_rate_pct": 95.7,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Signalized cycle split constraint: Signal ID SIG004 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [
+      {
+        "candidate_id": "PLAN0069",
+        "intervention_type": "signal_retiming",
+        "capacity_delta_vph": 250,
+        "cost_index": 2,
+        "feasibility_band": "low"
+      }
+    ],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0311",
+    "source_node": "N081",
+    "target_node": "N093",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 40.0,
+    "grade_pct": 2.52,
+    "structural_bottleneck": true,
+    "importance_score": 1.225,
+    "recurrence_rate_pct": 95.6,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of 2.5% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG049 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [
+      {
+        "candidate_id": "PLAN0310",
+        "intervention_type": "lane_addition",
+        "capacity_delta_vph": 900,
+        "cost_index": 8,
+        "feasibility_band": "medium"
+      }
+    ],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0288",
+    "source_node": "N087",
+    "target_node": "N075",
+    "road_class": "arterial",
+    "lanes": 1,
+    "capacity_vph": 1035.0,
+    "free_flow_speed_kmh": 40.0,
+    "grade_pct": 0.2,
+    "structural_bottleneck": true,
+    "importance_score": 1.224,
+    "recurrence_rate_pct": 95.6,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 1 lanes available for high arterial demand.",
+      "Signalized cycle split constraint: Signal ID SIG027 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0130",
+    "source_node": "N035",
+    "target_node": "N034",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": -2.65,
+    "structural_bottleneck": true,
+    "importance_score": 1.223,
+    "recurrence_rate_pct": 95.6,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of -2.6% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG012 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0343",
+    "source_node": "N090",
+    "target_node": "N091",
+    "road_class": "arterial",
+    "lanes": 1,
+    "capacity_vph": 1035.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": 0.51,
+    "structural_bottleneck": true,
+    "importance_score": 1.223,
+    "recurrence_rate_pct": 95.6,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 1 lanes available for high arterial demand.",
+      "Signalized cycle split constraint: Signal ID SIG051 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0392",
+    "source_node": "N114",
+    "target_node": "N102",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": -1.98,
+    "structural_bottleneck": true,
+    "importance_score": 1.218,
+    "recurrence_rate_pct": 95.4,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Signalized cycle split constraint: Signal ID SIG044 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0173",
+    "source_node": "N045",
+    "target_node": "N057",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 60.0,
+    "grade_pct": 3.76,
+    "structural_bottleneck": true,
+    "importance_score": 1.217,
+    "recurrence_rate_pct": 95.4,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of 3.8% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG038 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0022",
+    "source_node": "N007",
+    "target_node": "N006",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 50.0,
+    "grade_pct": 0.2,
+    "structural_bottleneck": true,
+    "importance_score": 1.213,
+    "recurrence_rate_pct": 95.3,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Signalized cycle split constraint: Signal ID SIG072 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0294",
+    "source_node": "N078",
+    "target_node": "N077",
+    "road_class": "arterial",
+    "lanes": 3,
+    "capacity_vph": 3105.0,
+    "free_flow_speed_kmh": 60.0,
+    "grade_pct": -0.29,
+    "structural_bottleneck": true,
+    "importance_score": 1.212,
+    "recurrence_rate_pct": 95.3,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Signalized cycle split constraint: Signal ID SIG056 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [
+      {
+        "candidate_id": "PLAN0293",
+        "intervention_type": "connector",
+        "capacity_delta_vph": 700,
+        "cost_index": 18,
+        "feasibility_band": "high"
+      }
+    ],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0279",
+    "source_node": "N073",
+    "target_node": "N085",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 50.0,
+    "grade_pct": 3.95,
+    "structural_bottleneck": true,
+    "importance_score": 1.211,
+    "recurrence_rate_pct": 95.3,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of 4.0% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG066 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0150",
+    "source_node": "N051",
+    "target_node": "N039",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 50.0,
+    "grade_pct": -2.06,
+    "structural_bottleneck": true,
+    "importance_score": 1.206,
+    "recurrence_rate_pct": 95.2,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of -2.1% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG009 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0174",
+    "source_node": "N057",
+    "target_node": "N045",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": -2.63,
+    "structural_bottleneck": true,
+    "importance_score": 1.204,
+    "recurrence_rate_pct": 95.1,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of -2.6% induces heavy vehicle crawl speed reduction.",
+      "Uncontrolled merge: Lack of upstream metering causes shockwave turbulence."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0099",
+    "source_node": "N026",
+    "target_node": "N038",
+    "road_class": "arterial",
+    "lanes": 3,
+    "capacity_vph": 3105.0,
+    "free_flow_speed_kmh": 60.0,
+    "grade_pct": -2.05,
+    "structural_bottleneck": true,
+    "importance_score": 1.203,
+    "recurrence_rate_pct": 95.1,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Geometric vertical incline: Grade of -2.0% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG010 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0284",
+    "source_node": "N086",
+    "target_node": "N074",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 40.0,
+    "grade_pct": 2.42,
+    "structural_bottleneck": true,
+    "importance_score": 1.201,
+    "recurrence_rate_pct": 95.0,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of 2.4% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG026 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0315",
+    "source_node": "N082",
+    "target_node": "N094",
+    "road_class": "arterial",
+    "lanes": 1,
+    "capacity_vph": 1035.0,
+    "free_flow_speed_kmh": 40.0,
+    "grade_pct": 3.29,
+    "structural_bottleneck": true,
+    "importance_score": 1.201,
+    "recurrence_rate_pct": 95.0,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 1 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of 3.3% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG055 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0287",
+    "source_node": "N075",
+    "target_node": "N087",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 40.0,
+    "grade_pct": 0.78,
+    "structural_bottleneck": true,
+    "importance_score": 1.195,
+    "recurrence_rate_pct": 94.9,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Signalized cycle split constraint: Signal ID SIG053 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0220",
+    "source_node": "N069",
+    "target_node": "N057",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 40.0,
+    "grade_pct": -1.21,
+    "structural_bottleneck": true,
+    "importance_score": 1.191,
+    "recurrence_rate_pct": 94.8,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Signalized cycle split constraint: Signal ID SIG038 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0419",
+    "source_node": "N111",
+    "target_node": "N112",
+    "road_class": "arterial",
+    "lanes": 1,
+    "capacity_vph": 1035.0,
+    "free_flow_speed_kmh": 50.0,
+    "grade_pct": -1.9,
+    "structural_bottleneck": true,
+    "importance_score": 1.191,
+    "recurrence_rate_pct": 94.8,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 1 lanes available for high arterial demand.",
+      "Uncontrolled merge: Lack of upstream metering causes shockwave turbulence."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0321",
+    "source_node": "N084",
+    "target_node": "N096",
+    "road_class": "arterial",
+    "lanes": 1,
+    "capacity_vph": 1035.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": 2.01,
+    "structural_bottleneck": true,
+    "importance_score": 1.187,
+    "recurrence_rate_pct": 94.7,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 1 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of 2.0% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG067 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0101",
+    "source_node": "N027",
+    "target_node": "N028",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": 1.05,
+    "structural_bottleneck": true,
+    "importance_score": 1.184,
+    "recurrence_rate_pct": 94.6,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Signalized cycle split constraint: Signal ID SIG016 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0305",
+    "source_node": "N080",
+    "target_node": "N081",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 40.0,
+    "grade_pct": 2.95,
+    "structural_bottleneck": true,
+    "importance_score": 1.178,
+    "recurrence_rate_pct": 94.5,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of 3.0% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG060 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0318",
+    "source_node": "N084",
+    "target_node": "N083",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 50.0,
+    "grade_pct": 1.06,
+    "structural_bottleneck": true,
+    "importance_score": 1.178,
+    "recurrence_rate_pct": 94.5,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Signalized cycle split constraint: Signal ID SIG025 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0266",
+    "source_node": "N081",
+    "target_node": "N069",
+    "road_class": "arterial",
+    "lanes": 3,
+    "capacity_vph": 3105.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": 3.37,
+    "structural_bottleneck": true,
+    "importance_score": 1.174,
+    "recurrence_rate_pct": 94.4,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Geometric vertical incline: Grade of 3.4% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG031 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0127",
+    "source_node": "N033",
+    "target_node": "N045",
+    "road_class": "arterial",
+    "lanes": 1,
+    "capacity_vph": 1035.0,
+    "free_flow_speed_kmh": 40.0,
+    "grade_pct": 1.75,
+    "structural_bottleneck": true,
+    "importance_score": 1.168,
+    "recurrence_rate_pct": 94.2,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 1 lanes available for high arterial demand.",
+      "Uncontrolled merge: Lack of upstream metering causes shockwave turbulence."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0128",
+    "source_node": "N045",
+    "target_node": "N033",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 40.0,
+    "grade_pct": 3.85,
+    "structural_bottleneck": true,
+    "importance_score": 1.167,
+    "recurrence_rate_pct": 94.2,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of 3.9% induces heavy vehicle crawl speed reduction.",
+      "Uncontrolled merge: Lack of upstream metering causes shockwave turbulence."
+    ],
+    "dataset_planning_candidates": [
+      {
+        "candidate_id": "PLAN0127",
+        "intervention_type": "capacity_upgrade",
+        "capacity_delta_vph": 500,
+        "cost_index": 12,
+        "feasibility_band": "medium"
+      }
+    ],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0117",
+    "source_node": "N031",
+    "target_node": "N032",
+    "road_class": "arterial",
+    "lanes": 1,
+    "capacity_vph": 1035.0,
+    "free_flow_speed_kmh": 50.0,
+    "grade_pct": 0.34,
+    "structural_bottleneck": true,
+    "importance_score": 1.164,
+    "recurrence_rate_pct": 94.1,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 1 lanes available for high arterial demand.",
+      "Uncontrolled merge: Lack of upstream metering causes shockwave turbulence."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0355",
+    "source_node": "N093",
+    "target_node": "N094",
+    "road_class": "arterial",
+    "lanes": 3,
+    "capacity_vph": 3105.0,
+    "free_flow_speed_kmh": 60.0,
+    "grade_pct": -2.9,
+    "structural_bottleneck": true,
+    "importance_score": 1.164,
+    "recurrence_rate_pct": 94.1,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Geometric vertical incline: Grade of -2.9% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG055 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0390",
+    "source_node": "N103",
+    "target_node": "N102",
+    "road_class": "arterial",
+    "lanes": 3,
+    "capacity_vph": 3105.0,
+    "free_flow_speed_kmh": 60.0,
+    "grade_pct": -3.41,
+    "structural_bottleneck": true,
+    "importance_score": 1.161,
+    "recurrence_rate_pct": 94.0,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Geometric vertical incline: Grade of -3.4% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG044 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0160",
+    "source_node": "N043",
+    "target_node": "N042",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 50.0,
+    "grade_pct": -3.64,
+    "structural_bottleneck": true,
+    "importance_score": 1.156,
+    "recurrence_rate_pct": 93.9,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of -3.6% induces heavy vehicle crawl speed reduction.",
+      "Uncontrolled merge: Lack of upstream metering causes shockwave turbulence."
+    ],
+    "dataset_planning_candidates": [
+      {
+        "candidate_id": "PLAN0159",
+        "intervention_type": "connector",
+        "capacity_delta_vph": 700,
+        "cost_index": 18,
+        "feasibility_band": "high"
+      }
+    ],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0389",
+    "source_node": "N102",
+    "target_node": "N103",
+    "road_class": "arterial",
+    "lanes": 3,
+    "capacity_vph": 3105.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": -1.77,
+    "structural_bottleneck": true,
+    "importance_score": 1.155,
+    "recurrence_rate_pct": 93.9,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Signalized cycle split constraint: Signal ID SIG046 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [
+      {
+        "candidate_id": "PLAN0388",
+        "intervention_type": "connector",
+        "capacity_delta_vph": 700,
+        "cost_index": 18,
+        "feasibility_band": "high"
+      }
+    ],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0297",
+    "source_node": "N078",
+    "target_node": "N079",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 50.0,
+    "grade_pct": -0.24,
+    "structural_bottleneck": true,
+    "importance_score": 1.148,
+    "recurrence_rate_pct": 93.7,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Signalized cycle split constraint: Signal ID SIG057 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0404",
+    "source_node": "N117",
+    "target_node": "N105",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": -3.84,
+    "structural_bottleneck": true,
+    "importance_score": 1.147,
+    "recurrence_rate_pct": 93.7,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of -3.8% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG047 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0264",
+    "source_node": "N070",
+    "target_node": "N069",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 60.0,
+    "grade_pct": -2.09,
+    "structural_bottleneck": true,
+    "importance_score": 1.145,
+    "recurrence_rate_pct": 93.6,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of -2.1% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG031 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0194",
+    "source_node": "N052",
+    "target_node": "N051",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 60.0,
+    "grade_pct": -1.6,
+    "structural_bottleneck": true,
+    "importance_score": 1.144,
+    "recurrence_rate_pct": 93.6,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Uncontrolled merge: Lack of upstream metering causes shockwave turbulence."
+    ],
+    "dataset_planning_candidates": [
+      {
+        "candidate_id": "PLAN0193",
+        "intervention_type": "connector",
+        "capacity_delta_vph": 700,
+        "cost_index": 18,
+        "feasibility_band": "high"
+      }
+    ],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0331",
+    "source_node": "N087",
+    "target_node": "N088",
+    "road_class": "arterial",
+    "lanes": 1,
+    "capacity_vph": 1035.0,
+    "free_flow_speed_kmh": 50.0,
+    "grade_pct": -2.02,
+    "structural_bottleneck": true,
+    "importance_score": 1.144,
+    "recurrence_rate_pct": 93.6,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 1 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of -2.0% induces heavy vehicle crawl speed reduction.",
+      "Uncontrolled merge: Lack of upstream metering causes shockwave turbulence."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0322",
+    "source_node": "N096",
+    "target_node": "N084",
+    "road_class": "arterial",
+    "lanes": 3,
+    "capacity_vph": 3105.0,
+    "free_flow_speed_kmh": 40.0,
+    "grade_pct": -1.51,
+    "structural_bottleneck": true,
+    "importance_score": 1.143,
+    "recurrence_rate_pct": 93.6,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Signalized cycle split constraint: Signal ID SIG073 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [
+      {
+        "candidate_id": "PLAN0321",
+        "intervention_type": "capacity_upgrade",
+        "capacity_delta_vph": 500,
+        "cost_index": 12,
+        "feasibility_band": "medium"
+      }
+    ],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0135",
+    "source_node": "N035",
+    "target_node": "N047",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 60.0,
+    "grade_pct": -1.16,
+    "structural_bottleneck": true,
+    "importance_score": 1.142,
+    "recurrence_rate_pct": 93.5,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Uncontrolled merge: Lack of upstream metering causes shockwave turbulence."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0106",
+    "source_node": "N029",
+    "target_node": "N028",
+    "road_class": "arterial",
+    "lanes": 1,
+    "capacity_vph": 1035.0,
+    "free_flow_speed_kmh": 60.0,
+    "grade_pct": 3.55,
+    "structural_bottleneck": true,
+    "importance_score": 1.138,
+    "recurrence_rate_pct": 93.4,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 1 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of 3.5% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG016 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [
+      {
+        "candidate_id": "PLAN0105",
+        "intervention_type": "connector",
+        "capacity_delta_vph": 700,
+        "cost_index": 18,
+        "feasibility_band": "high"
+      }
+    ],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0112",
+    "source_node": "N041",
+    "target_node": "N029",
+    "road_class": "arterial",
+    "lanes": 3,
+    "capacity_vph": 3105.0,
+    "free_flow_speed_kmh": 60.0,
+    "grade_pct": 1.02,
+    "structural_bottleneck": true,
+    "importance_score": 1.137,
+    "recurrence_rate_pct": 93.4,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Signalized cycle split constraint: Signal ID SIG015 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0126",
+    "source_node": "N034",
+    "target_node": "N033",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": 2.06,
+    "structural_bottleneck": true,
+    "importance_score": 1.134,
+    "recurrence_rate_pct": 93.4,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of 2.1% induces heavy vehicle crawl speed reduction.",
+      "Uncontrolled merge: Lack of upstream metering causes shockwave turbulence."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0136",
+    "source_node": "N047",
+    "target_node": "N035",
+    "road_class": "arterial",
+    "lanes": 3,
+    "capacity_vph": 3105.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": -2.53,
+    "structural_bottleneck": true,
+    "importance_score": 1.133,
+    "recurrence_rate_pct": 93.3,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Geometric vertical incline: Grade of -2.5% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG011 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0118",
+    "source_node": "N032",
+    "target_node": "N031",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": -0.77,
+    "structural_bottleneck": true,
+    "importance_score": 1.131,
+    "recurrence_rate_pct": 93.3,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Signalized cycle split constraint: Signal ID SIG014 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0401",
+    "source_node": "N105",
+    "target_node": "N106",
+    "road_class": "arterial",
+    "lanes": 3,
+    "capacity_vph": 3105.0,
+    "free_flow_speed_kmh": 50.0,
+    "grade_pct": -3.8,
+    "structural_bottleneck": true,
+    "importance_score": 1.13,
+    "recurrence_rate_pct": 93.2,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Geometric vertical incline: Grade of -3.8% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG048 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0149",
+    "source_node": "N039",
+    "target_node": "N051",
+    "road_class": "arterial",
+    "lanes": 1,
+    "capacity_vph": 1035.0,
+    "free_flow_speed_kmh": 40.0,
+    "grade_pct": 1.2,
+    "structural_bottleneck": true,
+    "importance_score": 1.128,
+    "recurrence_rate_pct": 93.2,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 1 lanes available for high arterial demand.",
+      "Uncontrolled merge: Lack of upstream metering causes shockwave turbulence."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0171",
+    "source_node": "N045",
+    "target_node": "N046",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 50.0,
+    "grade_pct": -0.25,
+    "structural_bottleneck": true,
+    "importance_score": 1.128,
+    "recurrence_rate_pct": 93.2,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Signalized cycle split constraint: Signal ID SIG021 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0159",
+    "source_node": "N042",
+    "target_node": "N043",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": 1.72,
+    "structural_bottleneck": true,
+    "importance_score": 1.127,
+    "recurrence_rate_pct": 93.2,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Signalized cycle split constraint: Signal ID SIG008 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0138",
+    "source_node": "N048",
+    "target_node": "N036",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 50.0,
+    "grade_pct": -0.47,
+    "structural_bottleneck": true,
+    "importance_score": 1.124,
+    "recurrence_rate_pct": 93.1,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Signalized cycle split constraint: Signal ID SIG070 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0162",
+    "source_node": "N054",
+    "target_node": "N042",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": -3.14,
+    "structural_bottleneck": true,
+    "importance_score": 1.12,
+    "recurrence_rate_pct": 93.0,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of -3.1% induces heavy vehicle crawl speed reduction.",
+      "Uncontrolled merge: Lack of upstream metering causes shockwave turbulence."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0121",
+    "source_node": "N032",
+    "target_node": "N033",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 40.0,
+    "grade_pct": 3.81,
+    "structural_bottleneck": true,
+    "importance_score": 1.113,
+    "recurrence_rate_pct": 92.8,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of 3.8% induces heavy vehicle crawl speed reduction.",
+      "Uncontrolled merge: Lack of upstream metering causes shockwave turbulence."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0110",
+    "source_node": "N030",
+    "target_node": "N029",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 50.0,
+    "grade_pct": 0.75,
+    "structural_bottleneck": true,
+    "importance_score": 1.112,
+    "recurrence_rate_pct": 92.8,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Signalized cycle split constraint: Signal ID SIG015 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0356",
+    "source_node": "N094",
+    "target_node": "N093",
+    "road_class": "arterial",
+    "lanes": 3,
+    "capacity_vph": 3105.0,
+    "free_flow_speed_kmh": 50.0,
+    "grade_pct": 2.55,
+    "structural_bottleneck": true,
+    "importance_score": 1.108,
+    "recurrence_rate_pct": 92.7,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Geometric vertical incline: Grade of 2.5% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG049 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0240",
+    "source_node": "N064",
+    "target_node": "N063",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": -2.74,
+    "structural_bottleneck": true,
+    "importance_score": 1.107,
+    "recurrence_rate_pct": 92.7,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of -2.7% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG033 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0134",
+    "source_node": "N036",
+    "target_node": "N035",
+    "road_class": "arterial",
+    "lanes": 3,
+    "capacity_vph": 3105.0,
+    "free_flow_speed_kmh": 40.0,
+    "grade_pct": -1.08,
+    "structural_bottleneck": true,
+    "importance_score": 1.105,
+    "recurrence_rate_pct": 92.6,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Signalized cycle split constraint: Signal ID SIG011 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0300",
+    "source_node": "N090",
+    "target_node": "N078",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": 1.2,
+    "structural_bottleneck": true,
+    "importance_score": 1.103,
+    "recurrence_rate_pct": 92.6,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Signalized cycle split constraint: Signal ID SIG058 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0425",
+    "source_node": "N114",
+    "target_node": "N115",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 40.0,
+    "grade_pct": -1.02,
+    "structural_bottleneck": true,
+    "importance_score": 1.102,
+    "recurrence_rate_pct": 92.6,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Signalized cycle split constraint: Signal ID SIG086 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [
+      {
+        "candidate_id": "PLAN0424",
+        "intervention_type": "lane_addition",
+        "capacity_delta_vph": 900,
+        "cost_index": 8,
+        "feasibility_band": "medium"
+      }
+    ],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0357",
+    "source_node": "N093",
+    "target_node": "N105",
+    "road_class": "arterial",
+    "lanes": 1,
+    "capacity_vph": 1035.0,
+    "free_flow_speed_kmh": 50.0,
+    "grade_pct": -1.42,
+    "structural_bottleneck": true,
+    "importance_score": 1.097,
+    "recurrence_rate_pct": 92.4,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 1 lanes available for high arterial demand.",
+      "Signalized cycle split constraint: Signal ID SIG047 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0033",
+    "source_node": "N009",
+    "target_node": "N010",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 60.0,
+    "grade_pct": -3.2,
+    "structural_bottleneck": true,
+    "importance_score": 1.096,
+    "recurrence_rate_pct": 92.4,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of -3.2% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG064 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [
+      {
+        "candidate_id": "PLAN0032",
+        "intervention_type": "signal_retiming",
+        "capacity_delta_vph": 250,
+        "cost_index": 2,
+        "feasibility_band": "low"
+      }
+    ],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0320",
+    "source_node": "N095",
+    "target_node": "N083",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 50.0,
+    "grade_pct": -1.24,
+    "structural_bottleneck": true,
+    "importance_score": 1.086,
+    "recurrence_rate_pct": 92.2,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Signalized cycle split constraint: Signal ID SIG025 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0208",
+    "source_node": "N066",
+    "target_node": "N054",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 60.0,
+    "grade_pct": -3.6,
+    "structural_bottleneck": true,
+    "importance_score": 1.085,
+    "recurrence_rate_pct": 92.1,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of -3.6% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG023 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0131",
+    "source_node": "N034",
+    "target_node": "N046",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 60.0,
+    "grade_pct": -0.59,
+    "structural_bottleneck": true,
+    "importance_score": 1.082,
+    "recurrence_rate_pct": 92.1,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Signalized cycle split constraint: Signal ID SIG021 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0306",
+    "source_node": "N081",
+    "target_node": "N080",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 60.0,
+    "grade_pct": -0.96,
+    "structural_bottleneck": true,
+    "importance_score": 1.082,
+    "recurrence_rate_pct": 92.0,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Signalized cycle split constraint: Signal ID SIG059 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0289",
+    "source_node": "N076",
+    "target_node": "N077",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": -2.62,
+    "structural_bottleneck": true,
+    "importance_score": 1.08,
+    "recurrence_rate_pct": 92.0,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of -2.6% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG056 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [
+      {
+        "candidate_id": "PLAN0288",
+        "intervention_type": "connector",
+        "capacity_delta_vph": 700,
+        "cost_index": 18,
+        "feasibility_band": "high"
+      }
+    ],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0147",
+    "source_node": "N039",
+    "target_node": "N040",
+    "road_class": "arterial",
+    "lanes": 3,
+    "capacity_vph": 3105.0,
+    "free_flow_speed_kmh": 40.0,
+    "grade_pct": 0.92,
+    "structural_bottleneck": true,
+    "importance_score": 1.075,
+    "recurrence_rate_pct": 91.9,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Signalized cycle split constraint: Signal ID SIG013 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0129",
+    "source_node": "N034",
+    "target_node": "N035",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 40.0,
+    "grade_pct": -2.36,
+    "structural_bottleneck": true,
+    "importance_score": 1.073,
+    "recurrence_rate_pct": 91.8,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of -2.4% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG011 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0251",
+    "source_node": "N066",
+    "target_node": "N067",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 40.0,
+    "grade_pct": 0.4,
+    "structural_bottleneck": true,
+    "importance_score": 1.068,
+    "recurrence_rate_pct": 91.7,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Signalized cycle split constraint: Signal ID SIG029 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0333",
+    "source_node": "N087",
+    "target_node": "N099",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": -2.89,
+    "structural_bottleneck": true,
+    "importance_score": 1.067,
+    "recurrence_rate_pct": 91.7,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of -2.9% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG040 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0196",
+    "source_node": "N063",
+    "target_node": "N051",
+    "road_class": "arterial",
+    "lanes": 1,
+    "capacity_vph": 1035.0,
+    "free_flow_speed_kmh": 50.0,
+    "grade_pct": -0.55,
+    "structural_bottleneck": true,
+    "importance_score": 1.066,
+    "recurrence_rate_pct": 91.6,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 1 lanes available for high arterial demand.",
+      "Uncontrolled merge: Lack of upstream metering causes shockwave turbulence."
+    ],
+    "dataset_planning_candidates": [
+      {
+        "candidate_id": "PLAN0195",
+        "intervention_type": "lane_addition",
+        "capacity_delta_vph": 900,
+        "cost_index": 8,
+        "feasibility_band": "medium"
+      }
+    ],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0432",
+    "source_node": "N118",
+    "target_node": "N117",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 40.0,
+    "grade_pct": 0.08,
+    "structural_bottleneck": true,
+    "importance_score": 1.064,
+    "recurrence_rate_pct": 91.6,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Signalized cycle split constraint: Signal ID SIG077 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0111",
+    "source_node": "N029",
+    "target_node": "N041",
+    "road_class": "arterial",
+    "lanes": 1,
+    "capacity_vph": 1035.0,
+    "free_flow_speed_kmh": 40.0,
+    "grade_pct": 3.84,
+    "structural_bottleneck": true,
+    "importance_score": 1.061,
+    "recurrence_rate_pct": 91.5,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 1 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of 3.8% induces heavy vehicle crawl speed reduction.",
+      "Uncontrolled merge: Lack of upstream metering causes shockwave turbulence."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0009",
+    "source_node": "N003",
+    "target_node": "N004",
+    "road_class": "arterial",
+    "lanes": 1,
+    "capacity_vph": 1035.0,
+    "free_flow_speed_kmh": 50.0,
+    "grade_pct": 2.79,
+    "structural_bottleneck": true,
+    "importance_score": 1.06,
+    "recurrence_rate_pct": 91.5,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 1 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of 2.8% induces heavy vehicle crawl speed reduction.",
+      "Uncontrolled merge: Lack of upstream metering causes shockwave turbulence."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0024",
+    "source_node": "N018",
+    "target_node": "N006",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": -3.0,
+    "structural_bottleneck": true,
+    "importance_score": 1.057,
+    "recurrence_rate_pct": 91.4,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of -3.0% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG072 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [
+      {
+        "candidate_id": "PLAN0023",
+        "intervention_type": "capacity_upgrade",
+        "capacity_delta_vph": 500,
+        "cost_index": 12,
+        "feasibility_band": "medium"
+      }
+    ],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0103",
+    "source_node": "N027",
+    "target_node": "N039",
+    "road_class": "arterial",
+    "lanes": 1,
+    "capacity_vph": 1035.0,
+    "free_flow_speed_kmh": 60.0,
+    "grade_pct": 2.03,
+    "structural_bottleneck": true,
+    "importance_score": 1.057,
+    "recurrence_rate_pct": 91.4,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 1 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of 2.0% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG009 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0034",
+    "source_node": "N010",
+    "target_node": "N009",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": 3.32,
+    "structural_bottleneck": true,
+    "importance_score": 1.055,
+    "recurrence_rate_pct": 91.4,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of 3.3% induces heavy vehicle crawl speed reduction.",
+      "Uncontrolled merge: Lack of upstream metering causes shockwave turbulence."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0278",
+    "source_node": "N074",
+    "target_node": "N073",
+    "road_class": "arterial",
+    "lanes": 1,
+    "capacity_vph": 1035.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": -2.66,
+    "structural_bottleneck": true,
+    "importance_score": 1.054,
+    "recurrence_rate_pct": 91.4,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 1 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of -2.7% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG075 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [
+      {
+        "candidate_id": "PLAN0277",
+        "intervention_type": "connector",
+        "capacity_delta_vph": 700,
+        "cost_index": 18,
+        "feasibility_band": "high"
+      }
+    ],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0107",
+    "source_node": "N028",
+    "target_node": "N040",
+    "road_class": "arterial",
+    "lanes": 1,
+    "capacity_vph": 1035.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": 2.26,
+    "structural_bottleneck": true,
+    "importance_score": 1.048,
+    "recurrence_rate_pct": 91.2,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 1 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of 2.3% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG013 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [
+      {
+        "candidate_id": "PLAN0106",
+        "intervention_type": "capacity_upgrade",
+        "capacity_delta_vph": 500,
+        "cost_index": 12,
+        "feasibility_band": "medium"
+      }
+    ],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0057",
+    "source_node": "N015",
+    "target_node": "N027",
+    "road_class": "arterial",
+    "lanes": 3,
+    "capacity_vph": 3105.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": -3.08,
+    "structural_bottleneck": true,
+    "importance_score": 1.039,
+    "recurrence_rate_pct": 91.0,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Geometric vertical incline: Grade of -3.1% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG017 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0308",
+    "source_node": "N092",
+    "target_node": "N080",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 60.0,
+    "grade_pct": 2.44,
+    "structural_bottleneck": true,
+    "importance_score": 1.039,
+    "recurrence_rate_pct": 91.0,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of 2.4% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG059 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0219",
+    "source_node": "N057",
+    "target_node": "N069",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": -0.78,
+    "structural_bottleneck": true,
+    "importance_score": 1.037,
+    "recurrence_rate_pct": 90.9,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Signalized cycle split constraint: Signal ID SIG031 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0095",
+    "source_node": "N025",
+    "target_node": "N037",
+    "road_class": "arterial",
+    "lanes": 1,
+    "capacity_vph": 1035.0,
+    "free_flow_speed_kmh": 50.0,
+    "grade_pct": -2.33,
+    "structural_bottleneck": true,
+    "importance_score": 1.034,
+    "recurrence_rate_pct": 90.8,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 1 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of -2.3% induces heavy vehicle crawl speed reduction.",
+      "Uncontrolled merge: Lack of upstream metering causes shockwave turbulence."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0056",
+    "source_node": "N016",
+    "target_node": "N015",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 40.0,
+    "grade_pct": 3.13,
+    "structural_bottleneck": true,
+    "importance_score": 1.028,
+    "recurrence_rate_pct": 90.7,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of 3.1% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG001 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [
+      {
+        "candidate_id": "PLAN0055",
+        "intervention_type": "signal_retiming",
+        "capacity_delta_vph": 250,
+        "cost_index": 2,
+        "feasibility_band": "low"
+      }
+    ],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0093",
+    "source_node": "N025",
+    "target_node": "N026",
+    "road_class": "arterial",
+    "lanes": 1,
+    "capacity_vph": 1035.0,
+    "free_flow_speed_kmh": 60.0,
+    "grade_pct": 1.55,
+    "structural_bottleneck": true,
+    "importance_score": 1.028,
+    "recurrence_rate_pct": 90.7,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 1 lanes available for high arterial demand.",
+      "Signalized cycle split constraint: Signal ID SIG018 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0295",
+    "source_node": "N077",
+    "target_node": "N089",
+    "road_class": "arterial",
+    "lanes": 1,
+    "capacity_vph": 1035.0,
+    "free_flow_speed_kmh": 50.0,
+    "grade_pct": -1.95,
+    "structural_bottleneck": true,
+    "importance_score": 1.026,
+    "recurrence_rate_pct": 90.7,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 1 lanes available for high arterial demand.",
+      "Uncontrolled merge: Lack of upstream metering causes shockwave turbulence."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0310",
+    "source_node": "N082",
+    "target_node": "N081",
+    "road_class": "arterial",
+    "lanes": 1,
+    "capacity_vph": 1035.0,
+    "free_flow_speed_kmh": 60.0,
+    "grade_pct": 1.48,
+    "structural_bottleneck": true,
+    "importance_score": 1.024,
+    "recurrence_rate_pct": 90.6,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 1 lanes available for high arterial demand.",
+      "Signalized cycle split constraint: Signal ID SIG060 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0431",
+    "source_node": "N117",
+    "target_node": "N118",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": -2.5,
+    "structural_bottleneck": true,
+    "importance_score": 1.022,
+    "recurrence_rate_pct": 90.6,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of -2.5% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG085 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0105",
+    "source_node": "N028",
+    "target_node": "N029",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": -3.79,
+    "structural_bottleneck": true,
+    "importance_score": 1.017,
+    "recurrence_rate_pct": 90.4,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of -3.8% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG015 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0207",
+    "source_node": "N054",
+    "target_node": "N066",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 50.0,
+    "grade_pct": 1.61,
+    "structural_bottleneck": true,
+    "importance_score": 1.013,
+    "recurrence_rate_pct": 90.3,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Uncontrolled merge: Lack of upstream metering causes shockwave turbulence."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0253",
+    "source_node": "N066",
+    "target_node": "N078",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 50.0,
+    "grade_pct": 3.61,
+    "structural_bottleneck": true,
+    "importance_score": 1.013,
+    "recurrence_rate_pct": 90.3,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of 3.6% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG058 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0122",
+    "source_node": "N033",
+    "target_node": "N032",
+    "road_class": "arterial",
+    "lanes": 3,
+    "capacity_vph": 3105.0,
+    "free_flow_speed_kmh": 40.0,
+    "grade_pct": 3.54,
+    "structural_bottleneck": true,
+    "importance_score": 1.012,
+    "recurrence_rate_pct": 90.3,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Geometric vertical incline: Grade of 3.5% induces heavy vehicle crawl speed reduction.",
+      "Uncontrolled merge: Lack of upstream metering causes shockwave turbulence."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0242",
+    "source_node": "N075",
+    "target_node": "N063",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": -3.96,
+    "structural_bottleneck": true,
+    "importance_score": 1.008,
+    "recurrence_rate_pct": 90.2,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of -4.0% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG033 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0067",
+    "source_node": "N018",
+    "target_node": "N019",
+    "road_class": "arterial",
+    "lanes": 3,
+    "capacity_vph": 3105.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": -2.88,
+    "structural_bottleneck": true,
+    "importance_score": 1.007,
+    "recurrence_rate_pct": 90.2,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Geometric vertical incline: Grade of -2.9% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG005 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0036",
+    "source_node": "N021",
+    "target_node": "N009",
+    "road_class": "arterial",
+    "lanes": 3,
+    "capacity_vph": 3105.0,
+    "free_flow_speed_kmh": 50.0,
+    "grade_pct": 2.41,
+    "structural_bottleneck": true,
+    "importance_score": 1.006,
+    "recurrence_rate_pct": 90.2,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Geometric vertical incline: Grade of 2.4% induces heavy vehicle crawl speed reduction.",
+      "Uncontrolled merge: Lack of upstream metering causes shockwave turbulence."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0283",
+    "source_node": "N074",
+    "target_node": "N086",
+    "road_class": "arterial",
+    "lanes": 1,
+    "capacity_vph": 1035.0,
+    "free_flow_speed_kmh": 50.0,
+    "grade_pct": -1.14,
+    "structural_bottleneck": true,
+    "importance_score": 1.006,
+    "recurrence_rate_pct": 90.1,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 1 lanes available for high arterial demand.",
+      "Signalized cycle split constraint: Signal ID SIG054 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0205",
+    "source_node": "N054",
+    "target_node": "N055",
+    "road_class": "arterial",
+    "lanes": 3,
+    "capacity_vph": 3105.0,
+    "free_flow_speed_kmh": 50.0,
+    "grade_pct": -3.15,
+    "structural_bottleneck": true,
+    "importance_score": 1.005,
+    "recurrence_rate_pct": 90.1,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Geometric vertical incline: Grade of -3.1% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG019 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0010",
+    "source_node": "N004",
+    "target_node": "N003",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": -0.38,
+    "structural_bottleneck": true,
+    "importance_score": 1.004,
+    "recurrence_rate_pct": 90.1,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Signalized cycle split constraint: Signal ID SIG065 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0307",
+    "source_node": "N080",
+    "target_node": "N092",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 50.0,
+    "grade_pct": 3.54,
+    "structural_bottleneck": true,
+    "importance_score": 1.003,
+    "recurrence_rate_pct": 90.1,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of 3.5% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG050 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0292",
+    "source_node": "N088",
+    "target_node": "N076",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 40.0,
+    "grade_pct": -2.63,
+    "structural_bottleneck": true,
+    "importance_score": 1.002,
+    "recurrence_rate_pct": 90.0,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of -2.6% induces heavy vehicle crawl speed reduction.",
+      "Uncontrolled merge: Lack of upstream metering causes shockwave turbulence."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0298",
+    "source_node": "N079",
+    "target_node": "N078",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 60.0,
+    "grade_pct": -1.92,
+    "structural_bottleneck": true,
+    "importance_score": 1.002,
+    "recurrence_rate_pct": 90.0,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Signalized cycle split constraint: Signal ID SIG058 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0380",
+    "source_node": "N111",
+    "target_node": "N099",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 50.0,
+    "grade_pct": -0.96,
+    "structural_bottleneck": true,
+    "importance_score": 1.0,
+    "recurrence_rate_pct": 90.0,
+    "congested_days_out_of_15": "14/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Signalized cycle split constraint: Signal ID SIG040 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [
+      {
+        "candidate_id": "PLAN0379",
+        "intervention_type": "capacity_upgrade",
+        "capacity_delta_vph": 500,
+        "cost_index": 12,
+        "feasibility_band": "medium"
+      }
+    ],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0035",
+    "source_node": "N009",
+    "target_node": "N021",
+    "road_class": "arterial",
+    "lanes": 3,
+    "capacity_vph": 3105.0,
+    "free_flow_speed_kmh": 60.0,
+    "grade_pct": 1.22,
+    "structural_bottleneck": true,
+    "importance_score": 0.995,
+    "recurrence_rate_pct": 89.9,
+    "congested_days_out_of_15": "13/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Signalized cycle split constraint: Signal ID SIG007 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [
+      {
+        "candidate_id": "PLAN0034",
+        "intervention_type": "connector",
+        "capacity_delta_vph": 700,
+        "cost_index": 18,
+        "feasibility_band": "high"
+      }
+    ],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0358",
+    "source_node": "N105",
+    "target_node": "N093",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": -2.76,
+    "structural_bottleneck": true,
+    "importance_score": 0.994,
+    "recurrence_rate_pct": 89.9,
+    "congested_days_out_of_15": "13/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of -2.8% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG049 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [
+      {
+        "candidate_id": "PLAN0357",
+        "intervention_type": "capacity_upgrade",
+        "capacity_delta_vph": 500,
+        "cost_index": 12,
+        "feasibility_band": "medium"
+      }
+    ],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0319",
+    "source_node": "N083",
+    "target_node": "N095",
+    "road_class": "arterial",
+    "lanes": 3,
+    "capacity_vph": 3105.0,
+    "free_flow_speed_kmh": 40.0,
+    "grade_pct": -1.46,
+    "structural_bottleneck": true,
+    "importance_score": 0.992,
+    "recurrence_rate_pct": 89.8,
+    "congested_days_out_of_15": "13/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Uncontrolled merge: Lack of upstream metering causes shockwave turbulence."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0055",
+    "source_node": "N015",
+    "target_node": "N016",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 50.0,
+    "grade_pct": -2.76,
+    "structural_bottleneck": true,
+    "importance_score": 0.991,
+    "recurrence_rate_pct": 89.8,
+    "congested_days_out_of_15": "13/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of -2.8% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG006 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0263",
+    "source_node": "N069",
+    "target_node": "N070",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 40.0,
+    "grade_pct": 3.95,
+    "structural_bottleneck": true,
+    "importance_score": 0.99,
+    "recurrence_rate_pct": 89.7,
+    "congested_days_out_of_15": "13/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of 4.0% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG030 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0334",
+    "source_node": "N099",
+    "target_node": "N087",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": -1.22,
+    "structural_bottleneck": true,
+    "importance_score": 0.983,
+    "recurrence_rate_pct": 89.6,
+    "congested_days_out_of_15": "13/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Signalized cycle split constraint: Signal ID SIG053 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [
+      {
+        "candidate_id": "PLAN0333",
+        "intervention_type": "signal_retiming",
+        "capacity_delta_vph": 250,
+        "cost_index": 2,
+        "feasibility_band": "low"
+      }
+    ],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0378",
+    "source_node": "N100",
+    "target_node": "N099",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 60.0,
+    "grade_pct": 0.24,
+    "structural_bottleneck": true,
+    "importance_score": 0.98,
+    "recurrence_rate_pct": 89.5,
+    "congested_days_out_of_15": "13/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Signalized cycle split constraint: Signal ID SIG040 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [
+      {
+        "candidate_id": "PLAN0377",
+        "intervention_type": "lane_addition",
+        "capacity_delta_vph": 900,
+        "cost_index": 8,
+        "feasibility_band": "medium"
+      }
+    ],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0120",
+    "source_node": "N043",
+    "target_node": "N031",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": -0.98,
+    "structural_bottleneck": true,
+    "importance_score": 0.974,
+    "recurrence_rate_pct": 89.3,
+    "congested_days_out_of_15": "13/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Signalized cycle split constraint: Signal ID SIG014 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0021",
+    "source_node": "N006",
+    "target_node": "N007",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 40.0,
+    "grade_pct": 0.32,
+    "structural_bottleneck": true,
+    "importance_score": 0.973,
+    "recurrence_rate_pct": 89.3,
+    "congested_days_out_of_15": "13/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Uncontrolled merge: Lack of upstream metering causes shockwave turbulence."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0217",
+    "source_node": "N057",
+    "target_node": "N058",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 50.0,
+    "grade_pct": 1.49,
+    "structural_bottleneck": true,
+    "importance_score": 0.972,
+    "recurrence_rate_pct": 89.3,
+    "congested_days_out_of_15": "13/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Signalized cycle split constraint: Signal ID SIG037 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0316",
+    "source_node": "N094",
+    "target_node": "N082",
+    "road_class": "arterial",
+    "lanes": 1,
+    "capacity_vph": 1035.0,
+    "free_flow_speed_kmh": 50.0,
+    "grade_pct": -3.73,
+    "structural_bottleneck": true,
+    "importance_score": 0.962,
+    "recurrence_rate_pct": 89.1,
+    "congested_days_out_of_15": "13/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 1 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of -3.7% induces heavy vehicle crawl speed reduction.",
+      "Uncontrolled merge: Lack of upstream metering causes shockwave turbulence."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0132",
+    "source_node": "N046",
+    "target_node": "N034",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 40.0,
+    "grade_pct": 2.19,
+    "structural_bottleneck": true,
+    "importance_score": 0.955,
+    "recurrence_rate_pct": 88.9,
+    "congested_days_out_of_15": "13/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of 2.2% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG012 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0314",
+    "source_node": "N083",
+    "target_node": "N082",
+    "road_class": "arterial",
+    "lanes": 3,
+    "capacity_vph": 3105.0,
+    "free_flow_speed_kmh": 50.0,
+    "grade_pct": 0.57,
+    "structural_bottleneck": true,
+    "importance_score": 0.955,
+    "recurrence_rate_pct": 88.9,
+    "congested_days_out_of_15": "13/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Uncontrolled merge: Lack of upstream metering causes shockwave turbulence."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0309",
+    "source_node": "N081",
+    "target_node": "N082",
+    "road_class": "arterial",
+    "lanes": 3,
+    "capacity_vph": 3105.0,
+    "free_flow_speed_kmh": 50.0,
+    "grade_pct": -0.83,
+    "structural_bottleneck": true,
+    "importance_score": 0.954,
+    "recurrence_rate_pct": 88.8,
+    "congested_days_out_of_15": "13/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Uncontrolled merge: Lack of upstream metering causes shockwave turbulence."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0332",
+    "source_node": "N088",
+    "target_node": "N087",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 50.0,
+    "grade_pct": 3.22,
+    "structural_bottleneck": true,
+    "importance_score": 0.945,
+    "recurrence_rate_pct": 88.6,
+    "congested_days_out_of_15": "13/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of 3.2% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG053 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0313",
+    "source_node": "N082",
+    "target_node": "N083",
+    "road_class": "arterial",
+    "lanes": 1,
+    "capacity_vph": 1035.0,
+    "free_flow_speed_kmh": 50.0,
+    "grade_pct": -2.8,
+    "structural_bottleneck": true,
+    "importance_score": 0.94,
+    "recurrence_rate_pct": 88.5,
+    "congested_days_out_of_15": "13/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 1 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of -2.8% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG025 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0161",
+    "source_node": "N042",
+    "target_node": "N054",
+    "road_class": "arterial",
+    "lanes": 2,
+    "capacity_vph": 2070.0,
+    "free_flow_speed_kmh": 40.0,
+    "grade_pct": 2.41,
+    "structural_bottleneck": true,
+    "importance_score": 0.939,
+    "recurrence_rate_pct": 88.5,
+    "congested_days_out_of_15": "13/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Carriageway constriction: Only 2 lanes available for high arterial demand.",
+      "Geometric vertical incline: Grade of 2.4% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG023 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [
+      {
+        "candidate_id": "PLAN0160",
+        "intervention_type": "turn_lane",
+        "capacity_delta_vph": 450,
+        "cost_index": 5,
+        "feasibility_band": "low"
+      }
+    ],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  },
+  {
+    "segment_id": "R0097",
+    "source_node": "N026",
+    "target_node": "N027",
+    "road_class": "arterial",
+    "lanes": 3,
+    "capacity_vph": 3105.0,
+    "free_flow_speed_kmh": 30.0,
+    "grade_pct": -3.33,
+    "structural_bottleneck": true,
+    "importance_score": 0.938,
+    "recurrence_rate_pct": 88.5,
+    "congested_days_out_of_15": "13/15 Days",
+    "peak_hours_window": "08:30 - 11:00 & 17:30 - 20:30 Weekdays",
+    "physical_root_causes": [
+      "Geometric vertical incline: Grade of -3.3% induces heavy vehicle crawl speed reduction.",
+      "Signalized cycle split constraint: Signal ID SIG017 cycles demand at junction."
+    ],
+    "dataset_planning_candidates": [],
+    "_provenance": {
+      "method": "DERIVED (Historical Structural Bottleneck Analysis & planning_candidates.csv)",
+      "classification": "DERIVED"
+    }
+  }
+]

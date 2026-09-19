@@ -25,12 +25,15 @@ wheels/
 *.egg
 
 # Data files (keep raw large CSVs out of git repo)
-data/raw/*.csv
-data/processed/*.parquet
+data/
+!data/.gitkeep
+*.parquet
+*.csv
 *.h5
 *.ckpt
 *.pt
 *.onnx
+*.pkl
 
 # Environment variables
 .env
