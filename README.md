@@ -72,7 +72,7 @@ Unlike conventional consumer navigation applications (which passively route driv
 ---
 
 <a id="problem-understanding"></a>
-## 1. Problem Understanding (5 / 5 Marks)
+## 1. Problem Understanding 
 
 <a id="hyderabad-operating-reality"></a>
 ### 1.1 The Hyderabad-Like Operating Reality
@@ -94,7 +94,7 @@ Regional mega-events produce severe temporary structural distortions not capture
 ---
 
 <a id="system-architecture"></a>
-## 2. System Architecture (5 / 5 Marks)
+## 2. System Architecture 
 
 <a id="architecture-flowchart"></a>
 ### 2.1 End-to-End Tiered Architecture Flowchart
