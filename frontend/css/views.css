@@ -1,0 +1,218 @@
+/* =========================================================================
+   GATIMARG AI — VIEWS CSS
+   Styles for Forecast Scrubber, Canvas Map, LWR Shockwave Pipeline, and Simulator
+   ========================================================================= */
+
+/* ---- FORECAST SCRUBBER & DYNAMIC SVG CHART ---- */
+.forecast-slider-container {
+  background: #090E1D;
+  border: 1px solid var(--surface-border);
+  border-radius: var(--r-md);
+  padding: 18px 24px;
+  margin: 16px 0;
+}
+
+.forecast-slider {
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 8px;
+  background: #1E293B;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  margin: 12px 0;
+}
+
+.forecast-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #06B6D4, #3B82F6);
+  box-shadow: 0 0 12px var(--brand-glow);
+  cursor: pointer;
+  border: 2px solid #fff;
+  transition: transform 0.15s ease;
+}
+
+.forecast-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+.forecast-slider::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #06B6D4, #3B82F6);
+  box-shadow: 0 0 12px var(--brand-glow);
+  cursor: pointer;
+  border: 2px solid #fff;
+}
+
+.forecast-ticks {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.forecast-tick.active {
+  color: #38BDF8;
+  font-weight: 700;
+}
+
+.chart-svg-container {
+  width: 100%;
+  height: 180px;
+  background: #060A14;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--surface-border);
+  overflow: hidden;
+  position: relative;
+  margin-top: 12px;
+}
+
+/* ---- LWR SHOCKWAVE SPILLBACK PIPELINE ---- */
+.spillback-pipeline {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.spillback-corridor-card {
+  background: #090E1D;
+  border: 1.5px solid var(--surface-border);
+  border-radius: var(--r-sm);
+  padding: 14px 16px;
+  transition: all 0.2s ease;
+}
+
+.spillback-corridor-card.critical {
+  border-color: rgba(239, 68, 68, 0.6);
+  background: linear-gradient(145deg, rgba(239, 68, 68, 0.08) 0%, #090E1D 100%);
+}
+
+.spillback-corridor-card.severe {
+  border-color: rgba(245, 158, 11, 0.5);
+  background: linear-gradient(145deg, rgba(245, 158, 11, 0.06) 0%, #090E1D 100%);
+}
+
+.spillback-corridor-card.moderate {
+  border-color: rgba(59, 130, 246, 0.4);
+  background: linear-gradient(145deg, rgba(59, 130, 246, 0.05) 0%, #090E1D 100%);
+}
+
+.spillback-corridor-card.controlled {
+  border-color: rgba(16, 185, 129, 0.4);
+  background: linear-gradient(145deg, rgba(16, 185, 129, 0.05) 0%, #090E1D 100%);
+}
+
+.shockwave-velocity-pill {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: var(--r-full);
+  background: rgba(239, 68, 68, 0.15);
+  color: #F87171;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ---- CANVAS MAP CONTAINER ---- */
+.canvas-map-wrapper {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  background: #040711;
+  border: 1px solid var(--surface-border);
+  border-radius: var(--r-md);
+  overflow: hidden;
+}
+
+.canvas-map {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.canvas-map-overlay {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(10, 15, 29, 0.88);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--r-sm);
+  padding: 10px 14px;
+  font-size: 11.5px;
+  color: var(--text-secondary);
+  pointer-events: none;
+}
+
+.canvas-map-legend {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  background: rgba(10, 15, 29, 0.88);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--r-sm);
+  padding: 10px 14px;
+  font-size: 11px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+}
+
+/* ---- PRESET ROUTE CHIPS ---- */
+.preset-chips-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0 16px;
+}
+
+.preset-chip {
+  background: #0B1222;
+  border: 1px solid var(--surface-border);
+  color: var(--text-secondary);
+  border-radius: 20px;
+  padding: 5px 12px;
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.preset-chip:hover {
+  border-color: #06B6D4;
+  color: #fff;
+  background: #111D35;
+}
+
+.preset-chip.active {
+  background: rgba(6, 182, 212, 0.16);
+  border-color: #06B6D4;
+  color: #38BDF8;
+  font-weight: 700;
+}

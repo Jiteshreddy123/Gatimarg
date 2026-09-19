@@ -1,0 +1,303 @@
+/* =========================================================================
+   GATIMARG AI — COMPONENTS CSS
+   Cards, Stat Boxes, Buttons, Badges, Provenance Tags, Modals, and Toasts
+   ========================================================================= */
+
+/* ---- CARDS ---- */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--r-md);
+  padding: 20px;
+  box-shadow: var(--shadow-card);
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.card:hover {
+  border-color: var(--border-bright);
+}
+
+.card-festive {
+  border-color: var(--festive-border);
+  background: linear-gradient(145deg, #1C1306 0%, var(--bg-card) 100%);
+}
+
+.card-brand {
+  border-color: rgba(6, 182, 212, 0.4);
+  background: linear-gradient(145deg, rgba(6, 182, 212, 0.06) 0%, var(--bg-card) 100%);
+}
+
+/* ---- STAT BOXES ---- */
+.stat-box {
+  background: #090E1D;
+  border: 1px solid var(--surface-border);
+  border-radius: var(--r-sm);
+  padding: 14px;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.stat-value {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.stat-sub {
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+/* ---- BUTTONS ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: var(--r-full);
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+  text-decoration: none;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-brand {
+  background: linear-gradient(135deg, #0284C7, #06B6D4);
+  color: #fff;
+  box-shadow: 0 2px 12px var(--brand-glow);
+}
+
+.btn-brand:hover {
+  box-shadow: 0 4px 18px rgba(6, 182, 212, 0.45);
+  filter: brightness(1.1);
+}
+
+.btn-festive {
+  background: linear-gradient(135deg, #B45309, #F59E0B);
+  color: #fff;
+  box-shadow: 0 2px 12px var(--festive-glow);
+}
+
+.btn-festive:hover {
+  filter: brightness(1.1);
+}
+
+.btn-outline {
+  background: transparent;
+  border-color: var(--surface-border);
+  color: var(--text-main);
+}
+
+.btn-outline:hover {
+  background: var(--surface-subtle);
+  border-color: var(--brand-primary);
+}
+
+.btn-danger {
+  background: rgba(239, 68, 68, 0.18);
+  border-color: rgba(239, 68, 68, 0.4);
+  color: #F87171;
+}
+
+.btn-danger:hover {
+  background: #EF4444;
+  color: #fff;
+}
+
+.btn-sm {
+  padding: 5px 12px;
+  font-size: 11px;
+}
+
+/* ---- PROVENANCE BADGES (STRICT ANTI-HALLUCINATION) ---- */
+.badge-provenance {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: help;
+  vertical-align: middle;
+}
+
+.badge-provenance-data {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34D399;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+}
+
+.badge-provenance-derived {
+  background: rgba(56, 189, 248, 0.15);
+  color: #38BDF8;
+  border: 1px solid rgba(56, 189, 248, 0.4);
+}
+
+.badge-provenance-model {
+  background: rgba(168, 85, 247, 0.15);
+  color: #C084FC;
+  border: 1px solid rgba(168, 85, 247, 0.4);
+}
+
+.badge-provenance-simulation {
+  background: rgba(245, 158, 11, 0.15);
+  color: #FBBF24;
+  border: 1px solid rgba(245, 158, 11, 0.4);
+}
+
+.badge-provenance-unavailable {
+  background: rgba(148, 163, 184, 0.12);
+  color: #94A3B8;
+  border: 1px dashed rgba(148, 163, 184, 0.4);
+}
+
+/* ---- SYSTEM STATUS PILLS & DOTS ---- */
+.badge-live {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34D399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  padding: 2px 8px;
+  border-radius: var(--r-full);
+  font-weight: 700;
+  font-size: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.pulse-dot {
+  width: 6px;
+  height: 6px;
+  background: #10B981;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #10B981;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.3); }
+}
+
+/* ---- TIMELINE NODES (CORRIDOR STEPPER) ---- */
+.corridor-timeline {
+  position: relative;
+  padding-left: 26px;
+  margin: 16px 0;
+}
+
+.corridor-timeline::before {
+  content: '';
+  position: absolute;
+  left: 9px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background: #334155;
+}
+
+.timeline-node {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.timeline-node:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -26px;
+  top: 3px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid #070B14;
+}
+
+.dot-clear { background: #10B981; box-shadow: 0 0 8px #10B981; }
+.dot-warning { background: #F59E0B; box-shadow: 0 0 8px #F59E0B; }
+.dot-danger { background: #EF4444; box-shadow: 0 0 8px #EF4444; }
+.dot-festive { background: #D97706; box-shadow: 0 0 8px #D97706; }
+
+/* ---- TOAST NOTIFICATION ---- */
+.toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.toast {
+  background: rgba(15, 23, 42, 0.96);
+  border: 1px solid var(--brand-primary);
+  border-radius: var(--r-md);
+  padding: 12px 18px;
+  color: #fff;
+  font-size: 12.5px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), 0 0 15px var(--brand-glow);
+  pointer-events: auto;
+  animation: slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* ---- MODAL DIALOGS ---- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal-content {
+  background: #0F172A;
+  border: 1px solid var(--surface-border);
+  border-radius: var(--r-lg);
+  max-width: 680px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 24px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 30px rgba(6, 182, 212, 0.2);
+}

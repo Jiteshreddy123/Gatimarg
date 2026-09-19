@@ -1,0 +1,77 @@
+/* =========================================================================
+   GATIMARG AI — DESIGN TOKENS & VARIABLES
+   Dark Slate / Cyber Command Center Palette
+   ========================================================================= */
+:root {
+  /* Backgrounds & Surfaces */
+  --bg-dark: #070B14;
+  --bg-card: #0F172A;
+  --bg-card-hover: #162238;
+  --surface-subtle: #1E293B;
+  --surface-border: #334155;
+  --border-bright: #475569;
+
+  /* Text Colors */
+  --text-main: #F8FAFC;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
+
+  /* Primary Brand: Electric Cyan & Tech Indigo */
+  --brand-primary: #06B6D4;
+  --brand-glow: rgba(6, 182, 212, 0.28);
+  --brand-accent: #3B82F6;
+  --brand-dark: #0E7490;
+
+  /* Festive & Warning Shocks */
+  --festive-gold: #F59E0B;
+  --festive-glow: rgba(245, 158, 11, 0.24);
+  --festive-bg: #451A03;
+  --festive-border: #B45309;
+
+  /* Status Colors */
+  --status-green: #10B981;
+  --status-red: #EF4444;
+  --status-yellow: #EAB308;
+  --status-purple: #8B5CF6;
+  --status-blue: #38BDF8;
+
+  /* Radii & Shadows */
+  --r-sm: 6px;
+  --r-md: 12px;
+  --r-lg: 18px;
+  --r-full: 9999px;
+  --shadow-card: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 20px rgba(6, 182, 212, 0.3);
+
+  /* Typography */
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}

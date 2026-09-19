@@ -11,6 +11,7 @@ from typing import Dict, List, Any, Optional
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
 from backend.data_access.loader import DatasetLoader
@@ -61,13 +62,13 @@ class SimulationRequest(BaseModel):
     target_segment: str = Field(..., example="R0001")
     parameter_delta: float = Field(0.0, example=600.0)
 
-# ── Root UI Endpoint ──
-@app.get("/", include_in_schema=False)
-def serve_spa():
+# ── Root UI & Legacy Endpoints ──
+@app.get("/legacy", include_in_schema=False)
+def serve_legacy():
     html_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "gatimarg_prototype.html")
     if os.path.exists(html_path):
         return FileResponse(html_path, media_type="text/html")
-    return {"message": "GatiMarg AI NeuraX API Online. Please open gatimarg_prototype.html"}
+    return {"message": "Legacy prototype not found"}
 
 # ── 1. Network & Summary Endpoints ──
 @app.get("/api/health")
@@ -269,6 +270,11 @@ def get_events():
             "classification": "DATA"
         }
     }
+
+# ── Mount Modular Frontend Static Directory ──
+frontend_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "frontend")
+if os.path.exists(frontend_dir):
+    app.mount("/", StaticFiles(directory=frontend_dir, html=True), name="frontend")
 
 if __name__ == "__main__":
     import uvicorn

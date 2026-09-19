@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GatiMarg AI — Urban Traffic Flow, Incident Intelligence & Festive Mobility Platform</title>
+  <meta name="description"
+    content="GatiMarg AI: Real dataset-backed urban traffic management, multi-horizon forecasting, spatial spillback tracking, and cultural event mobility platform engineered for Hyderabad metropolitan corridors.">
+
+  <!-- Typography & Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+    rel="stylesheet">
+
+  <!-- Modular Design System Styles -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/views.css">
+</head>
+
+<body>
+  <!-- System Diagnostic Top Bar -->
+  <aside class="system-bar" aria-label="System Status Bar">
+    <div class="system-bar-left">
+      <span class="badge-live" id="backendStatusPill">
+        <span class="pulse-dot"></span> LIVE NEURAX BACKEND (436 Links / 120 Nodes)
+      </span>
+      <span>Engine: <strong>NeuraX 3.0 Real Data Pipeline</strong></span>
+      <span>•</span>
+      <span>Coverage: <strong>Hyderabad Metronet (PVNR, HITEC City, Tank Bund)</strong></span>
+    </div>
+    <div class="system-bar-right">
+      <span>LATENCY: <strong>14ms</strong></span>
+      <span>•</span>
+      <span>ZERO TARGET LEAKAGE</span>
+    </div>
+  </aside>
+
+  <!-- Sticky Responsive Header with Two-Tier Admin Navigation & Role Switcher -->
+  <header class="app-header">
+    <div class="header-top-row">
+      <!-- Logo & Brand -->
+      <div class="logo-container" onclick="window.switchView('dashboard')">
+        <div class="logo-badge">⚡</div>
+        <div>
+          <div class="logo-title">
+            GatiMarg AI <span>NEURAX 3.0</span>
+          </div>
+          <div class="logo-sub">
+            Urban Traffic Flow, Incident Intelligence &amp; Festive Mobility Platform
+          </div>
+        </div>
+      </div>
+
+      <!-- Header Actions & Perspective Switcher -->
+      <div class="header-actions">
+        <!-- 3-Role Perspective Selector Bar -->
+        <div class="role-selector-bar" role="group" aria-label="Perspective Switcher">
+          <button class="role-pill active" id="role-admin" onclick="window.switchRole('admin')" title="Admin Mode: Full Operational, Intelligence & Audit Suite">
+            👑 Admin
+          </button>
+          <button class="role-pill" id="role-user" onclick="window.switchRole('user')" title="Citizen Mode: Lookahead Radar & Routing">
+            👤 User
+          </button>
+          <button class="role-pill" id="role-authority" onclick="window.switchRole('authority')" title="Authority Mode: Command & Field Operations">
+            👮 Traffic Authority
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Tabs Row (Admin: 4-Above / 3-Below; User/Authority: Single Row) -->
+    <nav class="header-nav-row" aria-label="Main Navigation">
+      <div id="mainNavTabs" class="nav-tabs-wrapper">
+        <!-- Dynamic Nav Cluster injected by app.js -->
+      </div>
+    </nav>
+  </header>
+
+  <!-- Dynamic Application Viewport -->
+  <main id="appViewport" class="main-container">
+    <!-- Active view component injected dynamically by app.js -->
+  </main>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+
+  <!-- Reusable Modal Dialog Overlay -->
+  <div id="modalOverlay" class="modal-overlay" style="display: none;" onclick="if(event.target === this) window.closeModal()">
+    <div class="modal-content">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; border-bottom: 1px solid var(--surface-border); padding-bottom: 10px;">
+        <h3 id="modalTitle" style="font-size: 16px; color: #fff;">Modal</h3>
+        <button class="btn btn-outline btn-sm" onclick="window.closeModal()" style="border-radius: 50%; width: 28px; height: 28px; padding: 0; justify-content: center;">✕</button>
+      </div>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- Modular Application Script -->
+  <script type="module" src="js/app.js"></script>
+</body>
+
+</html>
