@@ -132,99 +132,86 @@
       50% { opacity: 0.4; transform: scale(1.3); }
     }
 
-    /* ---- APP HEADER ---- */
+    /* ---- APP HEADER & TWO-TIER RESPONSIVE ARCHITECTURE ---- */
     .app-header {
       position: sticky;
       top: 0;
-      z-index: 50;
-      background: rgba(15, 23, 42, 0.88);
-      backdrop-filter: blur(14px);
+      z-index: 100;
+      background: rgba(10, 15, 29, 0.95);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--surface-border);
-      padding: 0 24px;
-      height: 64px;
+      padding: 8px 24px 8px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
+      transition: all 0.25s ease;
+    }
+
+    .header-top-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 16px;
+      width: 100%;
     }
 
     .logo-container {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 11px;
       cursor: pointer;
+      user-select: none;
+      flex-shrink: 0;
     }
 
     .logo-badge {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
+      width: 38px;
+      height: 38px;
+      border-radius: 9px;
       background: linear-gradient(135deg, #06B6D4, #3B82F6);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 20px;
+      font-size: 19px;
       box-shadow: 0 0 16px var(--brand-glow);
+      flex-shrink: 0;
     }
 
     .logo-title {
       font-family: var(--font-display);
-      font-size: 20px;
+      font-size: 19px;
       font-weight: 700;
       color: #fff;
       display: flex;
       align-items: center;
       gap: 6px;
+      line-height: 1.2;
     }
 
     .logo-title span {
-      font-size: 10px;
+      font-size: 9.5px;
       background: rgba(6, 182, 212, 0.2);
       color: #38BDF8;
       border: 1px solid rgba(6, 182, 212, 0.4);
-      padding: 2px 6px;
+      padding: 1.5px 5.5px;
       border-radius: 4px;
       font-family: var(--font-mono);
       font-weight: 600;
     }
 
     .logo-sub {
-      font-size: 11px;
+      font-size: 10.5px;
       color: var(--text-secondary);
+      line-height: 1.2;
     }
 
-    /* Portal Tabs */
-    .nav-tabs {
+    .header-actions {
       display: flex;
-      background: #090D16;
-      border: 1px solid var(--surface-border);
-      border-radius: var(--r-full);
-      padding: 3px;
-      gap: 2px;
-    }
-
-    .nav-tab {
-      padding: 6px 14px;
-      border-radius: var(--r-full);
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--text-secondary);
-      border: none;
-      background: none;
-      cursor: pointer;
-      transition: all 0.2s;
-      white-space: nowrap;
-    }
-
-    .nav-tab:hover {
-      color: #fff;
-      background: rgba(255, 255, 255, 0.05);
-    }
-
-    .nav-tab.active {
-      background: linear-gradient(135deg, #0284C7, #06B6D4);
-      color: #fff;
-      box-shadow: 0 2px 10px rgba(6, 182, 212, 0.3);
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
     }
 
     /* ---- ROLE-BASED ACCESS CONTROL (RBAC) STYLES ---- */
@@ -244,24 +231,123 @@
       color: var(--text-secondary);
       font-size: 11px;
       font-weight: 600;
-      padding: 5px 11px;
+      padding: 4px 10px;
       border-radius: var(--r-full);
       cursor: pointer;
-      transition: all 0.2s;
+      transition: all 0.2s ease;
       display: flex;
       align-items: center;
       gap: 4px;
+      white-space: nowrap;
     }
 
     .role-pill:hover {
       color: #fff;
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.06);
     }
 
     .role-pill.active {
       background: linear-gradient(135deg, #0284C7, #06B6D4);
       color: #fff;
       box-shadow: 0 0 12px rgba(6, 182, 212, 0.35);
+    }
+
+    /* ---- NAVIGATION ROW & ADMIN 4-ABOVE / 3-BELOW ARCHITECTURE ---- */
+    .header-nav-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+
+    .nav-tabs-wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* Admin 2-Tier Stack: 4 Above, 3 Below */
+    .admin-nav-cluster {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      width: 100%;
+      max-width: 980px;
+    }
+
+    .admin-nav-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      background: #080D1A;
+      border: 1px solid var(--surface-border);
+      border-radius: var(--r-full);
+      padding: 3px 6px;
+      max-width: 100%;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .admin-nav-row::-webkit-scrollbar {
+      display: none;
+    }
+
+    .admin-nav-row-top {
+      border-color: rgba(56, 189, 248, 0.25);
+    }
+
+    .admin-nav-row-bottom {
+      border-color: rgba(129, 140, 248, 0.22);
+      background: rgba(8, 13, 26, 0.7);
+    }
+
+    /* Standard Single Row for User & Authority */
+    .standard-nav-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      background: #080D1A;
+      border: 1px solid var(--surface-border);
+      border-radius: var(--r-full);
+      padding: 3px 6px;
+      max-width: 100%;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .standard-nav-row::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nav-tab {
+      padding: 5px 13px;
+      border-radius: var(--r-full);
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      border: 1px solid transparent;
+      background: none;
+      cursor: pointer;
+      transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      flex-shrink: 0;
+    }
+
+    .nav-tab:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-tab.active {
+      background: linear-gradient(135deg, #0284C7, #06B6D4);
+      color: #fff;
+      border-color: rgba(56, 189, 248, 0.5);
+      box-shadow: 0 2px 10px rgba(6, 182, 212, 0.35);
     }
 
     /* ---- CITIZEN ROUTE CHECKER STYLES ---- */
@@ -1008,13 +1094,71 @@
       to { transform: translateY(0); opacity: 1; }
     }
 
-    /* Responsive */
+    /* Responsive Header & Layout */
+    @media (max-width: 1100px) {
+      .app-header {
+        padding: 8px 16px;
+      }
+      .logo-sub {
+        font-size: 10px;
+      }
+      .nav-tab {
+        padding: 4px 10px;
+        font-size: 11px;
+      }
+    }
+
     @media (max-width: 900px) {
       .grid-4 { grid-template-columns: repeat(2, 1fr); }
       .grid-3 { grid-template-columns: 1fr; }
       .grid-2 { grid-template-columns: 1fr; }
-      .app-header { height: auto; padding: 12px 16px; flex-wrap: wrap; }
-      .nav-tabs { overflow-x: auto; max-width: 100%; }
+      .app-header {
+        padding: 8px 12px;
+      }
+      .logo-sub {
+        display: none; /* Keep header slim on tablets/mobiles */
+      }
+      .admin-nav-row,
+      .standard-nav-row {
+        justify-content: flex-start;
+        -webkit-overflow-scrolling: touch;
+      }
+      .header-nav-row {
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding-bottom: 2px;
+        scrollbar-width: none;
+      }
+      .header-nav-row::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .header-top-row {
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .header-actions {
+        width: 100%;
+        justify-content: space-between;
+      }
+      .role-selector-bar {
+        flex: 1;
+        justify-content: space-between;
+      }
+      .role-pill {
+        padding: 4px 6px;
+        font-size: 10px;
+      }
+      .logo-title {
+        font-size: 16px;
+      }
+      .logo-badge {
+        width: 32px;
+        height: 32px;
+        font-size: 16px;
+      }
     }
   </style>
 </head>
@@ -1023,35 +1167,36 @@
 
   <!-- ===== 1. HEADER & NAVIGATION ===== -->
   <header class="app-header">
-    <div class="logo-container" onclick="switchView('dashboard')">
-      <div class="logo-badge">⚡</div>
-      <div>
-        <div class="logo-title">
-          GatiMarg AI
-          <span>NEURAX 3.0</span>
+    <!-- Top Utility & Brand Tier -->
+    <div class="header-top-row">
+      <div class="logo-container" onclick="switchView('dashboard')">
+        <div class="logo-badge">⚡</div>
+        <div>
+          <div class="logo-title">
+            GatiMarg AI
+            <span>NEURAX 3.0</span>
+          </div>
+          <div class="logo-sub">Urban Traffic Flow, Incident Intelligence &amp; Festive Mobility</div>
         </div>
-        <div class="logo-sub">Urban Traffic Flow, Incident Intelligence &amp; Festive Mobility</div>
+      </div>
+
+      <!-- Role Switcher & Incident Simulation Quick Action -->
+      <div class="header-actions">
+        <div class="role-selector-bar" id="mainRoleSelector" title="Role-Based Access (RBAC): Switch between Admin, User, and Traffic Authority perspectives">
+          <span style="font-size: 10px; color: var(--text-muted); font-weight: 700; text-transform: uppercase; padding: 0 4px;">Role:</span>
+          <button class="role-pill" id="role-admin" onclick="switchRole('admin')">👑 Admin</button>
+          <button class="role-pill" id="role-user" onclick="switchRole('user')">👤 User</button>
+          <button class="role-pill active" id="role-authority" onclick="switchRole('authority')">👮 Traffic Authority</button>
+        </div>
+        <button class="btn btn-brand btn-sm" onclick="openSimulateIncidentModal()">+ Simulate Incident</button>
       </div>
     </div>
 
-    <!-- Navigation Tabs (Dynamically Rendered per Role) -->
-    <nav class="nav-tabs" id="mainNavTabs">
-      <button class="nav-tab active" id="tab-dashboard" onclick="switchView('dashboard')">📊 Command Center</button>
-      <button class="nav-tab" id="tab-incidents" onclick="switchView('incidents')">🚨 Incident Radar</button>
-      <button class="nav-tab" id="tab-festive" onclick="switchView('festive')">🪔 Jan-Vani Control</button>
-      <button class="nav-tab" id="tab-commuter" onclick="switchView('commuter')">🔍 Citizen Route Check</button>
-      <button class="nav-tab" id="tab-audit" onclick="switchView('audit')">🛡️ Hygiene &amp; Audit</button>
-    </nav>
-
-    <!-- Role-Based Access Control (RBAC) Switcher & Quick Action (3 Roles: Admin, User, Traffic Authority) -->
-    <div style="display: flex; align-items: center; gap: 10px;">
-      <div class="role-selector-bar" id="mainRoleSelector" title="Role-Based Access (RBAC): Switch between Admin, User, and Traffic Authority perspectives">
-        <span style="font-size: 10px; color: var(--text-muted); font-weight: 700; text-transform: uppercase; padding: 0 4px;">Role:</span>
-        <button class="role-pill" id="role-admin" onclick="switchRole('admin')">👑 Admin</button>
-        <button class="role-pill" id="role-user" onclick="switchRole('user')">👤 User</button>
-        <button class="role-pill active" id="role-authority" onclick="switchRole('authority')">👮 Traffic Authority</button>
-      </div>
-      <button class="btn btn-brand btn-sm" onclick="openSimulateIncidentModal()">+ Simulate Incident</button>
+    <!-- Navigation Console Tier (Dynamically Populated: Admin gets 4-Above & 3-Below) -->
+    <div class="header-nav-row">
+      <nav class="nav-tabs-wrapper" id="mainNavTabs">
+        <!-- Rendered dynamically by renderNavTabs() -->
+      </nav>
     </div>
   </header>
 
@@ -2148,11 +2293,41 @@
         STATE.currentView = validTabIds[0];
       }
 
-      nav.innerHTML = tabs.map(t => `
-        <button class="nav-tab ${STATE.currentView === t.id ? 'active' : ''}" id="tab-${t.id}" onclick="switchView('${t.id}')">
-          ${t.label}
-        </button>
-      `).join('');
+      if (role === 'admin') {
+        // Admin perspective: Exactly 4 features above (Core Operations) and 3 features below (AI Intelligence & Governance)
+        const topTabs = tabs.slice(0, 4);
+        const bottomTabs = tabs.slice(4);
+
+        nav.innerHTML = `
+          <div class="admin-nav-cluster">
+            <div class="admin-nav-row admin-nav-row-top" title="Admin Operations Suite">
+              ${topTabs.map(t => `
+                <button class="nav-tab ${STATE.currentView === t.id ? 'active' : ''}" id="tab-${t.id}" onclick="switchView('${t.id}')">
+                  ${t.label}
+                </button>
+              `).join('')}
+            </div>
+            <div class="admin-nav-row admin-nav-row-bottom" title="Advanced AI Intelligence & Governance Suite">
+              ${bottomTabs.map(t => `
+                <button class="nav-tab ${STATE.currentView === t.id ? 'active' : ''}" id="tab-${t.id}" onclick="switchView('${t.id}')">
+                  ${t.label}
+                </button>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      } else {
+        // User & Traffic Authority: Clean, proportional single row
+        nav.innerHTML = `
+          <div class="standard-nav-row">
+            ${tabs.map(t => `
+              <button class="nav-tab ${STATE.currentView === t.id ? 'active' : ''}" id="tab-${t.id}" onclick="switchView('${t.id}')">
+                ${t.label}
+              </button>
+            `).join('')}
+          </div>
+        `;
+      }
 
       // Update role selector pill active states
       const roleBar = document.getElementById('mainRoleSelector');
