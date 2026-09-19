@@ -1,11 +1,6 @@
 # NeuraX Urban Traffic Flow & Incident Intelligence Platform
 ### *AI-Driven Decision Support & Counterfactual Infrastructure Intelligence for Complex Urban Corridors*
 
-[![Hackathon](https://img.shields.io/badge/NeurAX%203.0-Domain%201%20Smart%20Cities-00f2fe?style=for-the-badge&logo=target)](https://github.com/Jiteshreddy123/cmrhackathon)
-[![Evaluation](https://img.shields.io/badge/Evaluation-100%20Marks%20Framework-4facfe?style=for-the-badge)](https://github.com/Jiteshreddy123/cmrhackathon)
-[![Architecture](https://img.shields.io/badge/Architecture-ST--GNN%20%2B%20Bayesian%20%2B%20MCDA-43e97b?style=for-the-badge)](https://github.com/Jiteshreddy123/cmrhackathon)
-[![License](https://img.shields.io/badge/License-MIT-fa709a?style=for-the-badge)](LICENSE)
-
 ---
 
 <a id="table-of-contents"></a>
