@@ -5,7 +5,7 @@ html_content = """<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>NEURAX 3.0 - Checkpoint 1 Submission</title>
+  <title>NEURAX 3.0 - Urban Traffic Intelligence</title>
   <style>
     @page {
       size: A4;
@@ -56,10 +56,10 @@ html_content = """<!DOCTYPE html>
       margin-top: 3px;
     }
 
-    .badge-checkpoint {
+    .badge-header {
       background: #0f172a;
       color: #ffffff;
-      padding: 5px 10px;
+      padding: 5px 12px;
       border-radius: 5px;
       text-align: right;
       font-size: 9pt;
@@ -67,7 +67,7 @@ html_content = """<!DOCTYPE html>
       letter-spacing: 0.5px;
     }
 
-    .badge-checkpoint span {
+    .badge-header span {
       display: block;
       font-size: 7.5pt;
       font-weight: 400;
@@ -244,16 +244,15 @@ html_content = """<!DOCTYPE html>
       <div class="subtitle">Decision-Support &amp; Counterfactual Infrastructure Intelligence</div>
       <div class="meta">Domain 1 · AI in Smart Cities | Target Environment: Hyderabad Metropolitan Corridor</div>
     </div>
-    <div class="badge-checkpoint">
-      CHECKPOINT 1
-      <span>15 Marks Submission</span>
+    <div class="badge-header">
+      NEURAX 3.0
+      <span>Urban Traffic Intelligence</span>
     </div>
   </div>
 
-  <!-- SECTION 1: PROBLEM UNDERSTANDING (5) -->
+  <!-- SECTION 1: PROBLEM UNDERSTANDING -->
   <div class="section-title">
     <span>1. Problem Understanding</span>
-    <span class="score-badge">5 Marks Allocation</span>
   </div>
 
   <div class="sub-title">1.1 Operating Reality of the Urban Corridor</div>
@@ -279,10 +278,9 @@ html_content = """<!DOCTYPE html>
     </p>
   </div>
 
-  <!-- SECTION 2: SYSTEM ARCHITECTURE (5) -->
+  <!-- SECTION 2: SYSTEM ARCHITECTURE -->
   <div class="section-title" style="margin-top: 10px;">
     <span>2. System Architecture</span>
-    <span class="score-badge">5 Marks Allocation</span>
   </div>
 
   <p style="margin-bottom: 6px;">
@@ -339,10 +337,9 @@ html_content = """<!DOCTYPE html>
   <!-- ================= PAGE 2 ================= -->
   <div class="page-break"></div>
 
-  <!-- SECTION 3: APPROACH (5) -->
+  <!-- SECTION 3: APPROACH -->
   <div class="section-title" style="margin-top: 4px;">
     <span>3. Methodological Approach</span>
-    <span class="score-badge">5 Marks Allocation</span>
   </div>
 
   <div class="approach-item">
