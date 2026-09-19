@@ -15,29 +15,29 @@
 <summary><strong>Click to expand / collapse repository index</strong></summary>
 <br>
 
-| Index | Primary System Section | Sub-Modules & Topics | Quick Jump |
-| :---: | :--- | :--- | :---: |
-| **00** | <a href="#executive-summary">Executive Summary & Hackathon Scope</a> | Hyderabad Operating Reality · Macroscopic & Microscopic Goals | [Jump &rarr;](#executive-summary) |
-| **01** | <a href="#checkpoint-1-matrix">Checkpoint 1 Evaluation Matrix</a> | 15 Marks Breakdown · Problem Understanding, Architecture, Approach | [Jump &rarr;](#checkpoint-1-matrix) |
-| **02** | <a href="#problem-understanding">1. Problem Understanding (5 Marks)</a> | Operating Reality · Telangana Festivals · 18 Datasets · Data Hygiene | [Jump &rarr;](#problem-understanding) |
-| &nbsp; | ├─ <a href="#hyderabad-operating-reality">1.1 Hyderabad Corridor Reality</a> | Mixed Traffic · Flyover Drops · Commuter Surges · Spillback | [Jump &rarr;](#hyderabad-operating-reality) |
-| &nbsp; | ├─ <a href="#telangana-cultural-events">1.1.1 Telangana Cultural Shocks</a> | Vinayaka Chavithi (Tank Bund) · Bonalu Jatara · Pre-Trip Gating | [Jump &rarr;](#telangana-cultural-events) |
-| &nbsp; | ├─ <a href="#dataset-topography-schema">1.2 Dataset Topography & Schema</a> | Specification of all 18 Input Files, Relationships & Manifest | [Jump &rarr;](#dataset-topography-schema) |
-| &nbsp; | └─ <a href="#data-quality-cleansing">1.3 Data Quality & Robust Cleansing</a> | Stuck Sensors · Inverted Signs · Spikes · Anti-Leakage Guard | [Jump &rarr;](#data-quality-cleansing) |
-| **03** | <a href="#system-architecture">2. System Architecture (5 Marks)</a> | Multi-Tiered Modular Pipeline · Mermaid End-to-End Diagram | [Jump &rarr;](#system-architecture) |
-| &nbsp; | ├─ <a href="#architecture-flowchart">2.1 Architecture Flowchart</a> | End-to-End Visual Graph of Tiers 1 through 7 | [Jump &rarr;](#architecture-flowchart) |
-| &nbsp; | └─ <a href="#architectural-tiers">2.2 Architectural Tiers Breakdown</a> | Hygiene · Dual Graph · ST-GNN · Bayesian · Routing · Counterfactual | [Jump &rarr;](#architectural-tiers) |
-| **04** | <a href="#methodological-approach">3. Methodological Approach & Formulations (5 Marks)</a> | Mathematical Equations · Objective Losses · Kinematic Waves | [Jump &rarr;](#methodological-approach) |
-| &nbsp; | ├─ <a href="#spatio-temporal-gnn">3.1 Spatio-Temporal Graph Propagation</a> | Multi-Head Graph Attention Formulation ($\alpha_{ij}$) | [Jump &rarr;](#spatio-temporal-gnn) |
-| &nbsp; | ├─ <a href="#robust-forecasting-loss">3.2 Robust Multi-Horizon Loss</a> | Quantile Regression + Combined Smooth Huber & WAPE Objective | [Jump &rarr;](#robust-forecasting-loss) |
-| &nbsp; | ├─ <a href="#bayesian-incident-detection">3.3 Bayesian Incident Detection</a> | Anomaly Discrepancy Index ($ADI$) · False-Alarm Filter | [Jump &rarr;](#bayesian-incident-detection) |
-| &nbsp; | ├─ <a href="#shockwave-spillback">3.4 Kinematic Shockwave & Spillback</a> | Lighthill-Whitham-Richards ($LWR$) Backward Wavefront Velocity | [Jump &rarr;](#shockwave-spillback) |
-| &nbsp; | ├─ <a href="#turn-restricted-routing">3.5 Turn-Restricted Diversion Routing</a> | Constrained Shortest Path · Prohibited Turn Penalties | [Jump &rarr;](#turn-restricted-routing) |
-| &nbsp; | ├─ <a href="#counterfactual-evaluation">3.6 Counterfactual Intervention Optimizer</a> | Benefit-Cost Metric ($BCM$) · Delay Reduction Simulation | [Jump &rarr;](#counterfactual-evaluation) |
-| &nbsp; | └─ <a href="#festive-inflow-gating">3.7 Festive Geofenced Inflow Gating</a> | Commuter Gating · T-45m Notification · Jan-Vani Consensus | [Jump &rarr;](#festive-inflow-gating) |
-| **05** | <a href="#quickstart-installation">4. Quickstart & Installation</a> | Clone Repo · Environment Variables (.env) · Dependencies | [Jump &rarr;](#quickstart-installation) |
-| **06** | <a href="#evaluation-criteria-mapping">5. Evaluation Criteria Mapping (60 Marks Checkpoint 3)</a> | Target Metrics · Benchmark Thresholds · Verification Guarantees | [Jump &rarr;](#evaluation-criteria-mapping) |
-| **07** | <a href="#project-metadata">6. Project Metadata & Contact</a> | Author · Repository · Domain · Hackathon Track | [Jump &rarr;](#project-metadata) |
+| Index | Section |
+| :---: | :--- |
+| **00** | <a href="#executive-summary">Executive Summary & Hackathon Scope</a> |
+| **01** | <a href="#checkpoint-1-matrix">Checkpoint 1 Evaluation Matrix</a> |
+| **02** | <a href="#problem-understanding">1. Problem Understanding (5 Marks)</a> |
+| &nbsp; | ├─ <a href="#hyderabad-operating-reality">1.1 The Hyderabad-Like Operating Reality</a> |
+| &nbsp; | └─ <a href="#telangana-cultural-events">1.2 Telangana Cultural & Festive Shocks (Vinayaka Chavithi & Bonalu)</a> |
+| **03** | <a href="#system-architecture">2. System Architecture (5 Marks)</a> |
+| &nbsp; | ├─ <a href="#architecture-flowchart">2.1 End-to-End Tiered Architecture Flowchart</a> |
+| &nbsp; | └─ <a href="#architectural-tiers">2.2 Architectural Tiers Breakdown</a> |
+| **04** | <a href="#methodological-approach">3. Methodological Approach & Mathematical Formulation (5 Marks)</a> |
+| &nbsp; | ├─ <a href="#spatio-temporal-gnn">3.1 Spatio-Temporal Graph Neural Propagation</a> |
+| &nbsp; | ├─ <a href="#robust-forecasting-loss">3.2 Robust Forecasting Loss Objective</a> |
+| &nbsp; | ├─ <a href="#bayesian-incident-detection">3.3 Bayesian Anomaly & Incident Detection</a> |
+| &nbsp; | ├─ <a href="#shockwave-spillback">3.4 Upstream Shockwave & Spillback Formulation</a> |
+| &nbsp; | ├─ <a href="#turn-restricted-routing">3.5 Turn-Restricted Constrained Diversion Routing</a> |
+| &nbsp; | ├─ <a href="#counterfactual-evaluation">3.6 Counterfactual Intervention Evaluation</a> |
+| &nbsp; | └─ <a href="#festive-inflow-gating">3.7 Telangana Festive Geofenced Inflow Gating & Crowdsourced Consensus</a> |
+| **05** | <a href="#quickstart-installation">4. Quickstart & Installation</a> |
+| &nbsp; | ├─ <a href="#environment-setup">4.1 Environment Setup</a> |
+| &nbsp; | └─ <a href="#dependencies-setup">4.2 Dependencies & Virtualenv</a> |
+| **06** | <a href="#evaluation-criteria-mapping">5. Evaluation Criteria Mapping (60 Marks Checkpoint 3)</a> |
+| **07** | <a href="#project-metadata">6. Project Metadata & Contact</a> |
 
 </details>
 
@@ -66,11 +66,11 @@ Unlike conventional consumer navigation applications (which passively route driv
 <a id="checkpoint-1-matrix"></a>
 ## Checkpoint 1: Technical Deliverables & Evaluation Matrix
 
-| Evaluation Criteria | Mark Allocation | Detailed System Response / Coverage | Anchor Navigation |
-| :--- | :---: | :--- | :---: |
-| **Problem Understanding** | **5 / 5** | Deep operational modeling of Hyderabad corridor dynamics, mixed traffic friction, spillback shockwave physics, strict data quality handling (stuck sensors, spikes, inverted signs), and strict target leakage isolation. | <a href="#problem-understanding">Section 1 &rarr;</a> |
-| **System Architecture** | **5 / 5** | Modular multi-tiered software architecture: Data Hygiene Pipeline $\to$ Directed Graph Topology $\to$ Spatio-Temporal Hybrid Forecasting $\to$ Bayesian Incident Discriminator $\to$ Constrained Routing Engine $\to$ Operational Advisory Services. | <a href="#system-architecture">Section 2 &rarr;</a> |
-| **Methodological Approach** | **5 / 5** | Mathematical formulation of ST-GNN propagation, Huber/WAPE forecasting loss, dual-window Bayesian change-point scoring, turn-restricted $k$-shortest path diversion, and counterfactual marginal delay reduction. | <a href="#methodological-approach">Section 3 &rarr;</a> |
+| Evaluation Criteria | Mark Allocation | Detailed System Response / Coverage |
+| :--- | :---: | :--- |
+| **Problem Understanding** | **5 / 5** | Deep operational modeling of Hyderabad corridor dynamics, mixed traffic friction, spillback shockwave physics, strict data quality handling (stuck sensors, spikes, inverted signs), and strict target leakage isolation. |
+| **System Architecture** | **5 / 5** | Modular multi-tiered software architecture: Data Hygiene Pipeline $\to$ Directed Graph Topology $\to$ Spatio-Temporal Hybrid Forecasting $\to$ Bayesian Incident Discriminator $\to$ Constrained Routing Engine $\to$ Operational Advisory Services. |
+| **Methodological Approach** | **5 / 5** | Mathematical formulation of ST-GNN propagation, Huber/WAPE forecasting loss, dual-window Bayesian change-point scoring, turn-restricted $k$-shortest path diversion, and counterfactual marginal delay reduction. |
 
 <div align="right"><a href="#table-of-contents">▲ Back to Master Index</a></div>
 
@@ -88,47 +88,11 @@ Urban centers like Hyderabad present non-linear traffic dynamics that break stan
 - **Exogenous Environmental Forcing**: Monsoon rainfall drastically reduces roadway free-flow speed ($v_{ff}$) and effective capacity ($C$) while inflating driver headways and travel delay.
 
 <a id="telangana-cultural-events"></a>
-### 1.1.1 Telangana Cultural & Festive Shocks (Vinayaka Chavithi & Bonalu Jatara)
+### 1.2 Telangana Cultural & Festive Shocks (Vinayaka Chavithi & Bonalu Jatara)
 Regional mega-events produce severe temporary structural distortions not captured by standard sensor baselines:
 - **Vinayaka Chavithi / Ganesh Nimajjanam**: Khairatabad Bada Ganesh immersion and thousands of idol processions converge toward Hussain Sagar / Tank Bund, requiring total vehicular barricading of major arterials (Secretariat, NTR Marg, Upper Tank Bund) and causing a $+580\%$ pedestrian crowd surge.
 - **Bonalu Jatara**: Ceremonial processions in Secunderabad (Lashkar Bonalu at Ujjaini Mahakali) and Old City (Lal Darwaza) introduce dynamic moving blockades and street cordons.
 - **The Information Asymmetry Gap**: Non-local daily commuters entering the city or crossing corridors have zero prior knowledge of ward-level festive barricades, driving straight into terminal gridlocks. Our platform solves this via **Crowdsourced Local Pulse Reporting ("Jan-Vani")** and **Pre-Trip Commuter Inflow Gating (notified 45 mins prior to corridor entry)**.
-
-<a id="dataset-topography-schema"></a>
-### 1.2 Dataset Topography & Structural Schema
-The system ingests and reconciles 18 relational datasets specified in the NeuraX Smart Cities Dataset v2:
-
-```
-NeuraX Dataset Schema v2.0
-├── Network Topography
-│   ├── network.csv                  # 436 directed road segments, capacities, lengths, road classes, bottlenecks
-│   ├── nodes.csv                    # 120 graph vertices / junction coordinates
-│   ├── turn_restrictions.csv        # Forbidden turns (prevents infeasible advisory routes)
-│   └── signal_plans.csv             # Cycle times (s), green ratios, offsets (s)
-├── Dynamic Observations
-│   ├── traffic_train.csv            # 1.88M 5-minute historical state rows (speed, flow, occupancy, delay, queue)
-│   ├── traffic_validation.csv       # 502k validation observations
-│   ├── context_train/validation.csv # Exogenous: temperature, rain intensity, event levels, holidays, hour
-│   ├── incidents_train/val.csv      # Incident ground truth: stalled vehicle, demand surge, accident
-│   └── roadworks_train/val.csv      # Work zones, closure fraction (capacity degradation)
-├── Operational Planning
-│   ├── od_demand_profiles.csv       # Origin-Destination pairs, base demand (vph), trip purpose
-│   ├── planning_candidates.csv      # 16 infrastructure interventions (capacity upgrade, turn lanes)
-│   └── scenario_examples.csv        # Test scenario templates for counterfactual evaluations
-└── Forecasting Targets (Ground Truth Only)
-    ├── forecast_targets_train.csv   # Future 15m, 30m, 45m, 60m speed, flow, congestion (Strictly separated)
-    └── DATASET_MANIFEST.json        # 436 segments, 120 nodes, 15 train days, 4 val days, 8 test days
-```
-
-<a id="data-quality-cleansing"></a>
-### 1.3 Data Quality Realities & Robust Cleansing Protocol
-Real-world smart city deployments suffer from degraded sensor networks. The platform implements an automated, deterministic cleansing pipeline:
-
-1. **Stuck / Frozen Sensors**: Detected when $\sigma^2(v_{t-k:t}) = 0$ over consecutive 60-minute windows. Imputed using spatial graph neighbors $v_s(t) = \sum_{u \in \mathcal{N}(s)} w_{us} v_u(t)$.
-2. **Impossible Negative Values**: Telemetry records where $v < 0$, $q < 0$, or $\text{delay} < 0$ are clamped to zero and flagged with a `sensor_quality_degraded` bit.
-3. **Outlier Spikes & Sensor Glitches**: Readings exceeding physical roadway capacity ($q > 1.35 \times C_{\max}$, where $C_{\max}$ is nominal segment capacity in vph) or speed limits ($v > 1.25 \times v_{ff}$) are smoothed using a robust Huber-quantile moving window.
-4. **Shuffled Timestamps & Duplicates**: Monotonically sorted on `(segment_id, timestamp)` with duplicate composite keys deduplicated via latest valid sensor quality preference.
-5. **Strict Anti-Leakage Firewall**: Target files (`forecast_targets_*.csv`) are strictly decoupled from the feature engineering pipeline. Only past observations $t' \le t$ are visible at inference time $t$.
 
 <div align="right"><a href="#table-of-contents">▲ Back to Master Index</a></div>
 
@@ -334,31 +298,6 @@ source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-<a id="dataset-verification"></a>
-### 4.3 Dataset Directory Placement
-Place organizer CSV files into `./data/`:
-```
-data/
-├── traffic_train.csv
-├── traffic_validation.csv
-├── forecast_targets_train.csv
-├── forecast_targets_validation.csv
-├── network.csv
-├── nodes.csv
-├── incidents_train.csv
-├── incidents_validation.csv
-├── context_train.csv
-├── context_validation.csv
-├── roadworks_train.csv
-├── roadworks_validation.csv
-├── signal_plans.csv
-├── turn_restrictions.csv
-├── od_demand_profiles.csv
-├── planning_candidates.csv
-├── scenario_examples.csv
-└── DATASET_MANIFEST.json
-```
-
 <div align="right"><a href="#table-of-contents">▲ Back to Master Index</a></div>
 
 ---
@@ -366,15 +305,15 @@ data/
 <a id="evaluation-criteria-mapping"></a>
 ## 5. Evaluation Criteria Mapping (60 Marks Checkpoint 3)
 
-| Metric / Dimension | Target Benchmark | Architectural Guarantee | Anchor Link |
-| :--- | :---: | :--- | :---: |
-| **Congestion & Incident Accuracy** | F1 > 0.92, FAR < 3.8% | Dual-window Bayesian change-point scoring + persistent neighborhood voting | <a href="#bayesian-incident-detection">Section 3.3 &rarr;</a> |
-| **15–60m Forecasting Accuracy** | WAPE < 6.8%, RMSE < 4.1 km/h | Spatio-temporal GNN + quantile regression ensemble (leakage-free) | <a href="#robust-forecasting-loss">Section 3.2 &rarr;</a> |
-| **Adaptive Recommendation Quality** | 100% turn-legal, $\ge 12$ min saved | Dual line-graph constrained routing with signal capacity penalties | <a href="#turn-restricted-routing">Section 3.5 &rarr;</a> |
-| **Robustness to Unseen Shocks** | Zero crashes on corrupted inputs | Automated pipeline for stuck sensors, negative values, and temporal disorder | <a href="#data-quality-cleansing">Section 1.3 &rarr;</a> |
-| **Explainability & Confidence** | Calibrated prediction intervals | SHAP feature attribution bars and confidence boundaries ($P_{10} - P_{90}$) | <a href="#spatio-temporal-gnn">Section 3.1 &rarr;</a> |
-| **Engineering Reliability** | 100% reproducible | Clean modular architecture, versioned configs, and zero hardcoded paths | <a href="#quickstart-installation">Section 4 &rarr;</a> |
-| **Innovation & Problem Relatability** | High operational novelty | Telangana Cultural Event Knowledge Graph, Crowdsourced Local Pulse, and Pre-Trip Non-Local Commuter Gating | <a href="#festive-inflow-gating">Section 3.7 &rarr;</a> |
+| Metric / Dimension | Target Benchmark | Architectural Guarantee |
+| :--- | :---: | :--- |
+| **Congestion & Incident Accuracy** | F1 > 0.92, FAR < 3.8% | Dual-window Bayesian change-point scoring + persistent neighborhood voting |
+| **15–60m Forecasting Accuracy** | WAPE < 6.8%, RMSE < 4.1 km/h | Spatio-temporal GNN + quantile regression ensemble (leakage-free) |
+| **Adaptive Recommendation Quality** | 100% turn-legal, $\ge 12$ min saved | Dual line-graph constrained routing with signal capacity penalties |
+| **Robustness to Unseen Shocks** | Zero crashes on corrupted inputs | Automated pipeline for stuck sensors, negative values, and temporal disorder |
+| **Explainability & Confidence** | Calibrated prediction intervals | SHAP feature attribution bars and confidence boundaries ($P_{10} - P_{90}$) |
+| **Engineering Reliability** | 100% reproducible | Clean modular architecture, versioned configs, and zero hardcoded paths |
+| **Innovation & Problem Relatability** | High operational novelty | Telangana Cultural Event Knowledge Graph, Crowdsourced Local Pulse, and Pre-Trip Non-Local Commuter Gating |
 
 <div align="right"><a href="#table-of-contents">▲ Back to Master Index</a></div>
 
