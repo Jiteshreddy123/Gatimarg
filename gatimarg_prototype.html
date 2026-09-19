@@ -227,6 +227,177 @@
       box-shadow: 0 2px 10px rgba(6, 182, 212, 0.3);
     }
 
+    /* ---- ROLE-BASED ACCESS CONTROL (RBAC) STYLES ---- */
+    .role-selector-bar {
+      display: flex;
+      align-items: center;
+      background: #070C18;
+      border: 1px solid var(--surface-border);
+      border-radius: var(--r-full);
+      padding: 3px 5px;
+      gap: 3px;
+    }
+
+    .role-pill {
+      background: transparent;
+      border: none;
+      color: var(--text-secondary);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 5px 11px;
+      border-radius: var(--r-full);
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .role-pill:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .role-pill.active {
+      background: linear-gradient(135deg, #0284C7, #06B6D4);
+      color: #fff;
+      box-shadow: 0 0 12px rgba(6, 182, 212, 0.35);
+    }
+
+    /* ---- CITIZEN ROUTE CHECKER STYLES ---- */
+    .route-input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-bottom: 12px;
+    }
+
+    .route-input-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .route-input {
+      width: 100%;
+      background: #070B14;
+      border: 1.5px solid var(--surface-border);
+      border-radius: 8px;
+      padding: 9px 12px;
+      color: #fff;
+      font-size: 13px;
+      font-family: var(--font-sans);
+      transition: all 0.2s;
+    }
+
+    .route-input:focus {
+      outline: none;
+      border-color: #06B6D4;
+      box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.2);
+    }
+
+    .preset-chips-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 12px 0 16px;
+    }
+
+    .preset-chip {
+      background: #0B1222;
+      border: 1px solid var(--surface-border);
+      color: var(--text-secondary);
+      border-radius: 20px;
+      padding: 5px 12px;
+      font-size: 11px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .preset-chip:hover {
+      border-color: #06B6D4;
+      color: #fff;
+      background: #111D35;
+    }
+
+    .preset-chip.active {
+      background: rgba(6, 182, 212, 0.16);
+      border-color: #06B6D4;
+      color: #38BDF8;
+      font-weight: 700;
+    }
+
+    /* Route Timeline Stepper */
+    .corridor-timeline {
+      position: relative;
+      padding-left: 26px;
+      margin: 16px 0;
+    }
+
+    .corridor-timeline::before {
+      content: '';
+      position: absolute;
+      left: 9px;
+      top: 10px;
+      bottom: 10px;
+      width: 2px;
+      background: #334155;
+    }
+
+    .timeline-node {
+      position: relative;
+      margin-bottom: 16px;
+    }
+
+    .timeline-node:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -26px;
+      top: 3px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 2px solid #334155;
+      background: #090D16;
+      box-shadow: 0 0 6px rgba(0,0,0,0.5);
+    }
+
+    .timeline-dot.dot-clear {
+      border-color: #10B981;
+      background: #10B981;
+    }
+
+    .timeline-dot.dot-warning {
+      border-color: #F59E0B;
+      background: #F59E0B;
+    }
+
+    .timeline-dot.dot-danger {
+      border-color: #EF4444;
+      background: #EF4444;
+      animation: pulseAlert 1.5s infinite;
+    }
+
+    .timeline-dot.dot-festive {
+      border-color: #B45309;
+      background: #F59E0B;
+    }
+
+    @keyframes pulseAlert {
+      0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+      70% { box-shadow: 0 0 0 8px rgba(239, 68, 68, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+    }
+
     /* ---- BUTTONS ---- */
     .btn {
       display: inline-flex;
@@ -468,14 +639,15 @@
       text-align: right;
     }
 
-    /* Commuter Phone Simulator */
+    /* Commuter / Citizen Phone Simulator */
     .phone-frame {
-      width: 380px;
-      height: 720px;
+      width: 100%;
+      max-width: 380px;
+      min-height: 640px;
       background: #030712;
-      border-radius: 44px;
-      border: 8px solid #1E293B;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+      border-radius: 36px;
+      border: 7px solid #1E293B;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 25px rgba(6, 182, 212, 0.15);
       margin: 0 auto;
       display: flex;
       flex-direction: column;
@@ -638,12 +810,18 @@
     <nav class="nav-tabs">
       <button class="nav-tab active" id="tab-dashboard" onclick="switchView('dashboard')">📊 Command Center</button>
       <button class="nav-tab" id="tab-incidents" onclick="switchView('incidents')">🚨 Incident Radar</button>
-      <button class="nav-tab" id="tab-festive" onclick="switchView('festive')">🪔 Jan-Vani (Festive Gate)</button>
-      <button class="nav-tab" id="tab-commuter" onclick="switchView('commuter')">📱 Commuter Pass</button>
+      <button class="nav-tab" id="tab-festive" onclick="switchView('festive')">🪔 Jan-Vani Control</button>
+      <button class="nav-tab" id="tab-commuter" onclick="switchView('commuter')">🔍 Citizen Route Check</button>
       <button class="nav-tab" id="tab-audit" onclick="switchView('audit')">🛡️ Hygiene &amp; Audit</button>
     </nav>
 
+    <!-- Role-Based Access Control (RBAC) Switcher & Quick Action -->
     <div style="display: flex; align-items: center; gap: 10px;">
+      <div class="role-selector-bar" title="Role-Based Access (RBAC): Switch between public traveler and metropolitan authority perspectives">
+        <span style="font-size: 10px; color: var(--text-muted); font-weight: 700; text-transform: uppercase; padding: 0 4px;">Role:</span>
+        <button class="role-pill" id="role-citizen" onclick="switchRole('citizen')">👤 Citizen</button>
+        <button class="role-pill active" id="role-authority" onclick="switchRole('authority')">👮 Authority</button>
+      </div>
       <button class="btn btn-brand btn-sm" onclick="openSimulateIncidentModal()">+ Simulate Incident</button>
     </div>
   </header>
@@ -666,6 +844,12 @@
       currentView: 'dashboard',
       simulatedWeather: 'clear', // clear | monsoon_rain
       activeFilter: 'all',
+      activeRole: 'authority', // 'citizen' | 'authority'
+      citizenRoute: {
+        origin: 'Mehdipatnam (PVNR Ramp / Rethi Bowli)',
+        destination: 'HITEC City / Cyber Towers',
+        activePreset: 'mehdipatnam_hitec'
+      },
 
       // Network Overview
       network: {
@@ -735,12 +919,147 @@
       ]
     };
 
+    // ──── CITIZEN CORRIDOR INTELLIGENCE DATABASE ────
+    const HYDERABAD_ROUTES_DB = {
+      'mehdipatnam_hitec': {
+        origin: 'Mehdipatnam (PVNR Ramp / Rethi Bowli)',
+        destination: 'HITEC City / Cyber Towers',
+        title: 'Mehdipatnam ➔ PVNR Expressway ➔ HITEC City Corridor',
+        status: 'danger', // danger | festive | clear | warning
+        badgeText: '⛔ SEVERE ROAD OBSTRUCTION AHEAD (1.85 km Ahead)',
+        hazardSummary: 'Stalled Heavy Transit Bus (Blocking 2 Elevated Ramp Lanes)',
+        delayTime: '+48 Minutes Delay',
+        normalTime: '18 Minutes',
+        obstructedTime: '66 Minutes',
+        shockwaveWarning: 'Upstream queue spillback propagating backward at -14.2 km/h. Attapur and Airport Flyover link will lock in 6 minutes.',
+        segmentsTimeline: [
+          { name: 'Mehdipatnam Ground Rotary (Node 38)', status: 'clear', speed: '42 km/h', note: 'Approaching PVNR elevated ramp' },
+          { name: 'PVNR Expressway Exit Ramp (SEG-042)', status: 'danger', speed: '18 km/h', note: '⛔ Breakdown: Stalled transit bus blocking carriageway. 1.85 km standstill queue.' },
+          { name: 'Pillar 140 Median Link (Node 44)', status: 'warning', speed: '22 km/h', note: '⚠️ Kinematic shockwave backing into upstream feeder' },
+          { name: 'Tolichowki Flyover Link', status: 'clear', speed: '45 km/h', note: 'Surface flow normal' },
+          { name: 'HITEC City Cyber Towers (Destination)', status: 'clear', speed: '38 km/h', note: 'Arrival Point' }
+        ],
+        bypass: {
+          title: '✓ Verified Legal Bypass: Pillar 140 Underpass Slip Road',
+          desc: 'Divert off the elevated ramp at Pillar 140 ground slip road to bypass the stalled bus. Re-enters Tolichowki surface arterial.',
+          turnCompliance: 'Turn Prohibition: Strict median divider prohibits right turn at Node 44. Follow designated U-turn loop underpass.',
+          timeSaved: 'Saves 44 Minutes',
+          travelTime: '22 Minutes'
+        },
+        wardPulse: [
+          { text: 'Ward 91: Towing crane dispatched from Goshamahal, but queue extends past Pillar 120. Stay on ground road!', time: '6m ago' },
+          { text: 'Ward 89: Tolichowki surface link moving smoothly, take slip road.', time: '12m ago' }
+        ]
+      },
+      'secunderabad_tankbund': {
+        origin: 'Secunderabad Station / Paradise',
+        destination: 'Tank Bund / Secretariat / Hussain Sagar',
+        title: 'Secunderabad ➔ Bible House ➔ Tank Bund Corridor',
+        status: 'festive',
+        badgeText: '🪔 ROAD COMPLETELY SEALED: RELIGIOUS PROCESSION CORDON',
+        hazardSummary: 'Vinayaka Chavithi Maha Nimajjanam Immersion Barricades',
+        delayTime: '+75 Minutes (Standstill / Road Closed)',
+        normalTime: '20 Minutes',
+        obstructedTime: '95 Minutes',
+        shockwaveWarning: 'Pedestrian density 5.8x normal baseline. Hyderabad Traffic Police has deployed moving cordons at Hussain Sagar shoreline.',
+        segmentsTimeline: [
+          { name: 'Secunderabad Station Arterial (SEG-301)', status: 'warning', speed: '12 km/h', note: '⚠️ Lashkar Bonalu & Ganesh idol procession moving slow' },
+          { name: 'Ranigunj / Bible House Intersection', status: 'warning', speed: '15 km/h', note: 'Police checkpoint diverting light motor vehicles' },
+          { name: 'Tank Bund Shoreline Arterial (SEG-205)', status: 'festive', speed: '6 km/h', note: '🪔 100% ROADWAY SEALED for Ganesh idol immersion convoys' },
+          { name: 'NTR Marg Secretariat Bypass (SEG-206)', status: 'festive', speed: '8 km/h', note: 'Closed for public pedestrian safety zone' },
+          { name: 'Secretariat Arrival Point', status: 'clear', speed: '--', note: 'Destination' }
+        ],
+        bypass: {
+          title: '✓ Official Police Bypass: Necklace Road Loop (SEG-150)',
+          desc: 'Divert via Ranigunj ➔ Sanjeevaiah Park ➔ Necklace Road ➔ Lower Tank Bund flyover. All 4-wheelers routed away from shoreline.',
+          turnCompliance: 'Legal one-way route maintained with traffic warden signaling.',
+          timeSaved: 'Saves 59 Minutes',
+          travelTime: '16 Minutes'
+        },
+        wardPulse: [
+          { text: 'Ward 78: Bible House junction barricaded for 4-wheelers. Police directing all cars towards RP Road.', time: '8m ago' },
+          { text: 'Ward 82: Necklace road bypass is wide open and fluid (42 km/h).', time: '15m ago' }
+        ]
+      },
+      'gachibowli_cyber': {
+        origin: 'Gachibowli / Financial District',
+        destination: 'HITEC City / Cyber Towers',
+        title: 'Gachibowli ➔ Outer Ring Road ➔ Cyber Towers Corridor',
+        status: 'clear',
+        badgeText: '✅ CORRIDOR ALL-CLEAR (Zero Obstructions Ahead)',
+        hazardSummary: 'Fluid Traffic Flow (No Stalls or Barricades Detected)',
+        delayTime: '0 Min Delay (Free Flow)',
+        normalTime: '12 Minutes',
+        obstructedTime: '12 Minutes',
+        shockwaveWarning: 'No kinematic wave or sensor anomalies detected. Operating at optimal speed & discharge capacity.',
+        segmentsTimeline: [
+          { name: 'Gachibowli ORR Feeder (SEG-118)', status: 'clear', speed: '74 km/h', note: '✓ Optimal speed (Free flow: 80 km/h)' },
+          { name: 'Bio-Diversity Junction Flyover', status: 'clear', speed: '58 km/h', note: '✓ Fluid discharge' },
+          { name: 'Mindspace Underpass Link', status: 'clear', speed: '50 km/h', note: '✓ Free moving' },
+          { name: 'Cyber Towers Junction (SEG-089)', status: 'clear', speed: '38 km/h', note: 'Arrival Point' }
+        ],
+        bypass: {
+          title: 'Standard Direct Route Recommended',
+          desc: 'Your regular commute path via Bio-Diversity flyover is clear. No diversion necessary.',
+          turnCompliance: 'Standard lane discipline in effect.',
+          timeSaved: 'On Time (0 Min Delay)',
+          travelTime: '12 Minutes'
+        },
+        wardPulse: [
+          { text: 'Ward 104: ORR feeder moving at full 75 km/h. No rain waterlogging or stalls.', time: '14m ago' }
+        ]
+      },
+      'charminar_panjagutta': {
+        origin: 'Charminar / Nayapul (Old City)',
+        destination: 'Panjagutta / Banjara Hills',
+        title: 'Old City ➔ Nayapul ➔ Lakdikapul ➔ Panjagutta Corridor',
+        status: 'warning',
+        badgeText: '⚠️ MODERATE PROCESSION SPILLBACK (3.2 km Ahead)',
+        hazardSummary: 'Procession Gatherings & Lakdikapul Surface Bottleneck',
+        delayTime: '+22 Minutes Delay',
+        normalTime: '24 Minutes',
+        obstructedTime: '46 Minutes',
+        shockwaveWarning: 'High pedestrian surge near Nayapul bridge. Masab Tank feeder queue building at 8 km/h.',
+        segmentsTimeline: [
+          { name: 'Charminar Arterial (SEG-020)', status: 'warning', speed: '18 km/h', note: '⚠️ High pedestrian and festive movement' },
+          { name: 'Nayapul Musi River Bridge', status: 'warning', speed: '24 km/h', note: 'Narrow lane slowdown' },
+          { name: 'Masab Tank - Lakdikapul (SEG-043)', status: 'warning', speed: '28 km/h', note: '⚠️ Spillback from Lakdikapul signal' },
+          { name: 'Panjagutta Central Flyover', status: 'clear', speed: '48 km/h', note: 'Arrival Point' }
+        ],
+        bypass: {
+          title: '✓ Recommended Alternate: Bahadurpura Outer Link ➔ Mehdipatnam',
+          desc: 'Take outer Bahadurpura link to avoid the Nayapul bottleneck, then proceed via Mehdipatnam ground bypass to Banjara Hills.',
+          turnCompliance: 'Avoid prohibited right cut at Lakdikapul railway bridge.',
+          timeSaved: 'Saves 20 Minutes',
+          travelTime: '26 Minutes'
+        },
+        wardPulse: [
+          { text: 'Ward 65: Slow moving procession crossing Nayapul. 2-wheelers squeezing through, cars crawling.', time: '11m ago' }
+        ]
+      }
+    };
+
     // ──── RENDER ENGINE ────
     function render() {
       const root = document.getElementById('mainViewport');
       document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
       const activeTab = document.getElementById(`tab-${STATE.currentView}`);
       if (activeTab) activeTab.classList.add('active');
+
+      // Update Role-Based Access pills in header
+      const citizenPill = document.getElementById('role-citizen');
+      const authPill = document.getElementById('role-authority');
+      if (citizenPill && authPill) {
+        if (STATE.currentView === 'commuter') {
+          citizenPill.classList.add('active');
+          authPill.classList.remove('active');
+          STATE.activeRole = 'citizen';
+        } else {
+          authPill.classList.add('active');
+          citizenPill.classList.remove('active');
+          STATE.activeRole = 'authority';
+        }
+      }
 
       switch (STATE.currentView) {
         case 'dashboard':
@@ -754,7 +1073,7 @@
           root.innerHTML = renderFestiveView();
           break;
         case 'commuter':
-          root.innerHTML = renderCommuterView();
+          root.innerHTML = renderCitizenRouteCheckView();
           break;
         case 'audit':
           root.innerHTML = renderAuditView();
@@ -767,6 +1086,17 @@
     function switchView(viewName) {
       STATE.currentView = viewName;
       render();
+    }
+
+    function switchRole(role) {
+      STATE.activeRole = role;
+      if (role === 'citizen') {
+        switchView('commuter');
+        showToast("👤 Switched to Citizen Traveler Mode: Live Ahead Obstruction Scanner");
+      } else {
+        switchView('dashboard');
+        showToast("👮 Switched to Traffic Authority Control: Live 60FPS City Telemetry");
+      }
     }
 
     // ──── 1. COMMAND CENTER DASHBOARD VIEW ────
@@ -1140,64 +1470,328 @@
       `;
     }
 
-    // ──── 4. COMMUTER MOBILE PASS VIEW ────
-    function renderCommuterView() {
+    // ──── 4. CITIZEN ROUTE OBSTRUCTION & DISRUPTION SCANNER (PUBLIC TRAVELER PORTAL) ────
+    function renderCitizenRouteCheckView() {
+      const q = STATE.citizenRoute;
+      const currentPreset = HYDERABAD_ROUTES_DB[q.activePreset] || HYDERABAD_ROUTES_DB['mehdipatnam_hitec'];
+
+      // Determine status styling
+      let statusBg = 'rgba(239, 68, 68, 0.15)';
+      let statusBorder = '#EF4444';
+      let statusTextColor = '#F87171';
+      let statusIcon = '⛔';
+
+      if (currentPreset.status === 'festive') {
+        statusBg = 'rgba(245, 158, 11, 0.15)';
+        statusBorder = '#B45309';
+        statusTextColor = '#F59E0B';
+        statusIcon = '🪔';
+      } else if (currentPreset.status === 'warning') {
+        statusBg = 'rgba(234, 179, 8, 0.15)';
+        statusBorder = '#EAB308';
+        statusTextColor = '#FACC15';
+        statusIcon = '⚠️';
+      } else if (currentPreset.status === 'clear') {
+        statusBg = 'rgba(16, 185, 129, 0.15)';
+        statusBorder = '#10B981';
+        statusTextColor = '#34D399';
+        statusIcon = '✅';
+      }
+
       return `
-        <div style="text-align: center; margin-bottom: 20px;">
-          <h2 style="font-size: 22px;">Commuter Mobility Companion (Zero-App Mobile Experience)</h2>
-          <p style="font-size: 12px; color: var(--text-secondary);">What incoming daily drivers receive on their phone browser 45 minutes prior to arriving at festive corridors</p>
+        <!-- Citizen View Header & Role Context -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
+          <div>
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+              <span class="badge-live" style="background: rgba(2, 132, 199, 0.2); color: #38BDF8; font-size: 10px;">👤 Public Traveler Portal</span>
+              <span style="font-size: 11px; color: var(--text-muted); font-weight: 600;">Role-Based Access: Citizen Mode</span>
+            </div>
+            <h2 style="font-size: 22px; display: flex; align-items: center; gap: 8px;">
+              📍 Citizen Route Obstruction &amp; Lookahead Scanner
+            </h2>
+            <p style="font-size: 12px; color: var(--text-secondary);">
+              Heading out? Type your trip locations to scan for ahead vehicle stalls, police cordons, Ganesh/Bonalu processions, and sudden queue shockwaves before you start driving.
+            </p>
+          </div>
+          <div style="display: flex; gap: 8px;">
+            <button class="btn btn-outline btn-sm" onclick="switchRole('authority')">Switch to Authority View →</button>
+            <button class="btn btn-brand btn-sm" onclick="openJanVaniReportModal()">+ Report Road Obstacle</button>
+          </div>
         </div>
 
-        <div class="phone-frame">
-          <div class="phone-notch"></div>
-          <div class="phone-body">
-            <!-- Header inside phone -->
-            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #1E293B; padding-bottom: 10px; margin-bottom: 14px;">
-              <div>
-                <strong style="color: #38BDF8; font-size: 14px;">GatiMarg Commuter</strong>
-                <div style="font-size: 10px; color: var(--text-muted);">Hyderabad City Mobility Portal</div>
+        <!-- Interactive Route Search & Pre-Trip Input Card -->
+        <div class="card" style="margin-bottom: 20px;">
+          <div style="display: grid; grid-template-columns: 1fr 1fr auto; gap: 16px; align-items: flex-end;">
+            <div class="route-input-group" style="margin-bottom: 0;">
+              <label class="route-input-label">
+                <span style="color: #10B981;">🟢</span> YOUR START LOCATION (ORIGIN)
+              </label>
+              <input type="text" id="routeOriginInput" class="route-input" list="hyderabadLocations" value="${q.origin}" placeholder="e.g. Mehdipatnam, Secunderabad, Gachibowli..." onkeydown="if(event.key==='Enter')scanCitizenRoute()">
+            </div>
+            <div class="route-input-group" style="margin-bottom: 0;">
+              <label class="route-input-label">
+                <span style="color: #EF4444;">🏁</span> DESTINATION (WHERE ARE YOU HEADING?)
+              </label>
+              <input type="text" id="routeDestInput" class="route-input" list="hyderabadLocations" value="${q.destination}" placeholder="e.g. HITEC City, Tank Bund, Airport..." onkeydown="if(event.key==='Enter')scanCitizenRoute()">
+            </div>
+            <div>
+              <button class="btn btn-brand" style="height: 42px; padding: 0 22px; font-weight: 700; white-space: nowrap;" onclick="scanCitizenRoute()">
+                🔍 Scan Route Ahead
+              </button>
+            </div>
+          </div>
+
+          <!-- Datalist Autocomplete for Hyderabad Corridors -->
+          <datalist id="hyderabadLocations">
+            <option value="Mehdipatnam (PVNR Ramp / Rethi Bowli)">
+            <option value="Secunderabad Station / Paradise">
+            <option value="Gachibowli / Financial District">
+            <option value="HITEC City / Cyber Towers">
+            <option value="Tank Bund / Secretariat / Hussain Sagar">
+            <option value="Charminar / Nayapul (Old City)">
+            <option value="Banjara Hills / Jubilee Hills">
+            <option value="Begumpet Airport / Panjagutta">
+            <option value="Shamshabad Airport (PVNR Expressway)">
+            <option value="Lakdikapul / Masab Tank">
+            <option value="Koti / Abids">
+          </datalist>
+
+          <!-- Quick 1-Click Popular Corridor Presets -->
+          <div style="margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(51, 65, 85, 0.4);">
+            <div style="font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 8px;">
+              Quick 1-Click Corridor Scenarios:
+            </div>
+            <div class="preset-chips-container" style="margin: 0;">
+              <button class="preset-chip ${q.activePreset === 'mehdipatnam_hitec' ? 'active' : ''}" onclick="selectRoutePreset('mehdipatnam_hitec')">
+                🚨 Mehdipatnam ➔ HITEC City (PVNR Stalled Bus + Kinematic Wave)
+              </button>
+              <button class="preset-chip ${q.activePreset === 'secunderabad_tankbund' ? 'active' : ''}" onclick="selectRoutePreset('secunderabad_tankbund')">
+                🪔 Secunderabad ➔ Tank Bund (Ganesh Nimajjanam Full Cordon)
+              </button>
+              <button class="preset-chip ${q.activePreset === 'gachibowli_cyber' ? 'active' : ''}" onclick="selectRoutePreset('gachibowli_cyber')">
+                ✅ Gachibowli ➔ Cyber Towers (Fluid Flowing ORR)
+              </button>
+              <button class="preset-chip ${q.activePreset === 'charminar_panjagutta' ? 'active' : ''}" onclick="selectRoutePreset('charminar_panjagutta')">
+                ⚠️ Old City ➔ Panjagutta (Festival Spillback)
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2-Column Main Evaluation Area -->
+        <div style="display: grid; grid-template-columns: 1.35fr 1fr; gap: 20px; align-items: start;">
+
+          <!-- LEFT COLUMN: Route Obstruction Intelligence -->
+          <div>
+            <!-- Status Card -->
+            <div class="card" style="border: 1.5px solid ${statusBorder}; background: ${statusBg}; margin-bottom: 20px;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
+                <div>
+                  <span style="font-size: 12px; font-weight: 800; color: ${statusTextColor}; text-transform: uppercase; letter-spacing: 0.05em;">
+                    ${statusIcon} ${currentPreset.badgeText}
+                  </span>
+                  <h3 style="font-size: 17px; margin-top: 4px; color: #fff;">
+                    ${currentPreset.title}
+                  </h3>
+                  <p style="font-size: 12px; color: #E2E8F0; margin-top: 4px;">
+                    ${currentPreset.hazardSummary}
+                  </p>
+                </div>
+                <div style="text-align: right; background: rgba(0,0,0,0.3); padding: 8px 12px; border-radius: 8px;">
+                  <div style="font-size: 10px; color: var(--text-muted); text-transform: uppercase;">Expected Trip Delay</div>
+                  <div style="font-size: 18px; font-weight: 800; color: ${statusTextColor}; font-family: var(--font-display);">
+                    ${currentPreset.delayTime}
+                  </div>
+                </div>
               </div>
-              <span class="badge-live" style="font-size: 9px;">GPS: Active</span>
+
+              <!-- Time Comparison Badges -->
+              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 14px; background: rgba(0,0,0,0.35); padding: 10px 14px; border-radius: 8px;">
+                <div>
+                  <div style="font-size: 10.5px; color: var(--text-muted);">Normal Unimpeded Time</div>
+                  <div style="font-size: 14px; font-weight: 700; color: #38BDF8;">${currentPreset.normalTime}</div>
+                </div>
+                <div>
+                  <div style="font-size: 10.5px; color: var(--text-muted);">Current Obstructed Time</div>
+                  <div style="font-size: 14px; font-weight: 700; color: #F87171;">${currentPreset.obstructedTime}</div>
+                </div>
+                <div>
+                  <div style="font-size: 10.5px; color: var(--text-muted);">With GatiMarg Bypass</div>
+                  <div style="font-size: 14px; font-weight: 700; color: #34D399;">${currentPreset.bypass.travelTime} (${currentPreset.bypass.timeSaved})</div>
+                </div>
+              </div>
+
+              <!-- Kinematic Shockwave & Spillback Warning -->
+              <div style="margin-top: 12px; font-size: 11.5px; color: #FEF3C7; line-height: 1.45; background: rgba(0,0,0,0.25); padding: 8px 12px; border-radius: 6px;">
+                ⚡ <strong>Spillback &amp; Hazard Advisory:</strong> ${currentPreset.shockwaveWarning}
+              </div>
             </div>
 
-            <!-- Pre-Trip Warning Alert Banner -->
-            <div style="background: linear-gradient(135deg, #78350F 0%, #451A03 100%); border: 1.5px solid #F59E0B; border-radius: 12px; padding: 14px; margin-bottom: 16px;">
-              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-                <span style="font-size: 18px;">🪔</span>
-                <strong style="color: #FDE68A; font-size: 13px;">Festive Cordon Alert (T-45 Min)</strong>
-              </div>
-              <p style="font-size: 11.5px; color: #FEF3C7; line-height: 1.45;">
-                Tank Bund Arterial is currently barricaded for <strong>Vinayaka Chavithi Nimajjanam</strong> processions. If entering from Secretariat, your regular route will experience a 75-minute standstill.
+            <!-- Segment-by-Segment Corridor Roadmap Stepper -->
+            <div class="card" style="margin-bottom: 20px;">
+              <h3 style="font-size: 15px; margin-bottom: 4px; display: flex; align-items: center; gap: 8px;">
+                🛣️ Corridor Segments Ahead (Origin ➔ Destination)
+              </h3>
+              <p style="font-size: 11.5px; color: var(--text-secondary); margin-bottom: 16px;">
+                Real-time status of each physical road stretch and flyover link along your path:
               </p>
+
+              <div class="corridor-timeline">
+                ${currentPreset.segmentsTimeline.map((seg, idx) => {
+                  let dotClass = 'dot-clear';
+                  let segColor = '#34D399';
+                  if (seg.status === 'danger') { dotClass = 'dot-danger'; segColor = '#F87171'; }
+                  else if (seg.status === 'warning') { dotClass = 'dot-warning'; segColor = '#F59E0B'; }
+                  else if (seg.status === 'festive') { dotClass = 'dot-festive'; segColor = '#F59E0B'; }
+
+                  return `
+                    <div class="timeline-node">
+                      <div class="timeline-dot ${dotClass}"></div>
+                      <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;">
+                        <strong style="font-size: 13px; color: #fff;">${idx + 1}. ${seg.name}</strong>
+                        <span style="font-size: 11px; font-weight: 700; color: ${segColor}; font-family: var(--font-mono);">${seg.speed}</span>
+                      </div>
+                      <div style="font-size: 11.5px; color: var(--text-secondary); margin-top: 2px;">
+                        ${seg.note}
+                      </div>
+                    </div>
+                  `;
+                }).join('')}
+              </div>
             </div>
 
-            <!-- Recommended Bypass Card -->
-            <div style="background: #0F172A; border: 1px solid var(--surface-border); border-radius: 12px; padding: 14px; margin-bottom: 14px;">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                <strong style="font-size: 12.5px; color: #34D399;">✓ Recommended Legal Bypass</strong>
-                <span style="font-size: 10px; background: rgba(16, 185, 129, 0.2); color: #34D399; padding: 2px 6px; border-radius: 4px;">Saves 42 Mins</span>
+            <!-- Recommended Legal Bypass & Turn Guidance -->
+            <div class="card" style="border: 1px solid rgba(16, 185, 129, 0.4); background: linear-gradient(145deg, rgba(16, 185, 129, 0.08) 0%, var(--bg-card) 100%); margin-bottom: 20px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
+                <h3 style="font-size: 15px; color: #34D399; display: flex; align-items: center; gap: 6px;">
+                  ${currentPreset.bypass.title}
+                </h3>
+                <span style="font-size: 10.5px; background: rgba(16, 185, 129, 0.2); color: #34D399; padding: 3px 8px; border-radius: 4px; font-weight: 700;">
+                  ${currentPreset.bypass.timeSaved}
+                </span>
               </div>
-              <p style="font-size: 11.5px; color: var(--text-secondary); margin-bottom: 8px;">
-                Route: <strong>Necklace Road → Lower Tank Bund Flyover</strong>
+              <p style="font-size: 12px; color: #E2E8F0; line-height: 1.5; margin-bottom: 10px;">
+                ${currentPreset.bypass.desc}
               </p>
-              <div style="display: flex; justify-content: space-between; font-size: 11px; background: #090D16; padding: 8px 10px; border-radius: 6px;">
-                <span>Est. Travel Time: <strong>16 mins</strong></span>
-                <span>Signal Delay: <strong>Low</strong></span>
+              <div style="background: #090E1A; border: 1px dashed rgba(245, 158, 11, 0.4); border-radius: 6px; padding: 8px 12px; font-size: 11px; color: #FDE68A; margin-bottom: 12px;">
+                ⚠️ <strong>Turn Compliance Rule:</strong> ${currentPreset.bypass.turnCompliance}
               </div>
-              <button class="btn btn-brand btn-sm" style="width: 100%; margin-top: 10px;" onclick="showToast('Navigating via Necklace Road Legal Bypass!')">Start Navigation On Bypass →</button>
+              <button class="btn btn-brand btn-sm" style="width: 100%; justify-content: center;" onclick="startBypassNavigation('${currentPreset.bypass.title}')">
+                🚀 Activate Bypass Navigation on Phone
+              </button>
+            </div>
+          </div>
+
+          <!-- RIGHT COLUMN: Smartphone Companion Simulator -->
+          <div>
+            <div style="text-align: center; margin-bottom: 12px;">
+              <div style="font-size: 12px; font-weight: 700; color: #38BDF8;">📲 Smartphone Traveler Companion</div>
+              <div style="font-size: 10.5px; color: var(--text-muted);">Simulated browser HUD pushed to incoming drivers</div>
             </div>
 
-            <!-- Ward Pulse Updates -->
-            <div style="background: #0F172A; border: 1px solid var(--surface-border); border-radius: 12px; padding: 14px;">
-              <strong style="font-size: 12px; color: #38BDF8;">Jan-Vani Ward Updates:</strong>
-              <div style="font-size: 11px; color: var(--text-secondary); margin-top: 6px; line-height: 1.4;">
-                • "Ranigunj: Moving idol convoy cleared towards Bible House." (10m ago)<br>
-                • "Police diverters active at IMAX Circle." (5m ago)
+            <div class="phone-frame">
+              <div class="phone-notch"></div>
+              <div class="phone-body">
+                <!-- Phone Top Bar -->
+                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #1E293B; padding-bottom: 8px; margin-bottom: 12px;">
+                  <div>
+                    <strong style="color: #38BDF8; font-size: 13px;">GatiMarg Citizen</strong>
+                    <div style="font-size: 9.5px; color: var(--text-muted);">Live Lookahead Radar</div>
+                  </div>
+                  <span class="badge-live" style="font-size: 9px;">GPS: Active</span>
+                </div>
+
+                <!-- Live Warning Banner -->
+                <div style="background: ${statusBg}; border: 1.5px solid ${statusBorder}; border-radius: 12px; padding: 12px; margin-bottom: 14px;">
+                  <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 4px;">
+                    <span style="font-size: 16px;">${statusIcon}</span>
+                    <strong style="color: #fff; font-size: 12px;">${currentPreset.hazardSummary}</strong>
+                  </div>
+                  <p style="font-size: 11px; color: #E2E8F0; line-height: 1.4;">
+                    Obstruction detected ahead on your route. Potential delay: <strong>${currentPreset.delayTime}</strong>.
+                  </p>
+                </div>
+
+                <!-- Bypass Navigation Card Inside Phone -->
+                <div style="background: #0F172A; border: 1px solid var(--surface-border); border-radius: 12px; padding: 12px; margin-bottom: 12px;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                    <strong style="font-size: 11.5px; color: #34D399;">✓ Recommended Legal Bypass</strong>
+                    <span style="font-size: 9px; background: rgba(16, 185, 129, 0.2); color: #34D399; padding: 2px 5px; border-radius: 4px;">${currentPreset.bypass.timeSaved}</span>
+                  </div>
+                  <p style="font-size: 11px; color: var(--text-secondary); margin-bottom: 8px;">
+                    ${currentPreset.bypass.desc}
+                  </p>
+                  <div style="display: flex; justify-content: space-between; font-size: 10.5px; background: #090D16; padding: 6px 8px; border-radius: 6px; margin-bottom: 10px;">
+                    <span>Est. Time: <strong>${currentPreset.bypass.travelTime}</strong></span>
+                    <span>Status: <strong>Fluid</strong></span>
+                  </div>
+                  <button class="btn btn-brand btn-sm" style="width: 100%; font-size: 11px; justify-content: center;" onclick="startBypassNavigation('${currentPreset.bypass.title}')">
+                    Start Navigation →
+                  </button>
+                </div>
+
+                <!-- Jan-Vani Citizen Crowd Notes -->
+                <div style="background: #0F172A; border: 1px solid var(--surface-border); border-radius: 12px; padding: 12px; margin-bottom: 12px;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                    <strong style="font-size: 11px; color: #38BDF8;">Jan-Vani Live Ground Notes:</strong>
+                    <span style="font-size: 9.5px; color: var(--text-muted);">Nearby Ward</span>
+                  </div>
+                  <div style="display: flex; flex-direction: column; gap: 6px;">
+                    ${currentPreset.wardPulse.map(wp => `
+                      <div style="font-size: 10.5px; color: #CBD5E1; background: #070B14; padding: 6px 8px; border-radius: 6px; line-height: 1.35;">
+                        • ${wp.text} <span style="color: var(--text-muted); font-size: 9px;">(${wp.time})</span>
+                      </div>
+                    `).join('')}
+                  </div>
+                </div>
+
+                <!-- Citizen Report Obstacle Button -->
+                <button class="btn btn-outline btn-sm" style="width: 100%; font-size: 10.5px; justify-content: center;" onclick="openJanVaniReportModal()">
+                  📢 Submit New Road Obstacle Report
+                </button>
               </div>
             </div>
           </div>
         </div>
       `;
+    }
+
+    function selectRoutePreset(presetKey) {
+      const r = HYDERABAD_ROUTES_DB[presetKey];
+      if (!r) return;
+      STATE.citizenRoute.origin = r.origin;
+      STATE.citizenRoute.destination = r.destination;
+      STATE.citizenRoute.activePreset = presetKey;
+      render();
+      showToast(`Scanned corridor: ${r.title}`);
+    }
+
+    function scanCitizenRoute() {
+      const origInput = document.getElementById('routeOriginInput');
+      const destInput = document.getElementById('routeDestInput');
+      const orig = origInput ? origInput.value.trim() : STATE.citizenRoute.origin;
+      const dest = destInput ? destInput.value.trim() : STATE.citizenRoute.destination;
+
+      STATE.citizenRoute.origin = orig || 'Mehdipatnam';
+      STATE.citizenRoute.destination = dest || 'HITEC City';
+
+      const text = (orig + ' ' + dest).toLowerCase();
+      if (text.includes('mehdipatnam') || text.includes('pvnr') || text.includes('airport')) {
+        STATE.citizenRoute.activePreset = 'mehdipatnam_hitec';
+      } else if (text.includes('tank bund') || text.includes('secunderabad') || text.includes('hussain') || text.includes('secretariat') || text.includes('bonalu') || text.includes('ganesh')) {
+        STATE.citizenRoute.activePreset = 'secunderabad_tankbund';
+      } else if (text.includes('charminar') || text.includes('old city') || text.includes('panjagutta') || text.includes('nayapul')) {
+        STATE.citizenRoute.activePreset = 'charminar_panjagutta';
+      } else {
+        STATE.citizenRoute.activePreset = 'gachibowli_cyber';
+      }
+
+      render();
+      showToast(`Route scan complete for ${STATE.citizenRoute.origin} ➔ ${STATE.citizenRoute.destination}`);
+    }
+
+    function startBypassNavigation(routeName) {
+      showToast(`🧭 Navigation started: Rerouting via ${routeName || 'Recommended Legal Bypass'} to avoid ahead obstructions!`);
     }
 
     // ──── 6. DATA HYGIENE & AUDIT VIEW ────
