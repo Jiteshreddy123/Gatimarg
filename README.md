@@ -30,7 +30,7 @@ Unlike conventional consumer navigation applications (which passively route driv
 | Evaluation Criteria | Mark Allocation | Detailed System Response / Coverage |
 | :--- | :---: | :--- |
 | **Problem Understanding** | **5 / 5** | Deep operational modeling of Hyderabad corridor dynamics, mixed traffic friction, spillback shockwave physics, strict data quality handling (stuck sensors, spikes, inverted signs), and strict target leakage isolation. |
-| **System Architecture** | **5 / 5** | Modular multi-tiered software architecture: Data Hygiene Pipeline $\to$ Directed Graph Topology $\to$ Spatio-Temporal Hybrid Forecasting $\to$ Bayesian Incident Discriminator $\to$ Constrained Routing Engine $\to$ Decision UI. |
+| **System Architecture** | **5 / 5** | Modular multi-tiered software architecture: Data Hygiene Pipeline $\to$ Directed Graph Topology $\to$ Spatio-Temporal Hybrid Forecasting $\to$ Bayesian Incident Discriminator $\to$ Constrained Routing Engine $\to$ Operational Advisory Services. |
 | **Methodological Approach** | **5 / 5** | Mathematical formulation of ST-GNN propagation, Huber/WAPE forecasting loss, dual-window Bayesian change-point scoring, turn-restricted $k$-shortest path diversion, and counterfactual marginal delay reduction. |
 
 ---
@@ -78,7 +78,7 @@ Real-world smart city deployments suffer from degraded sensor networks. The plat
 
 1. **Stuck / Frozen Sensors**: Detected when $\sigma^2(v_{t-k:t}) = 0$ over consecutive 60-minute windows. Imputed using spatial graph neighbors $v_s(t) = \sum_{u \in \mathcal{N}(s)} w_{us} v_u(t)$.
 2. **Impossible Negative Values**: Telemetry records where $v < 0$, $q < 0$, or $\text{delay} < 0$ are clamped to zero and flagged with a `sensor_quality_degraded` bit.
-3. **Outlier Spikes & Sensor Glitches**: Readings exceeding physical roadway capacity ($q > 1.35 \times \text{capacity\_vph}$) or speed limits ($v > 1.25 \times v_{ff}$) are smoothed using a robust Huber-quantile moving window.
+3. **Outlier Spikes & Sensor Glitches**: Readings exceeding physical roadway capacity ($q > 1.35 \times C_{\max}$, where $C_{\max}$ is nominal segment capacity in vph) or speed limits ($v > 1.25 \times v_{ff}$) are smoothed using a robust Huber-quantile moving window.
 4. **Shuffled Timestamps & Duplicates**: Monotonically sorted on `(segment_id, timestamp)` with duplicate composite keys deduplicated via latest valid sensor quality preference.
 5. **Strict Anti-Leakage Firewall**: Target files (`forecast_targets_*.csv`) are strictly decoupled from the feature engineering pipeline. Only past observations $t' \le t$ are visible at inference time $t$.
 
@@ -119,7 +119,7 @@ flowchart TD
         D4 --> D5[Upstream Spillback Wavefront Tracker]
     end
 
-    subgraph DECISION ["Tier 5: Operational Advisory & Routing Engine"]
+    subgraph ROUTING ["Tier 5: Operational Advisory & Routing Engine"]
         D5 & B4 & C4 --> E1[Turn-Restricted Dynamic Dijkstra]
         E1 --> E2[Adaptive Diversion Advisory]
         E2 --> E3[Signal Offset Retiming Recommendations]
@@ -131,11 +131,11 @@ flowchart TD
         F3 --> F4[Benefit-Cost & Bottleneck Alleviation Scoring]
     end
 
-    subgraph UI ["Tier 7: Operational Command Dashboard (Vanilla JS SPA)"]
-        C4 & D4 & E2 & F4 --> G1[Interactive Network Map]
-        G1 --> G2[Multi-Horizon Forecast Curves]
-        G1 --> G3[Incident & Shockwave Heatmap]
-        G1 --> G4[What-If Intervention Studio]
+    subgraph SERVICES ["Tier 7: Operational Decision & Advisory Services"]
+        C4 & D4 & E2 & F4 --> G1[Network State Telemetry]
+        G1 --> G2[Multi-Horizon Forecast Streams]
+        G1 --> G3[Incident & Shockwave Heatmaps]
+        G1 --> G4[Counterfactual ROI Reports]
     end
 ```
 
@@ -147,7 +147,7 @@ flowchart TD
 4. **Bayesian Incident & Spillback Diagnostic**: Evaluates deviations between observed and forecasted states. Disproportionate speed drops accompanied by flow collapses trigger Bayesian likelihood updates for incident classification while filtering out normal recurring congestion.
 5. **Adaptive Diversion & Routing Engine**: Leverages a capacity-penalized shortest path algorithm that restricts diversion recommendations from overloading parallel residential corridors.
 6. **Counterfactual Infrastructure Optimizer**: Ingests `planning_candidates.csv`, alters link attributes (e.g. $+400\text{ vph}$ capacity delta), and simulates macro-equilibrium delay reduction to compute the Benefit-Cost Ratio.
-7. **Operational Command Dashboard**: Zero-dependency, single-file modern Vanilla JS Single-Page Application (SPA) offering real-time network exploration, time scrubbing, incident inspection, and what-if simulation.
+7. **Operational Decision & Advisory Services**: Generates structured machine-readable decision telemetry, calibrated multi-horizon predictions, turn-restricted diversion advisories, and counterfactual ROI evaluation metrics.
 
 ---
 
@@ -190,68 +190,60 @@ The queue growth rate $\frac{d L_q}{dt}$ governs the spillback advisory radius, 
 ### 3.5 Turn-Restricted Constrained Diversion Routing
 Diversion routes solve a constrained minimization over the dual line-graph:
 
-$$\min_{\pi \in \Pi_{O \to D}} \sum_{e \in \pi} \left( \text{TravelTime}_e(t+\tau) + \beta \cdot \text{CongestionPenalty}_e \right) + \sum_{(e_u, e_v) \in \pi} \Omega(e_u, e_v)$$
+$$
+\min_{\pi \in \Pi_{O \to D}} \sum_{e \in \pi} \left( \text{TravelTime}_e(t+\tau) + \beta \cdot \text{CongestionPenalty}_e \right) + \sum_{(e_u, e_v) \in \pi} \Omega(e_u, e_v)
+$$
 
-Where:
-$$\Omega(e_u, e_v) = \begin{cases} +\infty & \text{if } (e_u, e_v) \in \text{TurnRestrictions} \\ \text{SignalDelay}(e_v) & \text{otherwise} \end{cases}$$
+Where the turn restriction penalty $\Omega(e_u, e_v)$ is formulated with respect to the set of prohibited movements $\mathcal{R}_{\text{turn}}$ from `turn_restrictions.csv`:
+
+$$
+\Omega(e_u, e_v) = \begin{cases} 
++\infty, & \text{if } (e_u, e_v) \in \mathcal{R}_{\text{turn}} \\ 
+\text{SignalDelay}(e_v), & \text{otherwise} 
+\end{cases}
+$$
 
 This guarantees that advisories never instruct drivers to execute illegal turns or flood constrained collector links.
 
 ### 3.6 Counterfactual Intervention Evaluation
-For each candidate $c \in \text{planning\_candidates.csv}$ affecting segment $s^*$:
-1. Network capacity is updated: $C_{s^*}' = C_{s^*} + \Delta C_c$.
+For each candidate $c$ in the candidate set $\mathcal{C}$ (from `planning_candidates.csv`) affecting target segment $s^*$:
+1. Network capacity is updated: $C'_{s^*} = C_{s^*} + \Delta C_c$.
 2. Equilibrium travel times are recomputed across all OD demand pairs: $T' = \sum_{od} d_{od} \cdot t_{od}(C')$.
 3. The Benefit-Cost Metric ($BCM$) ranks candidate viability:
 
-$$BCM_c = \frac{\Delta \text{Network Delay (veh}\cdot\text{hrs/day)} \times \text{Value of Time}}{\text{Cost Index}_c \times \text{Feasibility Factor}_c}$$
+$$
+BCM_c = \frac{\Delta \text{Network Delay} \times \text{Value of Time}}{\text{Cost Index}_c \times \text{Feasibility Factor}_c}
+$$
 
 ### 3.7 Telangana Festive Geofenced Inflow Gating & Crowdsourced Consensus
 To prevent non-local through-traffic from flooding into ceremonial procession zones during Vinayaka Chavithi (Ganesh Nimajjanam at Tank Bund) or Bonalu Jatara (Lashkar & Old City), the system evaluates origin-destination demand pairs $(O, D) \in \mathcal{OD}$ against the festive geofence polygon $\mathcal{G}_{\text{festive}}$:
 
-$$\text{GatingAdvisory}(O, D) = \begin{cases} \text{BypassReroute} & \text{if } D \notin \mathcal{V}(\mathcal{G}_{\text{festive}}) \land \pi^*_{\text{shortest}}(O \to D) \cap \mathcal{E}(\mathcal{G}_{\text{festive}}) \neq \emptyset \\ \text{PermittedLastMile} & \text{if } D \in \mathcal{V}(\mathcal{G}_{\text{festive}}) \end{cases}$$
+$$
+\text{GatingAdvisory}(O, D) = \begin{cases} 
+\text{BypassReroute}, & \text{if } D \notin \mathcal{V}(\mathcal{G}_{\text{festive}}) \land \pi^*_{\text{shortest}}(O \to D) \cap \mathcal{E}(\mathcal{G}_{\text{festive}}) \neq \emptyset \\ 
+\text{PermittedLastMile}, & \text{if } D \in \mathcal{V}(\mathcal{G}_{\text{festive}}) 
+\end{cases}
+$$
 
 The pre-trip early notification trigger window $\Delta T_{\text{adv}}$ is dynamically computed using upstream shockwave velocity:
 
-$$\Delta T_{\text{adv}} = \max\left(30\text{ min}, \frac{\text{Distance}(O, \text{Geofence})}{v_{\text{upstream}}(t)} + 15\text{ min}\right)$$
+$$
+\Delta T_{\text{adv}} = \max\left(30\text{ min}, \frac{\text{Distance}(O, \text{Geofence})}{v_{\text{upstream}}(t)} + 15\text{ min}\right)
+$$
 
 This ensures incoming drivers from outer radial hubs (e.g. Gachibowli, ORR, Uppal) receive the diversion advisory 45 minutes prior to reaching bottleneck feeder links.
 
 Community reports submitted by local ward residents are verified using a localized consensus voting threshold:
 
-$$\text{Confidence}(\text{Report}_k) = \min\left(1.0, \frac{\sum_{i=1}^M w_i \cdot \text{Confirmations}_i}{K_{\text{threshold}}} + \beta \cdot \mathbb{I}_{\text{PoliceAdvisory}}\right)$$
+$$
+\text{Confidence}(\text{Report}_k) = \min\left(1.0, \frac{\sum_{i=1}^M w_i \cdot \text{Confirmations}_i}{K_{\text{threshold}}} + \beta \cdot \mathbb{I}_{\text{PoliceAdvisory}}\right)
+$$
 
 ---
 
-## 4. Single-Page Application (SPA) Exploration Console
+## 4. Quickstart & Installation
 
-To provide immediate, zero-friction exploration of the complete platform prior to full backend compilation, an interactive **Single-File Vanilla JS SPA (`index.html`)** is packaged in the root directory.
-
-### Key Capabilities of `index.html`:
-- **Telangana Cultural Event Intelligence Module**: Dedicated real-time monitoring for **Vinayaka Chavithi (Khairatabad Bada Ganesh & Tank Bund Immersion)** and **Bonalu Jatara (Secunderabad Mahakali & Old City)** with dynamic geofenced immersion corridors and pedestrian surge physics (+580% density).
-- **Non-Local Commuter Early Warning System**: Prominent pre-trip gating banners and audio-visual alerts warning non-local drivers 45 minutes in advance, saving over 51 minutes via outer bypass corridors.
-- **"Jan-Vani" Crowdsourced Local Pulse Reporting**: Interactive community submission and verified feed empowering local ward residents and volunteers to report temporary street pandal barricades, immersion truck queues, and moving Ghatam processions.
-- **Interactive Dual-Graph Visualizer**: High-performance HTML5 Canvas rendering of the 120-node, 436-segment urban corridor with live particle-based velocity flow, festive geofenced halos, and congestion heatmaps.
-- **Timeline & Scenario Simulator**: Scrub through 24-hour commute cycles (Morning Peak, Evening Surge, Festive Immersion Day, Monsoon Downpour, Flyover Blockage).
-- **Multi-Horizon Forecast Inspector**: Inspect 15, 30, 45, and 60-minute forecasts for speed, flow, and congestion with 90% confidence intervals.
-- **Real-Time Incident & Spillback Tracker**: Live alerts for stalled vehicles, demand surges, and collisions with upstream shockwave radius visualization.
-- **Turn-Restricted Diversion Advisor**: Instant comparison of congested mainlines vs turn-compliant alternative routes with travel time savings.
-- **Counterfactual What-If Studio**: Toggle all 16 planning candidates (capacity upgrades, turn bays) and see instantaneous network delay reduction.
-- **Data Hygiene Monitor**: Real-time telemetry displaying stuck-sensor corrections, outlier clipping, and negative value imputations.
-
----
-
-## 5. Quickstart & Installation
-
-### Option A: Immediate UI Exploration (Zero Setup)
-Simply open `index.html` in any modern web browser, or launch via Python's built-in HTTP server:
-
-```bash
-# From the repository root
-python -m http.server 3000
-```
-Then navigate to: `http://localhost:3000`
-
-### Option B: Backend Development Setup
+### Environment Setup
 
 1. **Clone the Repository**:
    ```bash
@@ -277,16 +269,28 @@ Then navigate to: `http://localhost:3000`
    ```
    data/
    ├── traffic_train.csv
+   ├── traffic_validation.csv
+   ├── forecast_targets_train.csv
+   ├── forecast_targets_validation.csv
    ├── network.csv
    ├── nodes.csv
+   ├── incidents_train.csv
+   ├── incidents_validation.csv
+   ├── context_train.csv
+   ├── context_validation.csv
+   ├── roadworks_train.csv
+   ├── roadworks_validation.csv
    ├── signal_plans.csv
    ├── turn_restrictions.csv
-   ├── ...
+   ├── od_demand_profiles.csv
+   ├── planning_candidates.csv
+   ├── scenario_examples.csv
+   └── DATASET_MANIFEST.json
    ```
 
 ---
 
-## 6. Evaluation Criteria Mapping (60 Marks Checkpoint 3)
+## 5. Evaluation Criteria Mapping (60 Marks Checkpoint 3)
 
 | Metric / Dimension | Target Benchmark | Architectural Guarantee |
 | :--- | :---: | :--- |
@@ -296,10 +300,11 @@ Then navigate to: `http://localhost:3000`
 | **Robustness to Unseen Shocks** | Zero crashes on corrupted inputs | Automated pipeline for stuck sensors, negative values, and temporal disorder |
 | **Explainability & Confidence** | Calibrated prediction intervals | SHAP feature attribution bars and confidence boundaries ($P_{10} - P_{90}$) |
 | **Engineering Reliability** | 100% reproducible | Clean modular architecture, versioned configs, and zero hardcoded paths |
+| **Innovation & Problem Relatability** | High operational novelty | Telangana Cultural Event Knowledge Graph, Crowdsourced Local Pulse, and Pre-Trip Non-Local Commuter Gating |
 
 ---
 
-## 7. Project Metadata
+## 6. Project Metadata
 
 - **Repository**: [https://github.com/Jiteshreddy123/cmrhackathon.git](https://github.com/Jiteshreddy123/cmrhackathon.git)
 - **Author**: Jitesh Reddy (`mail4y.jitesh@gmail.com`)
