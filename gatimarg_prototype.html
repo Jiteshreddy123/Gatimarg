@@ -1,0 +1,1691 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GatiMarg AI — Urban Traffic Flow, Incident Intelligence & Festive Mobility Platform</title>
+  <meta name="description"
+    content="GatiMarg AI: An AI-driven traffic management, multi-horizon forecasting, spillback tracking, and cultural event mobility platform engineered for Hyderabad metropolitan corridors.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+    rel="stylesheet">
+  <style>
+    /* =========================================================================
+       GATIMARG AI — DESIGN SYSTEM (Sleek Urban Command Dark / Slate Palette)
+       ========================================================================= */
+    :root {
+      /* Backgrounds & Surfaces */
+      --bg-dark: #090D16;
+      --bg-card: #0F172A;
+      --bg-card-hover: #162238;
+      --surface-subtle: #1E293B;
+      --surface-border: #334155;
+      --border-bright: #475569;
+
+      /* Text Colors */
+      --text-main: #F8FAFC;
+      --text-secondary: #94A3B8;
+      --text-muted: #64748B;
+
+      /* Primary Brand / Flow: Electric Cyan & Tech Indigo */
+      --brand-primary: #06B6D4;
+      --brand-glow: rgba(6, 182, 212, 0.25);
+      --brand-accent: #3B82F6;
+      --brand-dark: #0E7490;
+
+      /* Festive & Amber Shocks */
+      --festive-gold: #F59E0B;
+      --festive-glow: rgba(245, 158, 11, 0.22);
+      --festive-bg: #451A03;
+      --festive-border: #B45309;
+
+      /* Status Colors */
+      --status-green: #10B981;
+      --status-red: #EF4444;
+      --status-yellow: #EAB308;
+      --status-purple: #8B5CF6;
+
+      /* Radii & Shadows */
+      --r-sm: 6px;
+      --r-md: 12px;
+      --r-lg: 18px;
+      --r-full: 9999px;
+      --shadow-card: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+
+      /* Typography */
+      --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-display: 'Space Grotesk', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: var(--font-display);
+      letter-spacing: -0.02em;
+    }
+
+    /* ---- TOP SYSTEM BAR ---- */
+    .system-bar {
+      background: #050811;
+      border-bottom: 1px solid var(--surface-border);
+      padding: 6px 24px;
+      font-size: 11px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text-secondary);
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .badge-live {
+      background: rgba(16, 185, 129, 0.15);
+      color: #34D399;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 2px 8px;
+      border-radius: var(--r-full);
+      font-weight: 700;
+      font-size: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .pulse-dot {
+      width: 6px;
+      height: 6px;
+      background: #10B981;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #10B981;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.3); }
+    }
+
+    /* ---- APP HEADER ---- */
+    .app-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(15, 23, 42, 0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--surface-border);
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+    }
+
+    .logo-badge {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #06B6D4, #3B82F6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      box-shadow: 0 0 16px var(--brand-glow);
+    }
+
+    .logo-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .logo-title span {
+      font-size: 10px;
+      background: rgba(6, 182, 212, 0.2);
+      color: #38BDF8;
+      border: 1px solid rgba(6, 182, 212, 0.4);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-weight: 600;
+    }
+
+    .logo-sub {
+      font-size: 11px;
+      color: var(--text-secondary);
+    }
+
+    /* Portal Tabs */
+    .nav-tabs {
+      display: flex;
+      background: #090D16;
+      border: 1px solid var(--surface-border);
+      border-radius: var(--r-full);
+      padding: 3px;
+      gap: 2px;
+    }
+
+    .nav-tab {
+      padding: 6px 14px;
+      border-radius: var(--r-full);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      border: none;
+      background: none;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .nav-tab:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-tab.active {
+      background: linear-gradient(135deg, #0284C7, #06B6D4);
+      color: #fff;
+      box-shadow: 0 2px 10px rgba(6, 182, 212, 0.3);
+    }
+
+    /* ---- BUTTONS ---- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: var(--r-full);
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: 1px solid transparent;
+      text-decoration: none;
+    }
+
+    .btn:active {
+      transform: scale(0.97);
+    }
+
+    .btn-brand {
+      background: linear-gradient(135deg, #0284C7, #06B6D4);
+      color: #fff;
+      box-shadow: 0 2px 12px var(--brand-glow);
+    }
+
+    .btn-brand:hover {
+      box-shadow: 0 4px 18px rgba(6, 182, 212, 0.45);
+      filter: brightness(1.1);
+    }
+
+    .btn-festive {
+      background: linear-gradient(135deg, #B45309, #F59E0B);
+      color: #fff;
+      box-shadow: 0 2px 12px var(--festive-glow);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border-color: var(--surface-border);
+      color: var(--text-main);
+    }
+
+    .btn-outline:hover {
+      background: var(--surface-subtle);
+      border-color: var(--brand-primary);
+    }
+
+    .btn-danger {
+      background: rgba(239, 68, 68, 0.18);
+      border-color: rgba(239, 68, 68, 0.4);
+      color: #F87171;
+    }
+
+    .btn-danger:hover {
+      background: #EF4444;
+      color: #fff;
+    }
+
+    .btn-sm {
+      padding: 5px 12px;
+      font-size: 11px;
+    }
+
+    /* ---- DEMO BANNER (STORY TOUR) ---- */
+    .demo-banner {
+      background: linear-gradient(90deg, #0B132B 0%, #172554 50%, #082F49 100%);
+      border-bottom: 1px solid #1E3A8A;
+      padding: 10px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      font-size: 12px;
+    }
+
+    .demo-step-badge {
+      background: rgba(245, 158, 11, 0.2);
+      color: #FBBF24;
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      padding: 2px 8px;
+      border-radius: var(--r-full);
+      font-weight: 700;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .demo-dots {
+      display: flex;
+      gap: 5px;
+      margin-top: 6px;
+    }
+
+    .demo-dot {
+      width: 22px;
+      height: 4px;
+      border-radius: 2px;
+      background: #1E3A8A;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .demo-dot.active {
+      background: #38BDF8;
+      box-shadow: 0 0 8px #38BDF8;
+    }
+
+    .demo-dot.done {
+      background: #10B981;
+    }
+
+    /* ---- CARDS & LAYOUT ---- */
+    .main-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 24px 20px 60px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--r-md);
+      padding: 20px;
+      box-shadow: var(--shadow-card);
+      transition: border-color 0.2s;
+    }
+
+    .card:hover {
+      border-color: var(--border-bright);
+    }
+
+    .card-festive {
+      border-color: var(--festive-border);
+      background: linear-gradient(145deg, #1C1306 0%, var(--bg-card) 100%);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    /* Metric Cards */
+    .stat-box {
+      background: #090E1D;
+      border: 1px solid var(--surface-border);
+      border-radius: var(--r-sm);
+      padding: 14px;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+
+    .stat-value {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .stat-sub {
+      font-size: 11px;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+
+    /* Map Mock & Corridor Visualizer */
+    .corridor-canvas {
+      width: 100%;
+      height: 320px;
+      background: radial-gradient(circle at 60% 40%, #132238 0%, #0A111F 100%);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--r-md);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .road-segment {
+      position: absolute;
+      background: #334155;
+      border-radius: 4px;
+      transition: all 0.3s;
+    }
+
+    .road-segment.congested {
+      background: #EF4444 !important;
+      box-shadow: 0 0 12px rgba(239, 68, 68, 0.8);
+    }
+
+    .road-segment.shockwave {
+      background: #F59E0B !important;
+      box-shadow: 0 0 10px rgba(245, 158, 11, 0.7);
+    }
+
+    .road-segment.festive-blocked {
+      background: #DC2626 !important;
+      background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0, 0, 0, 0.4) 10px, rgba(0, 0, 0, 0.4) 20px) !important;
+      box-shadow: 0 0 14px rgba(220, 38, 38, 0.9);
+    }
+
+    .road-segment.diversion {
+      background: #10B981 !important;
+      box-shadow: 0 0 12px rgba(16, 185, 129, 0.7);
+    }
+
+    .map-node {
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #1E293B;
+      border: 2px solid #06B6D4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 8px;
+      color: #fff;
+      font-weight: 700;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+      cursor: pointer;
+    }
+
+    .map-node.incident {
+      border-color: #EF4444;
+      background: #7F1D1D;
+      animation: pulse 1s infinite;
+    }
+
+    /* Commuter Phone Simulator */
+    .phone-frame {
+      width: 380px;
+      height: 720px;
+      background: #030712;
+      border-radius: 44px;
+      border: 8px solid #1E293B;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .phone-notch {
+      width: 120px;
+      height: 20px;
+      background: #1E293B;
+      border-bottom-left-radius: 14px;
+      border-bottom-right-radius: 14px;
+      margin: 0 auto;
+      z-index: 30;
+    }
+
+    .phone-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px;
+      color: #fff;
+    }
+
+    /* Tables */
+    .table-container {
+      overflow-x: auto;
+      width: 100%;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12.5px;
+      text-align: left;
+    }
+
+    th {
+      background: #0B1120;
+      padding: 10px 14px;
+      color: var(--text-muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 10.5px;
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid var(--surface-border);
+    }
+
+    td {
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(51, 65, 85, 0.5);
+    }
+
+    tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    /* Modals */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(3, 7, 18, 0.75);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-content {
+      background: var(--bg-card);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--r-md);
+      max-width: 600px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 24px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+    }
+
+    .modal-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .close-btn {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--surface-subtle);
+      border: 1px solid var(--surface-border);
+      color: var(--text-secondary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .close-btn:hover {
+      color: #fff;
+      background: var(--surface-border);
+    }
+
+    /* Notification Toast */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #0E7490;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: var(--r-md);
+      border: 1px solid #06B6D4;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      font-size: 13px;
+      font-weight: 600;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      animation: slideUp 0.3s ease;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .grid-4 { grid-template-columns: repeat(2, 1fr); }
+      .grid-3 { grid-template-columns: 1fr; }
+      .grid-2 { grid-template-columns: 1fr; }
+      .app-header { height: auto; padding: 12px 16px; flex-wrap: wrap; }
+      .nav-tabs { overflow-x: auto; max-width: 100%; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== 1. SYSTEM TOP BAR ===== -->
+  <div class="system-bar">
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <span class="badge-live"><span class="pulse-dot"></span> LIVE NETWORK SYNCHRONIZED</span>
+      <span>Metropolitan Road Network: <strong>436 Segments</strong> · <strong>120 Nodes</strong></span>
+      <span>Temporal Resolution: <strong>5-Minute Bins</strong></span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 14px;">
+      <span>Dataset Scope: <strong>15-Day Train / 8-Day Test (36 Scenarios)</strong></span>
+      <span style="color: #38BDF8;">Target Environment: <strong>Hyderabad Urban Corridor</strong></span>
+    </div>
+  </div>
+
+  <!-- ===== 2. HEADER & NAVIGATION ===== -->
+  <header class="app-header">
+    <div class="logo-container" onclick="switchView('dashboard')">
+      <div class="logo-badge">⚡</div>
+      <div>
+        <div class="logo-title">
+          GatiMarg AI
+          <span>NEURAX 3.0</span>
+        </div>
+        <div class="logo-sub">Urban Traffic Flow, Incident Intelligence &amp; Festive Mobility</div>
+      </div>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <nav class="nav-tabs">
+      <button class="nav-tab active" id="tab-dashboard" onclick="switchView('dashboard')">📊 Command Center</button>
+      <button class="nav-tab" id="tab-incidents" onclick="switchView('incidents')">🚨 Incident Radar</button>
+      <button class="nav-tab" id="tab-festive" onclick="switchView('festive')">🪔 Jan-Vani (Festive Gate)</button>
+      <button class="nav-tab" id="tab-counterfactual" onclick="switchView('counterfactual')">🏗️ What-If Sandbox</button>
+      <button class="nav-tab" id="tab-commuter" onclick="switchView('commuter')">📱 Commuter Pass</button>
+      <button class="nav-tab" id="tab-audit" onclick="switchView('audit')">🛡️ Hygiene &amp; Audit</button>
+    </nav>
+
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <button class="btn btn-festive btn-sm" onclick="startDemoTour()">✨ 10-Step Story Tour</button>
+      <button class="btn btn-brand btn-sm" onclick="openSimulateIncidentModal()">+ Simulate Incident</button>
+    </div>
+  </header>
+
+  <!-- ===== 3. INTERACTIVE STORY TOUR BANNER ===== -->
+  <div class="demo-banner" id="demoBanner" style="display: none;">
+    <div>
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <span class="demo-step-badge">Step <span id="demoStepNum">1</span>/10</span>
+        <strong id="demoStepTitle" style="color: #fff; font-size: 13.5px;">Problem Reality: Urban Bottlenecks in Hyderabad</strong>
+      </div>
+      <div id="demoStepDesc" style="color: #BAE6FD; font-size: 12px; margin-top: 3px;">
+        High-speed elevated corridors (PVNR Expressway) discharge into surface roundabouts, creating non-linear congestion shockwaves.
+      </div>
+      <div class="demo-dots" id="demoDots"></div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <button class="btn btn-outline btn-sm" onclick="prevDemoStep()">← Prev</button>
+      <button class="btn btn-brand btn-sm" onclick="nextDemoStep()">Next Step →</button>
+      <button class="close-btn" onclick="stopDemoTour()" style="width: 26px; height: 26px; font-size: 11px;">✕</button>
+    </div>
+  </div>
+
+  <!-- ===== 4. MAIN VIEWPORT (DYNAMICALLY SWITCHED) ===== -->
+  <main class="main-container" id="mainViewport">
+    <!-- Rendered via JavaScript -->
+  </main>
+
+  <!-- ===== 5. MODAL CONTAINER ===== -->
+  <div id="modalRoot"></div>
+
+  <!-- ===== 6. JAVASCRIPT ENGINE ===== -->
+  <script>
+    /* =========================================================================
+       GATIMARG AI — INTERACTIVE STATE & APPLICATION ENGINE
+       ========================================================================= */
+
+    const STATE = {
+      currentView: 'dashboard',
+      simulatedWeather: 'clear', // clear | monsoon_rain
+      activeFilter: 'all',
+      demoActive: false,
+      demoStep: 0,
+
+      // Network Overview
+      network: {
+        totalSegments: 436,
+        totalNodes: 120,
+        cleanedReadings: 4320,
+        stuckSensorsRepaired: 84,
+        negativeSpeedsClamped: 112,
+        spikesSmoothed: 67
+      },
+
+      // Corridors & Segments State
+      segments: [
+        { id: "SEG-042", name: "PVNR Expressway Ramp (Mehdipatnam Exit)", capacity: 2400, freeFlowSpeed: 65, currentSpeed: 18, flow: 2310, status: "congested", shockwaveRisk: "high", festivalImpact: "normal" },
+        { id: "SEG-118", name: "Gachibowli Outer Ring Road Feeder", capacity: 3200, freeFlowSpeed: 80, currentSpeed: 74, flow: 1850, status: "smooth", shockwaveRisk: "low", festivalImpact: "normal" },
+        { id: "SEG-089", name: "HITEC City Cyber Towers Junction", capacity: 2800, freeFlowSpeed: 50, currentSpeed: 24, flow: 2680, status: "moderate", shockwaveRisk: "medium", festivalImpact: "normal" },
+        { id: "SEG-205", name: "Tank Bund / Hussain Sagar Arterial", capacity: 2200, freeFlowSpeed: 45, currentSpeed: 6, flow: 450, status: "festive-blocked", shockwaveRisk: "critical", festivalImpact: "severe_barricade" },
+        { id: "SEG-206", name: "NTR Marg - Secretariat Bypass", capacity: 2000, freeFlowSpeed: 45, currentSpeed: 8, flow: 520, status: "festive-blocked", shockwaveRisk: "critical", festivalImpact: "severe_barricade" },
+        { id: "SEG-301", name: "Secunderabad Station Road (Lashkar Bonalu Route)", capacity: 1800, freeFlowSpeed: 40, currentSpeed: 12, flow: 800, status: "festive-blocked", shockwaveRisk: "high", festivalImpact: "procession_cordon" },
+        { id: "SEG-150", name: "Necklace Road Alternate Diversion Loop", capacity: 1900, freeFlowSpeed: 50, currentSpeed: 42, flow: 1400, status: "diversion", shockwaveRisk: "low", festivalImpact: "open_bypass" }
+      ],
+
+      // Active Incidents
+      incidents: [
+        {
+          id: "INC-901",
+          segmentId: "SEG-042",
+          title: "Stalled Heavy Transit Bus at Mehdipatnam Exit Ramp",
+          detectedAt: "10 mins ago",
+          confidence: "98.4%",
+          queueLengthKm: 1.85,
+          shockwaveVelocityKmh: -14.2, // Upstream propagation
+          upstreamThreats: ["SEG-041 (Airport Flyover)", "SEG-039 (Attapur Inflow)"],
+          recommendedDiversion: "Divert light motor vehicles to Pillar 140 underpass slip road (Avoids turning prohibition at Node 44)."
+        }
+      ],
+
+      // Festive Events (Telangana Mobility)
+      festiveEvents: [
+        {
+          name: "Vinayaka Chavithi Maha Nimajjanam",
+          location: "Hussain Sagar / Tank Bund Convergence",
+          details: "Thousands of idol immersion processions converging from Old City, Secunderabad, and Cyberabad.",
+          status: "Active Barricades In Effect",
+          estimatedCrowdMultiplier: "5.8x Normal Density",
+          blockedRoads: ["Tank Bund Arterial (SEG-205)", "NTR Marg Corridor (SEG-206)"],
+          bypassRoute: "Necklace Road - Lower Tank Bund Bypass Link (SEG-150)",
+          commutersNotifiedPrior: 14200
+        },
+        {
+          name: "Lashkar Bonalu Jatara",
+          location: "Secunderabad (Ujjaini Mahakali Temple)",
+          details: "Ceremonial procession blockades and pedestrian surges.",
+          status: "Phase-Wise Cordons",
+          estimatedCrowdMultiplier: "4.2x Normal Density",
+          blockedRoads: ["Secunderabad Station Road (SEG-301)"],
+          bypassRoute: "MG Road Arterial Flyover Link",
+          commutersNotifiedPrior: 8600
+        }
+      ],
+
+      // Crowdsourced Reports ("Jan-Vani")
+      crowdReports: [
+        { id: "JV-101", ward: "Khairatabad Ward 91", text: "Heavy 15-meter immersion truck moving slow near IMAX circle. Arterial lane completely blocked.", votes: 42, verified: true, time: "8 mins ago" },
+        { id: "JV-102", ward: "Ranigunj Ward 78", text: "Police barricade deployed at Bible House junction. Diverting all four-wheelers towards RP Road.", votes: 29, verified: true, time: "14 mins ago" },
+        { id: "JV-103", ward: "Begumpet Ward 82", text: "Pooja pandal queue extending 200 meters onto left carriageway.", votes: 16, verified: true, time: "22 mins ago" }
+      ],
+
+      // Counterfactual What-If Candidates
+      counterfactuals: [
+        {
+          id: "C-01",
+          name: "Add Grade-Separated Flyover at Mehdipatnam Inflow",
+          costCrores: 45.0,
+          capacityIncreasePct: 35,
+          delayHoursSavedDaily: 2840,
+          calculatedROI: "3.8x (Over 3 Years)",
+          recommendation: "High Priority — Immediately eliminates recurrent PVNR discharge bottleneck."
+        },
+        {
+          id: "C-02",
+          name: "Dedicated Turn Bay & Dynamic Signal Retiming at HITEC City Junction",
+          costCrores: 3.5,
+          capacityIncreasePct: 18,
+          delayHoursSavedDaily: 1120,
+          calculatedROI: "7.4x (Over 1 Year)",
+          recommendation: "Immediate Win — Low capital outlay with rapid congestion relief."
+        },
+        {
+          id: "C-03",
+          name: "Widening Surface Roundabout at Gachibowli Node 12",
+          costCrores: 18.0,
+          capacityIncreasePct: 12,
+          delayHoursSavedDaily: 480,
+          calculatedROI: "1.4x (Over 4 Years)",
+          recommendation: "Deferred — Low delay reduction due to upstream bridge choke."
+        }
+      ]
+    };
+
+    // ──── RENDER ENGINE ────
+    function render() {
+      const root = document.getElementById('mainViewport');
+      document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+      const activeTab = document.getElementById(`tab-${STATE.currentView}`);
+      if (activeTab) activeTab.classList.add('active');
+
+      switch (STATE.currentView) {
+        case 'dashboard':
+          root.innerHTML = renderDashboardView();
+          break;
+        case 'incidents':
+          root.innerHTML = renderIncidentView();
+          break;
+        case 'festive':
+          root.innerHTML = renderFestiveView();
+          break;
+        case 'counterfactual':
+          root.innerHTML = renderCounterfactualView();
+          break;
+        case 'commuter':
+          root.innerHTML = renderCommuterView();
+          break;
+        case 'audit':
+          root.innerHTML = renderAuditView();
+          break;
+        default:
+          root.innerHTML = renderDashboardView();
+      }
+    }
+
+    function switchView(viewName) {
+      STATE.currentView = viewName;
+      render();
+    }
+
+    // ──── 1. COMMAND CENTER DASHBOARD VIEW ────
+    function renderDashboardView() {
+      const n = STATE.network;
+      return `
+        <!-- Top Metrics Row -->
+        <div class="grid-4" style="margin-bottom: 20px;">
+          <div class="stat-box">
+            <div class="stat-label">Network Segments &amp; Nodes</div>
+            <div class="stat-value" style="color: #38BDF8;">436 <span style="font-size: 14px; font-weight: normal; color: var(--text-muted);">/ 120 Nodes</span></div>
+            <div class="stat-sub">15-day continuous spatial grid</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Multi-Horizon Forecasting</div>
+            <div class="stat-value" style="color: #34D399;">15, 30, 45, 60m</div>
+            <div class="stat-sub">Calibrated speed &amp; volume (No leakage)</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Active Disruption Alerts</div>
+            <div class="stat-value" style="color: #F87171;">1 Incident <span style="font-size: 13px; color: #F59E0B;">+ 2 Festive</span></div>
+            <div class="stat-sub">Upstream spillback tracked in real time</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Pre-Trip Gating Active</div>
+            <div class="stat-value" style="color: #F59E0B;">T-45 Min</div>
+            <div class="stat-sub">22,800 commuters warned prior to entry</div>
+          </div>
+        </div>
+
+        <!-- Central Grid: Corridor Map Visualizer & Forecast Panel -->
+        <div class="grid-2" style="margin-bottom: 20px;">
+          <!-- Map / Corridor Topology Simulation -->
+          <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <div>
+                <h3 style="font-size: 16px;">Hyderabad Metropolitan Corridor Topology</h3>
+                <p style="font-size: 11px; color: var(--text-secondary);">Interactive spatial link status across key bottlenecks &amp; flyovers</p>
+              </div>
+              <div style="display: flex; gap: 6px;">
+                <button class="btn btn-outline btn-sm" onclick="toggleRainShock()">${STATE.simulatedWeather === 'monsoon_rain' ? '🌧️ Rain Mode: Active' : '☀️ Weather: Clear'}</button>
+                <button class="btn btn-brand btn-sm" onclick="switchView('incidents')">Radar Details →</button>
+              </div>
+            </div>
+
+            <!-- Visual Topology Canvas Simulation -->
+            <div class="corridor-canvas" id="corridorMap">
+              <!-- Grid Roads Represented Visually -->
+              <!-- PVNR Highway -->
+              <div class="road-segment congested" style="top: 80px; left: 40px; width: 220px; height: 10px;" title="PVNR Expressway Ramp (Mehdipatnam Exit) - Congested"></div>
+              <span style="position: absolute; top: 62px; left: 40px; font-size: 10px; color: #F87171; font-weight: 600;">PVNR Ramp [Incident Stall]</span>
+
+              <!-- Upstream Spillback Segment -->
+              <div class="road-segment shockwave" style="top: 80px; left: 265px; width: 140px; height: 8px;" title="Upstream Feeder Link - Shockwave Backpropagation"></div>
+              <span style="position: absolute; top: 62px; left: 265px; font-size: 10px; color: #F59E0B; font-weight: 600;">Upstream Queue Wave (-14 km/h)</span>
+
+              <!-- Hussain Sagar Festive Blockade -->
+              <div class="road-segment festive-blocked" style="top: 170px; left: 180px; width: 180px; height: 14px;" title="Tank Bund Arterial - Festive Immersion Blockade"></div>
+              <span style="position: absolute; top: 152px; left: 180px; font-size: 10px; color: #FCA5A5; font-weight: 600;">Tank Bund [Vinayaka Nimajjanam Blockade]</span>
+
+              <!-- Legal Diversion Route -->
+              <div class="road-segment diversion" style="top: 220px; left: 140px; width: 260px; height: 8px;" title="Necklace Road Bypass Diversion Route"></div>
+              <span style="position: absolute; top: 232px; left: 180px; font-size: 10px; color: #34D399; font-weight: 600;">✓ Legal Turn-Restricted Bypass (Open)</span>
+
+              <!-- ORR / Cyber Towers Crossings -->
+              <div class="road-segment" style="top: 40px; left: 120px; width: 8px; height: 240px;" title="Cross Arterial 1"></div>
+              <div class="road-segment" style="top: 40px; left: 340px; width: 8px; height: 240px;" title="Cross Arterial 2"></div>
+
+              <!-- Junction Nodes -->
+              <div class="map-node incident" style="top: 85px; left: 40px;" onclick="openSimulateIncidentModal()">!</div>
+              <div class="map-node" style="top: 85px; left: 265px;">N44</div>
+              <div class="map-node" style="top: 177px; left: 180px;">N89</div>
+              <div class="map-node" style="top: 177px; left: 360px;">N90</div>
+              <div class="map-node" style="top: 224px; left: 140px;">N102</div>
+              <div class="map-node" style="top: 224px; left: 400px;">N105</div>
+
+              <!-- Legend Overlay -->
+              <div style="position: absolute; bottom: 10px; left: 10px; background: rgba(15, 23, 42, 0.85); padding: 6px 12px; border-radius: 6px; font-size: 10.5px; border: 1px solid var(--surface-border); display: flex; gap: 12px;">
+                <span style="color: #EF4444;">● Crash / Stall</span>
+                <span style="color: #F59E0B;">● Spillback Queue</span>
+                <span style="color: #DC2626;">▨ Festive Blockade</span>
+                <span style="color: #10B981;">● Recommended Bypass</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Multi-Horizon Forecasting Panel -->
+          <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <div>
+                <h3 style="font-size: 16px;">Multi-Horizon Traffic State Predictions</h3>
+                <p style="font-size: 11px; color: var(--text-secondary);">Calibrated speeds for selected corridor (PVNR Ramp SEG-042)</p>
+              </div>
+              <span class="badge-live">No Target Leakage</span>
+            </div>
+
+            <!-- Forecast Horizon Cards -->
+            <div class="grid-2" style="gap: 10px; margin-bottom: 16px;">
+              <div class="stat-box" style="border-left: 3px solid #06B6D4;">
+                <div class="stat-label">T + 15 Minutes</div>
+                <div class="stat-value" style="font-size: 20px;">14.2 km/h</div>
+                <div style="font-size: 11px; color: #EF4444;">Flow: 2,410 vph (At Breakpoint)</div>
+              </div>
+              <div class="stat-box" style="border-left: 3px solid #3B82F6;">
+                <div class="stat-label">T + 30 Minutes</div>
+                <div class="stat-value" style="font-size: 20px;">9.8 km/h</div>
+                <div style="font-size: 11px; color: #EF4444;">Queue Length: 2.4 km</div>
+              </div>
+              <div class="stat-box" style="border-left: 3px solid #F59E0B;">
+                <div class="stat-label">T + 45 Minutes</div>
+                <div class="stat-value" style="font-size: 20px;">11.5 km/h</div>
+                <div style="font-size: 11px; color: #F59E0B;">Partial diversion dissipation</div>
+              </div>
+              <div class="stat-box" style="border-left: 3px solid #10B981;">
+                <div class="stat-label">T + 60 Minutes</div>
+                <div class="stat-value" style="font-size: 20px;">32.0 km/h</div>
+                <div style="font-size: 11px; color: #10B981;">Recovery to free flow</div>
+              </div>
+            </div>
+
+            <!-- Key Insight Callout -->
+            <div style="background: rgba(6, 182, 212, 0.08); border-left: 3px solid #06B6D4; padding: 10px 12px; border-radius: 4px; font-size: 12px; line-height: 1.5;">
+              <strong>Proactive Intervention Alert:</strong> Without turn-restricted diversions, downstream queuing will cross Node 44 in 14 minutes, paralyzing Mehdipatnam junction. Early gating advised at Airport Flyover.
+            </div>
+          </div>
+        </div>
+
+        <!-- Key Corridors Monitoring Table -->
+        <div class="card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+            <div>
+              <h3 style="font-size: 16px;">Key Arterial Segments (Active Monitored Corridor)</h3>
+              <p style="font-size: 11px; color: var(--text-secondary);">Real-time sensor telemetry, speed metrics, and spillback vulnerability</p>
+            </div>
+            <button class="btn btn-outline btn-sm" onclick="switchView('festive')">View Telangana Festive Cordons →</button>
+          </div>
+
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Segment ID</th>
+                  <th>Corridor Name</th>
+                  <th>Speed (Current / Free)</th>
+                  <th>Flow Rate</th>
+                  <th>Vulnerability</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${STATE.segments.map(s => `
+                  <tr>
+                    <td><strong style="font-family: var(--font-mono); color: #38BDF8;">${s.id}</strong></td>
+                    <td><strong>${s.name}</strong></td>
+                    <td>
+                      <span style="font-weight: 700; color: ${s.currentSpeed < 20 ? '#F87171' : (s.currentSpeed < 45 ? '#F59E0B' : '#34D399')}">
+                        ${s.currentSpeed} km/h
+                      </span>
+                      <span style="color: var(--text-muted); font-size: 11px;">/ ${s.freeFlowSpeed}</span>
+                    </td>
+                    <td>${s.flow} vph</td>
+                    <td>
+                      <span style="font-size: 11px; font-weight: 600; color: ${s.shockwaveRisk === 'critical' ? '#EF4444' : (s.shockwaveRisk === 'high' ? '#F59E0B' : '#10B981')}">
+                        ${s.shockwaveRisk.toUpperCase()}
+                      </span>
+                    </td>
+                    <td>
+                      ${s.status === 'congested' ? '<span class="badge-live" style="background: rgba(239,68,68,0.2); color: #F87171; border-color: rgba(239,68,68,0.4);">Gridlocked</span>' :
+                        (s.status === 'festive-blocked' ? '<span class="badge-live" style="background: rgba(245,158,11,0.2); color: #FBBF24; border-color: rgba(245,158,11,0.4);">Festive Cordon</span>' :
+                        (s.status === 'diversion' ? '<span class="badge-live" style="background: rgba(16,185,129,0.2); color: #34D399; border-color: rgba(16,185,129,0.4);">Active Bypass</span>' :
+                        '<span class="badge-live">Smooth</span>'))}
+                    </td>
+                    <td>
+                      <button class="btn btn-outline btn-sm" onclick="viewSegmentDetails('${s.id}')">Inspect →</button>
+                    </td>
+                  </tr>
+                `).join('')}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      `;
+    }
+
+    // ──── 2. INCIDENT & SPILLBACK RADAR VIEW ────
+    function renderIncidentView() {
+      const inc = STATE.incidents[0];
+      return `
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+          <div>
+            <h2 style="font-size: 22px;">Active Incident Radar &amp; Upstream Spillback Tracking</h2>
+            <p style="font-size: 12px; color: var(--text-secondary);">Distinguishing genuine emergencies from routine rush-hour slowdowns</p>
+          </div>
+          <button class="btn btn-danger btn-sm" onclick="openSimulateIncidentModal()">+ Trigger New Incident</button>
+        </div>
+
+        <div class="grid-2" style="margin-bottom: 20px;">
+          <!-- Left: Active Incident Diagnostic Card -->
+          <div class="card" style="border-left: 4px solid #EF4444;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+              <div>
+                <span class="badge-live" style="background: rgba(239, 68, 68, 0.2); color: #F87171; border-color: rgba(239, 68, 68, 0.4);">CRITICAL ANOMALY VERIFIED</span>
+                <h3 style="font-size: 17px; margin-top: 6px;">${inc.title}</h3>
+                <div style="font-size: 11.5px; color: var(--text-secondary); margin-top: 2px;">
+                  Location: <strong>${inc.segmentId} (PVNR Expressway Ramp)</strong> · Detected: ${inc.detectedAt}
+                </div>
+              </div>
+              <div style="text-align: right;">
+                <div style="font-size: 10px; color: var(--text-muted);">ALGORITHM CONFIDENCE</div>
+                <strong style="color: #34D399; font-size: 16px;">${inc.confidence}</strong>
+              </div>
+            </div>
+
+            <!-- Kinetic Metrics -->
+            <div class="grid-3" style="margin: 16px 0; gap: 10px;">
+              <div class="stat-box">
+                <div class="stat-label">Queue Length</div>
+                <div class="stat-value" style="color: #EF4444; font-size: 20px;">${inc.queueLengthKm} km</div>
+                <div class="stat-sub">+0.2 km every 5 min</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-label">Spillback Wave Speed</div>
+                <div class="stat-value" style="color: #F59E0B; font-size: 20px;">${inc.shockwaveVelocityKmh} km/h</div>
+                <div class="stat-sub">Propagating backward</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-label">Time to Upstream Choke</div>
+                <div class="stat-value" style="color: #38BDF8; font-size: 20px;">14 Min</div>
+                <div class="stat-sub">Before Airport flyover locks</div>
+              </div>
+            </div>
+
+            <!-- Upstream Threat Propagation List -->
+            <div style="background: #0B1120; border: 1px solid var(--surface-border); border-radius: var(--r-sm); padding: 12px; margin-bottom: 16px;">
+              <strong style="font-size: 12px; color: #FBBF24;">Immediate Upstream Feeder Threat:</strong>
+              <ul style="margin: 8px 0 0 16px; font-size: 12px; color: var(--text-secondary);">
+                ${inc.upstreamThreats.map(t => `<li style="margin-bottom: 4px;">${t} — Estimated queue arrival in 12–15 minutes.</li>`).join('')}
+              </ul>
+            </div>
+
+            <!-- Turn-Restricted Diversion Plan -->
+            <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: var(--r-sm); padding: 12px;">
+              <strong style="font-size: 12px; color: #34D399;">Legal Turn-Restricted Diversion Advisory:</strong>
+              <p style="font-size: 12px; color: #E2E8F0; margin-top: 4px;">
+                ${inc.recommendedDiversion}
+              </p>
+              <div style="margin-top: 10px; display: flex; gap: 8px;">
+                <button class="btn btn-brand btn-sm" onclick="dispatchDiversionRoute()">Transmit Route to Commuters</button>
+                <button class="btn btn-outline btn-sm" onclick="resolveIncident()">Mark Incident Cleared ✓</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: How the Incident & Spillback Engine Works (General Approach) -->
+          <div class="card">
+            <h3 style="font-size: 16px; margin-bottom: 8px;">General Incident &amp; Shockwave Approach</h3>
+            <p style="font-size: 12px; color: var(--text-secondary); margin-bottom: 16px;">
+              How our system differentiates true breakdowns from normal rush-hour slowdowns and halts cascading corridor gridlock:
+            </p>
+
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+              <div style="background: #090E1D; border-left: 3px solid #38BDF8; padding: 10px 14px; border-radius: 4px;">
+                <strong style="font-size: 12.5px; color: #fff;">1. Dual Metric Verification (Flow Drop vs Speed Drop)</strong>
+                <p style="font-size: 11.5px; color: var(--text-secondary); margin-top: 2px;">
+                  During standard peak hours, speeds drop but volume throughput remains near physical capacity. A genuine incident causes speeds to collapse <em>and</em> discharge flow to sharply drop while queues surge.
+                </p>
+              </div>
+
+              <div style="background: #090E1D; border-left: 3px solid #F59E0B; padding: 10px 14px; border-radius: 4px;">
+                <strong style="font-size: 12.5px; color: #fff;">2. Upstream Wave Velocity Estimation</strong>
+                <p style="font-size: 11.5px; color: var(--text-secondary); margin-top: 2px;">
+                  By tracking the difference between inflow and choked discharge rates, the system computes the exact speed at which the stationary queue travels backward into feeder ramps.
+                </p>
+              </div>
+
+              <div style="background: #090E1D; border-left: 3px solid #10B981; padding: 10px 14px; border-radius: 4px;">
+                <strong style="font-size: 12.5px; color: #fff;">3. Practical, Law-Enforcing Alternate Routing</strong>
+                <p style="font-size: 11.5px; color: var(--text-secondary); margin-top: 2px;">
+                  Rather than naively directing highway drivers into residential alleys or illegal U-turns, the routing engine enforces physical turn restrictions, median barriers, and green-signal capacities.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // ──── 3. JAN-VANI & FESTIVE MOBILITY VIEW (TELANGANA EVENTS) ────
+    function renderFestiveView() {
+      return `
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+          <div>
+            <span class="badge-live" style="background: rgba(245, 158, 11, 0.2); color: #F59E0B; border-color: rgba(245, 158, 11, 0.4);">
+              TELANGANA CULTURAL EVENTS &amp; CROWD PULSE
+            </span>
+            <h2 style="font-size: 22px; margin-top: 4px;">Jan-Vani: Festive Mobility &amp; Pre-Trip Warning Gating</h2>
+            <p style="font-size: 12px; color: var(--text-secondary);">Proactive corridor management for Vinayaka Chavithi (Nimajjanam) and Bonalu Jatara</p>
+          </div>
+          <button class="btn btn-festive btn-sm" onclick="openJanVaniReportModal()">+ Submit Ward Pulse Report</button>
+        </div>
+
+        <!-- Festive Callout Box -->
+        <div class="card card-festive" style="margin-bottom: 20px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px;">
+            <div>
+              <h3 style="font-size: 17px; color: #F59E0B;">The Hyderabad Cultural Mobility Shock</h3>
+              <p style="font-size: 12.5px; color: #E2E8F0; max-width: 820px; margin-top: 4px; line-height: 1.6;">
+                During major celebrations like <strong>Vinayaka Chavithi Nimajjanam</strong> (thousands of idol processions converging at Hussain Sagar / Tank Bund) and <strong>Lashkar Bonalu</strong> (Old City &amp; Secunderabad cordons), entire arterials are barricaded. Daily commuters entering festive zones have zero prior knowledge of moving processions, driving straight into deadlocks.
+              </p>
+            </div>
+            <div style="background: rgba(0, 0, 0, 0.4); padding: 12px 18px; border-radius: var(--r-sm); border: 1px solid var(--festive-border); text-align: center;">
+              <div style="font-size: 11px; color: #FDE68A;">PRE-TRIP NOTIFICATION WINDOW</div>
+              <strong style="font-size: 22px; color: #F59E0B;">T - 45 Minutes</strong>
+              <div style="font-size: 10.5px; color: var(--text-muted);">Incoming drivers warned prior to corridor entry</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-2" style="margin-bottom: 20px;">
+          <!-- Active Festive Cordons -->
+          <div class="card">
+            <h3 style="font-size: 16px; margin-bottom: 12px;">Active Festive Cordons &amp; Diversions</h3>
+            <div style="display: flex; flex-direction: column; gap: 14px;">
+              ${STATE.festiveEvents.map(e => `
+                <div style="background: #090E1D; border: 1px solid var(--surface-border); border-radius: var(--r-sm); padding: 14px;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                    <strong style="color: #F59E0B; font-size: 14px;">${e.name}</strong>
+                    <span class="badge-live" style="background: rgba(245, 158, 11, 0.2); color: #FBBF24;">${e.status}</span>
+                  </div>
+                  <p style="font-size: 11.5px; color: var(--text-secondary); margin-bottom: 8px;">📍 ${e.location} · ${e.details}</p>
+                  
+                  <div style="font-size: 11.5px; line-height: 1.6;">
+                    <div><strong style="color: #EF4444;">Barricaded Arterials:</strong> ${e.blockedRoads.join(', ')}</div>
+                    <div><strong style="color: #34D399;">Designated Bypass:</strong> ${e.bypassRoute}</div>
+                    <div style="color: #38BDF8; margin-top: 4px;">✓ ${e.commutersNotifiedPrior.toLocaleString()} commuters notified via pre-trip gating</div>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+
+          <!-- Crowdsourced Ward Reports ("Jan-Vani") -->
+          <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <div>
+                <h3 style="font-size: 16px;">Jan-Vani Live Ground Reports</h3>
+                <p style="font-size: 11px; color: var(--text-secondary);">Verified crowdsourced updates from local ward residents</p>
+              </div>
+              <span class="badge-live">Real-time Feed</span>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              ${STATE.crowdReports.map(r => `
+                <div style="background: #090E1D; border: 1px solid var(--surface-border); border-radius: var(--r-sm); padding: 12px;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                    <span style="font-size: 11px; font-weight: 700; color: #38BDF8;">📍 ${r.ward}</span>
+                    <span style="font-size: 10.5px; color: var(--text-muted);">${r.time}</span>
+                  </div>
+                  <p style="font-size: 12px; color: #E2E8F0; line-height: 1.4;">${r.text}</p>
+                  <div style="margin-top: 6px; display: flex; justify-content: space-between; align-items: center; font-size: 11px;">
+                    <span style="color: #34D399;">✓ Consensus Verified (${r.votes} upvotes)</span>
+                    <button class="btn btn-outline btn-sm" onclick="upvoteReport('${r.id}')">👍 Upvote (${r.votes})</button>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // ──── 4. COUNTERFACTUAL WHAT-IF SANDBOX VIEW ────
+    function renderCounterfactualView() {
+      return `
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+          <div>
+            <h2 style="font-size: 22px;">Counterfactual "What-If" Infrastructure Planning</h2>
+            <p style="font-size: 12px; color: var(--text-secondary);">Simulating prospective capital upgrades to quantify saved commuter hours &amp; ROI before construction</p>
+          </div>
+          <button class="btn btn-brand btn-sm" onclick="openSimulateInterventionModal()">+ Test Custom Intervention</button>
+        </div>
+
+        <div class="grid-3" style="margin-bottom: 24px;">
+          ${STATE.counterfactuals.map(c => `
+            <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+              <div>
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                  <span style="font-family: var(--font-mono); color: #38BDF8; font-weight: 700;">${c.id}</span>
+                  <span class="badge-live" style="background: rgba(16, 185, 129, 0.15); color: #34D399;">ROI: ${c.calculatedROI}</span>
+                </div>
+                <h3 style="font-size: 16px; margin-bottom: 8px;">${c.name}</h3>
+                
+                <div class="grid-2" style="gap: 8px; margin: 12px 0;">
+                  <div class="stat-box">
+                    <div class="stat-label">Estimated Cost</div>
+                    <div class="stat-value" style="font-size: 18px; color: #F59E0B;">₹${c.costCrores} Cr</div>
+                  </div>
+                  <div class="stat-box">
+                    <div class="stat-label">Capacity Boost</div>
+                    <div class="stat-value" style="font-size: 18px; color: #34D399;">+${c.capacityIncreasePct}%</div>
+                  </div>
+                </div>
+
+                <div style="background: #090E1D; border: 1px solid var(--surface-border); border-radius: 4px; padding: 10px; font-size: 11.5px; margin-bottom: 12px;">
+                  <div style="color: #38BDF8; font-weight: 600;">Delay Reduction:</div>
+                  <div><strong>${c.delayHoursSavedDaily.toLocaleString()}</strong> vehicle-hours saved per day across corridor.</div>
+                </div>
+
+                <div style="font-size: 11.5px; color: var(--text-secondary); line-height: 1.4;">
+                  <strong>Evaluation:</strong> ${c.recommendation}
+                </div>
+              </div>
+
+              <button class="btn btn-outline btn-sm" style="margin-top: 16px;" onclick="runSimulation('${c.id}')">
+                Run Multi-Scenario Stress Test →
+              </button>
+            </div>
+          `).join('')}
+        </div>
+
+        <!-- Planning Methodology Card -->
+        <div class="card">
+          <h3 style="font-size: 16px; margin-bottom: 6px;">How Counterfactual Interventions Are Evaluated</h3>
+          <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.6;">
+            Before municipal budgets are allocated for flyovers or widening, GatiMarg modifies the digital roadway capacity matrix ($C_{s}' = C_{s} + \Delta C$) and reroutes the 15-day baseline traffic matrix. It calculates the network-wide reduction in queuing delay across 36 hidden test scenarios, balancing infrastructure investment against saved economic productivity.
+          </p>
+        </div>
+      `;
+    }
+
+    // ──── 5. COMMUTER MOBILE PASS VIEW ────
+    function renderCommuterView() {
+      return `
+        <div style="text-align: center; margin-bottom: 20px;">
+          <h2 style="font-size: 22px;">Commuter Mobility Companion (Zero-App Mobile Experience)</h2>
+          <p style="font-size: 12px; color: var(--text-secondary);">What incoming daily drivers receive on their phone browser 45 minutes prior to arriving at festive corridors</p>
+        </div>
+
+        <div class="phone-frame">
+          <div class="phone-notch"></div>
+          <div class="phone-body">
+            <!-- Header inside phone -->
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #1E293B; padding-bottom: 10px; margin-bottom: 14px;">
+              <div>
+                <strong style="color: #38BDF8; font-size: 14px;">GatiMarg Commuter</strong>
+                <div style="font-size: 10px; color: var(--text-muted);">Hyderabad City Mobility Portal</div>
+              </div>
+              <span class="badge-live" style="font-size: 9px;">GPS: Active</span>
+            </div>
+
+            <!-- Pre-Trip Warning Alert Banner -->
+            <div style="background: linear-gradient(135deg, #78350F 0%, #451A03 100%); border: 1.5px solid #F59E0B; border-radius: 12px; padding: 14px; margin-bottom: 16px;">
+              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                <span style="font-size: 18px;">🪔</span>
+                <strong style="color: #FDE68A; font-size: 13px;">Festive Cordon Alert (T-45 Min)</strong>
+              </div>
+              <p style="font-size: 11.5px; color: #FEF3C7; line-height: 1.45;">
+                Tank Bund Arterial is currently barricaded for <strong>Vinayaka Chavithi Nimajjanam</strong> processions. If entering from Secretariat, your regular route will experience a 75-minute standstill.
+              </p>
+            </div>
+
+            <!-- Recommended Bypass Card -->
+            <div style="background: #0F172A; border: 1px solid var(--surface-border); border-radius: 12px; padding: 14px; margin-bottom: 14px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                <strong style="font-size: 12.5px; color: #34D399;">✓ Recommended Legal Bypass</strong>
+                <span style="font-size: 10px; background: rgba(16, 185, 129, 0.2); color: #34D399; padding: 2px 6px; border-radius: 4px;">Saves 42 Mins</span>
+              </div>
+              <p style="font-size: 11.5px; color: var(--text-secondary); margin-bottom: 8px;">
+                Route: <strong>Necklace Road → Lower Tank Bund Flyover</strong>
+              </p>
+              <div style="display: flex; justify-content: space-between; font-size: 11px; background: #090D16; padding: 8px 10px; border-radius: 6px;">
+                <span>Est. Travel Time: <strong>16 mins</strong></span>
+                <span>Signal Delay: <strong>Low</strong></span>
+              </div>
+              <button class="btn btn-brand btn-sm" style="width: 100%; margin-top: 10px;" onclick="showToast('Navigating via Necklace Road Legal Bypass!')">Start Navigation On Bypass →</button>
+            </div>
+
+            <!-- Ward Pulse Updates -->
+            <div style="background: #0F172A; border: 1px solid var(--surface-border); border-radius: 12px; padding: 14px;">
+              <strong style="font-size: 12px; color: #38BDF8;">Jan-Vani Ward Updates:</strong>
+              <div style="font-size: 11px; color: var(--text-secondary); margin-top: 6px; line-height: 1.4;">
+                • "Ranigunj: Moving idol convoy cleared towards Bible House." (10m ago)<br>
+                • "Police diverters active at IMAX Circle." (5m ago)
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // ──── 6. DATA HYGIENE & AUDIT VIEW ────
+    function renderAuditView() {
+      const n = STATE.network;
+      return `
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+          <div>
+            <h2 style="font-size: 22px;">Sensor Hygiene &amp; Pipeline Execution Audit</h2>
+            <p style="font-size: 12px; color: var(--text-secondary);">Verification of input sanitization, zero target leakage, and network validation</p>
+          </div>
+          <span class="badge-live">Data Quality Guaranteed</span>
+        </div>
+
+        <div class="grid-3" style="margin-bottom: 20px;">
+          <div class="card">
+            <div class="stat-label">Frozen Sensors Repaired</div>
+            <div class="stat-value" style="color: #38BDF8;">${n.stuckSensorsRepaired}</div>
+            <p style="font-size: 11.5px; color: var(--text-secondary); margin-top: 6px;">
+              Sensors exhibiting flatlined consecutive readings were replaced using spatial neighbor median consensus without temporal leakage.
+            </p>
+          </div>
+          <div class="card">
+            <div class="stat-label">Negative Readings Clamped</div>
+            <div class="stat-value" style="color: #F59E0B;">${n.negativeSpeedsClamped}</div>
+            <p style="font-size: 11.5px; color: var(--text-secondary); margin-top: 6px;">
+              Physically impossible negative vehicle speeds ($v < 0$) and reverse flow readings were validated and clamped to zero baseline.
+            </p>
+          </div>
+          <div class="card">
+            <div class="stat-label">Outlier Sensor Spikes Smoothed</div>
+            <div class="stat-value" style="color: #34D399;">${n.spikesSmoothed}</div>
+            <p style="font-size: 11.5px; color: var(--text-secondary); margin-top: 6px;">
+              Spurious hardware glitches exceeding 1.35x road capacity ($q > 1.35 \times C$) were clipped smoothly with robust quantile bounds.
+            </p>
+          </div>
+        </div>
+
+        <!-- Pipeline Execution Ledger -->
+        <div class="card">
+          <h3 style="font-size: 16px; margin-bottom: 12px;">Immutable Pipeline Execution Log</h3>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Timestamp</th>
+                  <th>Processing Stage</th>
+                  <th>Component</th>
+                  <th>Details</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="font-family: var(--font-mono); font-size: 11px;">10:00:00</td>
+                  <td><strong>Stage 1: Hygiene</strong></td>
+                  <td>Sensor Validator</td>
+                  <td>Parsed 436 road links; repaired 84 stuck hardware readings via neighbor consensus.</td>
+                  <td><span class="badge-live">Passed</span></td>
+                </tr>
+                <tr>
+                  <td style="font-family: var(--font-mono); font-size: 11px;">10:05:00</td>
+                  <td><strong>Stage 2: Forecasting</strong></td>
+                  <td>Spatial Multi-Horizon Engine</td>
+                  <td>Synthesized 15, 30, 45, 60-min speeds across 120 junctions without target leakage.</td>
+                  <td><span class="badge-live">Passed</span></td>
+                </tr>
+                <tr>
+                  <td style="font-family: var(--font-mono); font-size: 11px;">10:10:00</td>
+                  <td><strong>Stage 3: Disruption</strong></td>
+                  <td>Incident Detector</td>
+                  <td>Flagged PVNR ramp stalled transit bus with 98.4% confidence (True breakdown vs rush hour).</td>
+                  <td><span class="badge-live" style="background: rgba(239, 68, 68, 0.2); color: #F87171;">Alert Raised</span></td>
+                </tr>
+                <tr>
+                  <td style="font-family: var(--font-mono); font-size: 11px;">10:15:00</td>
+                  <td><strong>Stage 4: Advisory</strong></td>
+                  <td>Pre-Trip Festive Gater</td>
+                  <td>Dispatched T-45 min warning notifications for Hussain Sagar Nimajjanam cordons.</td>
+                  <td><span class="badge-live" style="background: rgba(245, 158, 11, 0.2); color: #F59E0B;">Dispatched</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      `;
+    }
+
+    // ──── 7. INTERACTIVE STORY TOUR (10 STEPS) ────
+    const DEMO_STEPS = [
+      {
+        num: 1,
+        title: "1. The Problem: Complex Metropolitan Traffic Dynamics",
+        desc: "High-speed corridors like PVNR Expressway discharge directly onto restricted surface roundabouts, creating non-linear congestion.",
+        action: () => { switchView('dashboard'); }
+      },
+      {
+        num: 2,
+        title: "2. Input Sensor Hygiene & Data Cleansing",
+        desc: "Real-world sensors freeze or produce negative speeds. GatiMarg repairs these using neighbor consensus and removes spikes.",
+        action: () => { switchView('audit'); }
+      },
+      {
+        num: 3,
+        title: "3. Multi-Horizon Forecasting (15, 30, 45, 60 Mins)",
+        desc: "Our model forecasts future flow across all 436 segments without target leakage, giving operators 1 hour of foresight.",
+        action: () => { switchView('dashboard'); }
+      },
+      {
+        num: 4,
+        title: "4. Incident Anomaly Detection (Genuine vs Peak Hour)",
+        desc: "A stalled bus on PVNR ramp drops speed AND flow simultaneously, triggering an immediate incident alert with 98.4% confidence.",
+        action: () => { switchView('incidents'); }
+      },
+      {
+        num: 5,
+        title: "5. Upstream Spillback Tracking (LWR Kinematic Wave)",
+        desc: "Congestion backs up upstream at -14.2 km/h. The radar calculates that Airport Flyover will choke in 14 minutes if unaddressed.",
+        action: () => { switchView('incidents'); }
+      },
+      {
+        num: 6,
+        title: "6. Turn-Restricted Diversion Routing",
+        desc: "The system generates legal alternate routes that respect one-ways, median dividers, and signal limits rather than narrow streets.",
+        action: () => { switchView('incidents'); }
+      },
+      {
+        num: 7,
+        title: "7. Telangana Cultural Events (Vinayaka Chavithi & Bonalu)",
+        desc: "Thousands of idol processions cause massive road barricades. GatiMarg tracks moving cordons at Hussain Sagar & Secunderabad.",
+        action: () => { switchView('festive'); }
+      },
+      {
+        num: 8,
+        title: "8. Jan-Vani: Crowdsourced Ground Pulse",
+        desc: "Local ward residents upload verified procession blockades, giving city traffic managers live ground-level visibility.",
+        action: () => { switchView('festive'); }
+      },
+      {
+        num: 9,
+        title: "9. Pre-Trip Commuter Inflow Gating (T-45 Min)",
+        desc: "Daily commuters are alerted on their phones 45 minutes prior to arriving, guiding them to legal bypasses before gridlock.",
+        action: () => { switchView('commuter'); }
+      },
+      {
+        num: 10,
+        title: "10. Counterfactual What-If Infrastructure Evaluation",
+        desc: "Urban planners simulate candidate flyovers and turn bays in a digital sandbox, estimating delay reduction and ROI.",
+        action: () => { switchView('counterfactual'); }
+      }
+    ];
+
+    function startDemoTour() {
+      STATE.demoActive = true;
+      STATE.demoStep = 0;
+      document.getElementById('demoBanner').style.display = 'flex';
+      applyDemoStep(0);
+    }
+
+    function stopDemoTour() {
+      STATE.demoActive = false;
+      document.getElementById('demoBanner').style.display = 'none';
+    }
+
+    function nextDemoStep() {
+      if (STATE.demoStep < DEMO_STEPS.length - 1) {
+        STATE.demoStep++;
+        applyDemoStep(STATE.demoStep);
+      } else {
+        stopDemoTour();
+        showToast("✨ Walkthrough Complete! All 10 problem-statement phases demonstrated.");
+      }
+    }
+
+    function prevDemoStep() {
+      if (STATE.demoStep > 0) {
+        STATE.demoStep--;
+        applyDemoStep(STATE.demoStep);
+      }
+    }
+
+    function applyDemoStep(idx) {
+      const s = DEMO_STEPS[idx];
+      if (!s) return;
+
+      document.getElementById('demoStepNum').textContent = s.num;
+      document.getElementById('demoStepTitle').textContent = s.title;
+      document.getElementById('demoStepDesc').textContent = s.desc;
+
+      const dotsContainer = document.getElementById('demoDots');
+      dotsContainer.innerHTML = DEMO_STEPS.map((_, i) => `
+        <div class="demo-dot ${i === idx ? 'active' : (i < idx ? 'done' : '')}" onclick="STATE.demoStep=${i};applyDemoStep(${i});"></div>
+      `).join('');
+
+      s.action();
+    }
+
+    // ──── 8. INTERACTIVE ACTIONS & MODALS ────
+    function openSimulateIncidentModal() {
+      const root = document.getElementById('modalRoot');
+      root.innerHTML = `
+        <div class="modal-backdrop" onclick="if(event.target===this)closeModal();">
+          <div class="modal-content">
+            <div class="modal-head">
+              <h3 style="font-size: 18px;">Simulate Corridor Incident &amp; Disruption</h3>
+              <button class="close-btn" onclick="closeModal()">✕</button>
+            </div>
+            <p style="font-size: 12px; color: var(--text-secondary); margin-bottom: 16px;">
+              Inject an artificial or verified road obstruction to evaluate how the system detects the anomaly and computes upstream spillback speed.
+            </p>
+
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+              <div>
+                <label style="font-size: 11px; font-weight: 700; color: var(--text-muted);">TARGET ROAD SEGMENT</label>
+                <select id="simSeg" style="width: 100%; margin-top: 4px; padding: 8px; background: #090D16; border: 1px solid var(--surface-border); border-radius: 4px; color: #fff;">
+                  <option value="SEG-042">PVNR Expressway Ramp (Mehdipatnam Exit)</option>
+                  <option value="SEG-089">HITEC City Cyber Towers Junction</option>
+                  <option value="SEG-118">Gachibowli ORR Feeder</option>
+                </select>
+              </div>
+
+              <div>
+                <label style="font-size: 11px; font-weight: 700; color: var(--text-muted);">DISRUPTION TYPE</label>
+                <select id="simType" style="width: 100%; margin-top: 4px; padding: 8px; background: #090D16; border: 1px solid var(--surface-border); border-radius: 4px; color: #fff;">
+                  <option value="crash">Multi-Vehicle Collision (Outflow Drops by 85%)</option>
+                  <option value="stall">Heavy Transit Bus Breakdown (Ramp Blocked)</option>
+                  <option value="spill">Waterlogging / Flash Monsoon Puddle</option>
+                </select>
+              </div>
+            </div>
+
+            <button class="btn btn-brand" style="width: 100%; margin-top: 20px;" onclick="triggerSimulatedIncident()">
+              ⚡ Trigger Anomaly &amp; Calculate Shockwave
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    function triggerSimulatedIncident() {
+      closeModal();
+      showToast("🚨 Incident injected! Spatial shockwave tracked: Queue backing up into upstream feeder.");
+      switchView('incidents');
+    }
+
+    function openJanVaniReportModal() {
+      const root = document.getElementById('modalRoot');
+      root.innerHTML = `
+        <div class="modal-backdrop" onclick="if(event.target===this)closeModal();">
+          <div class="modal-content">
+            <div class="modal-head">
+              <h3 style="font-size: 18px;">Submit Jan-Vani Ward Pulse Report</h3>
+              <button class="close-btn" onclick="closeModal()">✕</button>
+            </div>
+            <p style="font-size: 12px; color: var(--text-secondary); margin-bottom: 16px;">
+              Local ward residents provide real-time updates regarding moving idol processions, temporary barricades, or traffic halts.
+            </p>
+
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+              <div>
+                <label style="font-size: 11px; font-weight: 700; color: var(--text-muted);">WARD / PRECINCT</label>
+                <input id="repWard" style="width: 100%; margin-top: 4px; padding: 8px; background: #090D16; border: 1px solid var(--surface-border); border-radius: 4px; color: #fff;" value="Khairatabad Junction Ward 91">
+              </div>
+              <div>
+                <label style="font-size: 11px; font-weight: 700; color: var(--text-muted);">OBSERVATION DETAILS</label>
+                <textarea id="repText" style="width: 100%; margin-top: 4px; padding: 8px; background: #090D16; border: 1px solid var(--surface-border); border-radius: 4px; color: #fff; min-height: 80px;">Heavy idol vehicle halted near flyover ramp for puja. Right carriageway blocked.</textarea>
+              </div>
+            </div>
+
+            <button class="btn btn-festive" style="width: 100%; margin-top: 20px;" onclick="submitJanVaniReport()">
+              🪔 Submit to City Command Center
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    function submitJanVaniReport() {
+      const text = document.getElementById('repText').value;
+      const ward = document.getElementById('repWard').value;
+      STATE.crowdReports.unshift({
+        id: "JV-" + (100 + STATE.crowdReports.length + 1),
+        ward: ward,
+        text: text,
+        votes: 1,
+        verified: true,
+        time: "Just now"
+      });
+      closeModal();
+      render();
+      showToast("✓ Report received! Local consensus verified and added to festive corridor advisory.");
+    }
+
+    function upvoteReport(id) {
+      const rep = STATE.crowdReports.find(r => r.id === id);
+      if (rep) {
+        rep.votes++;
+        render();
+        showToast(`👍 Upvote logged for ${rep.ward}. Consensus weight updated!`);
+      }
+    }
+
+    function dispatchDiversionRoute() {
+      showToast("📲 Turn-Restricted Diversion dispatched to 14,200 connected drivers via pre-trip gating!");
+    }
+
+    function resolveIncident() {
+      showToast("✓ Incident marked cleared. Network returning to calibrated baseline flow.");
+      STATE.incidents[0].queueLengthKm = 0.2;
+      STATE.incidents[0].shockwaveVelocityKmh = 0;
+      render();
+    }
+
+    function toggleRainShock() {
+      if (STATE.simulatedWeather === 'clear') {
+        STATE.simulatedWeather = 'monsoon_rain';
+        showToast("🌧️ Exogenous Weather Shock Active: Roadway free-flow speed reduced by 22%, headways inflated.");
+      } else {
+        STATE.simulatedWeather = 'clear';
+        showToast("☀️ Weather cleared: Road friction and speeds restored.");
+      }
+      render();
+    }
+
+    function runSimulation(candId) {
+      showToast(`Evaluating counterfactual ROI for ${candId} across 36 hidden test scenarios... Done!`);
+    }
+
+    function viewSegmentDetails(segId) {
+      const s = STATE.segments.find(x => x.id === segId);
+      if (!s) return;
+      alert(`SEGMENT INSPECTOR: ${s.id}\n\nName: ${s.name}\nCurrent Speed: ${s.currentSpeed} km/h (Free Flow: ${s.freeFlowSpeed} km/h)\nCapacity: ${s.capacity} vph | Inflow: ${s.flow} vph\nStatus: ${s.status.toUpperCase()}\nShockwave Vulnerability: ${s.shockwaveRisk.toUpperCase()}`);
+    }
+
+    function closeModal() {
+      document.getElementById('modalRoot').innerHTML = '';
+    }
+
+    function showToast(msg) {
+      let t = document.getElementById('appToast');
+      if (!t) {
+        t = document.createElement('div');
+        t.id = 'appToast';
+        t.className = 'toast';
+        document.body.appendChild(t);
+      }
+      t.innerHTML = `<span>⚡</span> <span>${msg}</span>`;
+      t.style.display = 'flex';
+      clearTimeout(window._toastTimer);
+      window._toastTimer = setTimeout(() => { t.style.display = 'none'; }, 3500);
+    }
+
+    // ──── INITIAL LOAD ────
+    render();
+  </script>
+</body>
+
+</html>
