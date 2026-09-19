@@ -1972,6 +1972,16 @@
       mapPanY = 0;
       showToast("Map view reset to default corridor framing.");
     }
+
+    // ──── AUTOMATIC BOOTSTRAP ────
+    // Ensures instant initialization on load without needing manual tab click
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => {
+        render();
+      });
+    } else {
+      render();
+    }
   </script>
 </body>
 
