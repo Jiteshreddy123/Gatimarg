@@ -1289,6 +1289,23 @@
     </div>
   </header>
 
+     <!-- DYNAMIC WEATHER RADAR ALERT BANNER (Hidden by default) -->
+  <div id="weatherAlertBanner" style="display: none; background: linear-gradient(90deg, #B45309, #F59E0B); color: #fff; padding: 10px 24px; font-size: 13px; font-weight: 700; align-items: center; justify-content: space-between; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4); border-bottom: 2px solid #FEF3C7; animation: slideDown 0.4s ease;">
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <span style="font-size: 18px; animation: flash 1s infinite;">⚠️</span>
+      <span>
+        <strong>HYDERABAD METRO WEATHER ALERT:</strong> Flash Monsoon Downpour Detected. 
+        <span style="font-weight: 500;">Roadway friction reduced by 25%. Expect +18 min delays on elevated corridors.</span>
+      </span>
+    </div>
+    <button onclick="document.getElementById('weatherAlertBanner').style.display='none'" style="background: transparent; border: none; color: #fff; cursor: pointer; font-size: 16px; font-weight: bold;">✕</button>
+  </div>
+  
+  <style>
+    @keyframes slideDown { from { transform: translateY(-100%); } to { transform: translateY(0); } }
+    @keyframes flash { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+  </style>
+
   <!-- ===== MAIN VIEWPORT (DYNAMICALLY SWITCHED) ===== -->
   <main class="main-container" id="mainViewport">
     <!-- Rendered via JavaScript -->
