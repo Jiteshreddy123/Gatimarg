@@ -5,7 +5,7 @@
 /**
  * frontend/js/api.js
  * Asynchronous REST Client for GatiMarg AI / NeuraX Urban Traffic Engine.
- * Automatically communicates with FastAPI on http://127.0.0.1:8000/api.
+ * Communicates with FastAPI on /api endpoints.
  */
 
 const API_BASE = window.location.origin.includes('8000')
@@ -59,26 +59,22 @@ export class ApiService {
     return await this.request(`/network/segments${q ? '?' + q : ''}`);
   }
 
-  static async getTurnRestrictions() {
-    return await this.request('/network/turn-restrictions');
-  }
-
   // Live Congestion & Incidents
   static async getLiveCongestion(sortBy = 'congestion_index', limit = 50) {
-    return await this.request(`/congestion/live?sort_by=${sortBy}&limit=${limit}`);
+    return await this.request(`/congestion/ranking?limit=${limit}`);
   }
 
   static async getIncidents() {
     return await this.request('/incidents');
   }
 
-  static async getSpillback(incidentId) {
-    return await this.request(`/spillback/${incidentId}`);
+  static async getSpillback(segmentId) {
+    return await this.request(`/spillback/${segmentId}`);
   }
 
   // Multi-Horizon Forecasting (Zero Target Leakage)
-  static async getForecast(segmentId) {
-    return await this.request(`/forecast/${segmentId}`);
+  static async getForecast(segmentId, intervention = 'active') {
+    return await this.request(`/forecast/${segmentId}?intervention=${intervention}`);
   }
 
   // Routing with 61 Turn Restrictions Enforced
@@ -89,13 +85,58 @@ export class ApiService {
     });
   }
 
-  // Chronic Recurring Bottlenecks
-  static async getChronicHotspots() {
-    return await this.request('/chronic/hotspots');
+  // Two-Horizon Persistent Congestion & Resolution Intelligence
+  static async getPersistentHotspots() {
+    return await this.request('/persistent/hotspots');
   }
 
-  static async getChronicHotspotDetail(segmentId) {
-    return await this.request(`/chronic/hotspots/${segmentId}`);
+  static async getPersistentHotspotDetail(segmentId) {
+    return await this.request(`/persistent/hotspots/${segmentId}`);
+  }
+
+  static async evaluateDiversion(payload) {
+    return await this.request('/persistent/diversion/evaluate', {
+      method: 'POST',
+      body: JSON.stringify(payload)
+    });
+  }
+
+  static async simulateCounterfactual(payload) {
+    return await this.request('/persistent/counterfactual/simulate', {
+      method: 'POST',
+      body: JSON.stringify(payload)
+    });
+  }
+
+  static async simulateDisruption(payload) {
+    return await this.request('/persistent/disruption/simulate', {
+      method: 'POST',
+      body: JSON.stringify(payload)
+    });
+  }
+
+  // Simulated Municipal Resolution Requests & Issue Lifecycle
+  static async getMunicipalRequests() {
+    return await this.request('/persistent/municipal/requests');
+  }
+
+  static async generateMunicipalRequest(segmentId) {
+    return await this.request('/persistent/municipal/requests/generate', {
+      method: 'POST',
+      body: JSON.stringify({ segment_id: segmentId })
+    });
+  }
+
+  static async updateMunicipalStatus(issueId, status) {
+    return await this.request(`/persistent/municipal/requests/${issueId}/status`, {
+      method: 'PATCH',
+      body: JSON.stringify({ status: status })
+    });
+  }
+
+  // Commuter Early Warning Alerts
+  static async getPersistentAlerts() {
+    return await this.request('/persistent/alerts');
   }
 
   // Planning Candidates & Counterfactual Sandbox

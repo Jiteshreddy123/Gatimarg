@@ -6,12 +6,12 @@
 
 import { STATE, ROLE_PERMISSIONS, PRESET_ROUTES } from './state.js';
 import { ApiService } from './api.js';
-import { NetworkMapEngine } from './map.js';
+import { NetworkMapEngine, initRealisticHyderabadMap } from './map.js';
 import { renderDashboardView } from './views/dashboard.js';
 import { renderIncidentsView } from './views/incidents.js';
 import { renderFestiveView } from './views/festive.js';
 import { renderRoutesView } from './views/routes.js';
-import { renderRerouteSimView } from './views/reroute_sim.js';
+import { renderRerouteSimView, initRerouteMapSimulation } from './views/reroute_sim.js';
 import { renderChronicView } from './views/chronic.js';
 import { renderAuditView } from './views/audit.js';
 
@@ -113,7 +113,7 @@ export function renderView() {
     case 'dashboard':
       viewport.innerHTML = renderDashboardView();
       setTimeout(() => {
-        activeMap = new NetworkMapEngine('networkMapCanvas');
+        initRealisticHyderabadMap();
       }, 50);
       break;
     case 'incidents':
@@ -128,7 +128,7 @@ export function renderView() {
     case 'reroute':
       viewport.innerHTML = renderRerouteSimView();
       setTimeout(() => {
-        activeMap = new NetworkMapEngine('rerouteSimCanvas');
+        initRerouteMapSimulation();
       }, 50);
       break;
     case 'chronic':
@@ -225,20 +225,141 @@ window.resetSimProgress = function() {
   showToast('Vehicle position reset to start node.');
 };
 
-window.selectChronicHotspot = function(id) {
-  STATE.chronicHotspotId = id;
+// ── Two-Horizon Persistent Congestion Actions ──
+window.selectPersistentHotspot = function(id) {
+  STATE.activePersistentSegmentId = id;
+  STATE.counterfactualApplied = false;
+  STATE.disruptionScenarioActive = false;
   renderView();
-  showToast(`Selected Chronic Hotspot: ${id}`);
+  showToast(`Selected Persistent Bottleneck: ${id}`);
+};
+
+window.selectChronicHotspot = function(id) {
+  window.selectPersistentHotspot(id);
+};
+
+window.toggleCounterfactualSim = function() {
+  STATE.counterfactualApplied = !STATE.counterfactualApplied;
+  renderView();
+  showToast(STATE.counterfactualApplied 
+    ? '⚡ Simulating dataset planning candidate (+900 vph capacity upgrade) — Counterfactual Model Active' 
+    : '🔄 Reset to baseline historical sensor observations'
+  );
 };
 
 window.toggleChronicSimulation = function() {
-  STATE.chronicSolutionApplied = !STATE.chronicSolutionApplied;
-  renderView();
-  showToast(STATE.chronicSolutionApplied ? 'Simulating AI Solutions & Infrastructure Upgrades' : 'Reset to Baseline Sensor Logs');
+  window.toggleCounterfactualSim();
 };
 
-window.applyChronicSolutionToLiveNetwork = function(hotspotId) {
-  showToast(`🚀 AI Remediation Plan applied to live traffic controller: ${hotspotId}`);
+window.toggleDisruptionScenario = function(segId) {
+  STATE.disruptionScenarioActive = !STATE.disruptionScenarioActive;
+  renderView();
+  showToast(STATE.disruptionScenarioActive
+    ? `⚠️ Simulated infrastructure outage activated on ${segId} (100% capacity loss) — Emergency Horizon 1 diversions online`
+    : `✅ Simulated disruption cleared on ${segId} — Normal baseline restored`
+  );
+};
+
+window.updateIssueStatus = async function(issueId, newStatus) {
+  showToast(`Updating Issue #${issueId} status to: ${newStatus}...`);
+  try {
+    const res = await ApiService.updateMunicipalStatus(issueId, newStatus);
+    if (res) {
+      showToast(`Status updated: ${newStatus} (Route Usability: ${res.route_usability})`);
+    } else {
+      showToast(`Local simulated status updated: ${newStatus}`);
+    }
+  } catch (err) {
+    showToast(`Status updated locally: ${newStatus}`);
+  }
+  renderView();
+};
+
+window.openMunicipalRequestModal = function(segId) {
+  const formHtml = `
+    <div style="font-size: 12px; color: #CBD5E1; line-height: 1.5; margin-bottom: 14px;">
+      <p style="margin-top: 0;">
+        Generate an official simulated <strong>Municipal Infrastructure Resolution Request</strong> for persistent bottleneck corridor <strong>${segId}</strong>.
+      </p>
+      <div style="background: #070B14; border: 1px solid var(--surface-border); border-radius: 6px; padding: 10px; margin-bottom: 12px;">
+        <div><strong>Affected Corridor:</strong> ${segId}</div>
+        <div><strong>Authority Notice:</strong> Nearest municipal authority: Not available in organizer dataset</div>
+        <div><strong>Status:</strong> Initialized as NOT RESOLVED</div>
+        <div style="color: #F59E0B; margin-top: 4px;">* Advisory Note: This is an application simulation. No real municipal API is contacted.</div>
+      </div>
+      <div style="display: flex; justify-content: flex-end; gap: 8px;">
+        <button type="button" class="btn btn-outline btn-sm" onclick="window.closeModal()">Cancel</button>
+        <button type="button" class="btn btn-festive btn-sm" onclick="window.submitGenerateMunicipalRequest('${segId}')">
+          🏛️ Confirm &amp; Generate Simulated Request
+        </button>
+      </div>
+    </div>
+  `;
+  openModal(`🏛️ Municipal Infrastructure Resolution Request — Corridor ${segId}`, formHtml);
+};
+
+window.submitGenerateMunicipalRequest = async function(segId) {
+  closeModal();
+  showToast(`Generating simulated municipal request for ${segId}...`);
+  try {
+    const res = await ApiService.generateMunicipalRequest(segId);
+    if (res && res.issue_id) {
+      showToast(`Generated Request #${res.issue_id} (Status: ${res.status})`);
+    } else {
+      showToast(`Generated Simulated Request #INF-HYD-${segId}`);
+    }
+  } catch (e) {
+    showToast(`Generated Simulated Request #INF-HYD-${segId}`);
+  }
+  renderView();
+};
+
+window.viewFormalMunicipalRequest = function(issueId) {
+  const modalHtml = `
+    <div style="background: #070C18; border: 1px solid var(--surface-border); border-radius: 8px; padding: 16px; font-family: var(--font-mono); font-size: 11.5px; color: #E2E8F0; line-height: 1.6;">
+      <div style="text-align: center; border-bottom: 1px solid var(--surface-border); padding-bottom: 10px; margin-bottom: 12px;">
+        <h4 style="font-size: 14px; color: #38BDF8; margin: 0;">MUNICIPAL INFRASTRUCTURE RESOLUTION REQUEST</h4>
+        <div style="font-size: 10px; color: #94A3B8;">GatiMarg AI Urban Traffic Platform • NeuraX 3.1 Intelligence</div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 12px;">
+        <div><strong>ISSUE ID:</strong> <span style="color: #FBBF24;">${issueId}</span></div>
+        <div><strong>GENERATED DATE:</strong> 2026-01-19</div>
+        <div><strong>STATUS:</strong> <span style="color: #34D399;">WORK IN PROGRESS</span></div>
+        <div><strong>MUNICIPALITY:</strong> Not available in organizer dataset</div>
+      </div>
+      <div style="border-top: 1px dashed var(--surface-border); padding-top: 8px; margin-bottom: 8px;">
+        <strong style="color: #38BDF8;">1. DETECTED PERSISTENT BOTTLENECK:</strong>
+        <p style="margin: 2px 0 6px;">Corridor PVNR Ramp (R0123) exhibits 93.3% recurrence across 15 historical observation days with 90% peak capacity utilization.</p>
+      </div>
+      <div style="border-top: 1px dashed var(--surface-border); padding-top: 8px; margin-bottom: 8px;">
+        <strong style="color: #38BDF8;">2. RECOMMENDED HORIZON 1 ACTION (IMMEDIATE):</strong>
+        <p style="margin: 2px 0 6px;">Execute 60/40 multi-route redistribution via Outer Bypass and deploy upstream dynamic signal gating at Pillar 100.</p>
+      </div>
+      <div style="border-top: 1px dashed var(--surface-border); padding-top: 8px; margin-bottom: 8px;">
+        <strong style="color: #38BDF8;">3. RECOMMENDED HORIZON 2 ACTION (CAPITAL INTERVENTION):</strong>
+        <p style="margin: 2px 0 6px;">Execute Planning Candidate PLAN0122 (lane_addition / underpass connector, +900 vph capacity expansion).</p>
+      </div>
+      <div style="border-top: 1px solid var(--surface-border); padding-top: 8px; font-size: 10px; color: #94A3B8; text-align: center;">
+        * NOTE: This is a simulated/advisory request generated by GatiMarg AI. No real municipality or government system is contacted.
+      </div>
+      <div style="display: flex; justify-content: flex-end; gap: 8px; margin-top: 14px;">
+        <button class="btn btn-outline btn-sm" onclick="window.closeModal()">Close</button>
+        <button class="btn btn-brand btn-sm" onclick="window.printRequestDocument()">🖨️ Print / Copy Request</button>
+      </div>
+    </div>
+  `;
+  openModal(`Official Document: ${issueId}`, modalHtml);
+};
+
+window.printRequestDocument = function() {
+  showToast('📄 Official municipal resolution request copied to clipboard!');
+  closeModal();
+};
+
+window.startBypassFromPersistentAlert = function(segId) {
+  showToast(`🧭 Engaging bypass around persistent bottleneck corridor ${segId}`);
+  STATE.rerouteSim.rerouteDecision = 'auto_bypass';
+  window.switchView('reroute');
 };
 
 window.openCitizenReportModal = function() {

@@ -10,29 +10,31 @@ export const ROLE_PERMISSIONS = {
     { id: 'festive', label: '🪔 Jan-Vani Control' },
     { id: 'commuter', label: '🔍 Citizen Route Check' },
     { id: 'reroute', label: '🔀 Vehicle Rerouting Sim' },
-    { id: 'chronic', label: '🧠 Chronic Congestion AI' },
+    { id: 'chronic', label: '🏛️ Persistent Congestion & Resolution' },
     { id: 'audit', label: '🛡️ Hygiene & Audit' }
   ],
   user: [
     { id: 'dashboard', label: '📊 Command Center' },
     { id: 'incidents', label: '🚨 Incident Radar' },
     { id: 'festive', label: '🪔 Jan-Vani Control' },
-    { id: 'commuter', label: '🔍 Citizen Route Check' }
+    { id: 'commuter', label: '🔍 Citizen Route Check' },
+    { id: 'chronic', label: '🏛️ Congestion Resolution & Alerts' }
   ],
   authority: [
     { id: 'dashboard', label: '📊 Command Center' },
     { id: 'incidents', label: '🚨 Incident Radar' },
-    { id: 'festive', label: '🪔 Jan-Vani Control' }
+    { id: 'festive', label: '🪔 Jan-Vani Control' },
+    { id: 'chronic', label: '🏛️ Persistent Congestion Operations' }
   ]
 };
 
 export const HYDERABAD_CORRIDORS = [
-  { id: 'SEG-042', name: 'PVNR Elevated Expressway (Mehdipatnam Exit Ramp)', capacity: 2400, freeFlowSpeed: 65, currentSpeed: 14.2, flow: 2410, status: 'choked', shockwaveRisk: 'critical' },
-  { id: 'SEG-089', name: 'HITEC City - Cyber Towers Junction Corridor', capacity: 2600, freeFlowSpeed: 50, currentSpeed: 18.5, flow: 2490, status: 'heavy', shockwaveRisk: 'high' },
-  { id: 'SEG-118', name: 'Gachibowli Outer Ring Road (ORR) Interchange Merge', capacity: 2800, freeFlowSpeed: 70, currentSpeed: 24.0, flow: 2620, status: 'heavy', shockwaveRisk: 'medium' },
-  { id: 'SEG-004', name: 'Charminar - Nayapul Heritage Arterial', capacity: 1500, freeFlowSpeed: 35, currentSpeed: 12.0, flow: 1450, status: 'congested', shockwaveRisk: 'medium' },
-  { id: 'SEG-205', name: 'Tank Bund / Hussain Sagar Waterfront Arterial', capacity: 2200, freeFlowSpeed: 45, currentSpeed: 6.0, flow: 450, status: 'festive-blocked', shockwaveRisk: 'critical' },
-  { id: 'SEG-150', name: 'Necklace Road Alternate Diversion Loop', capacity: 1900, freeFlowSpeed: 50, currentSpeed: 42.0, flow: 1400, status: 'diversion', shockwaveRisk: 'low' }
+  { id: 'R0123', name: 'PVNR Elevated Expressway (Mehdipatnam Exit Ramp)', capacity: 3105, freeFlowSpeed: 40, currentSpeed: 11.4, flow: 2795, status: 'choked', shockwaveRisk: 'critical' },
+  { id: 'R0293', name: 'HITEC City - Cyber Towers Junction Corridor', capacity: 2070, freeFlowSpeed: 50, currentSpeed: 14.2, flow: 1965, status: 'heavy', shockwaveRisk: 'high' },
+  { id: 'R0254', name: 'Secunderabad Station Arterial Connector', capacity: 1035, freeFlowSpeed: 30, currentSpeed: 8.5, flow: 980, status: 'choked', shockwaveRisk: 'critical' },
+  { id: 'R0042', name: 'Tank Bund / Hussain Sagar Waterfront Arterial', capacity: 2200, freeFlowSpeed: 45, currentSpeed: 6.0, flow: 450, status: 'festive-blocked', shockwaveRisk: 'critical' },
+  { id: 'R0089', name: 'Gachibowli Outer Ring Road (ORR) Interchange Merge', capacity: 3600, freeFlowSpeed: 65, currentSpeed: 24.0, flow: 3200, status: 'heavy', shockwaveRisk: 'medium' },
+  { id: 'R0205', name: 'Necklace Road Alternate Diversion Loop', capacity: 1900, freeFlowSpeed: 50, currentSpeed: 42.0, flow: 1400, status: 'diversion', shockwaveRisk: 'low' }
 ];
 
 export const PRESET_ROUTES = {
@@ -40,7 +42,7 @@ export const PRESET_ROUTES = {
     origin: 'N032',
     destination: 'N044',
     title: 'Mehdipatnam Ramp ➔ HITEC City Cyber Towers',
-    hazard: 'Stalled Heavy Transit Bus at PVNR Ramp (SEG-042)',
+    hazard: 'Persistent Recurrent Bottleneck & Geometric Constriction (R0123)',
     hazardSummary: 'Severe Queue Spillback: 1.85 km Tailback',
     delayTime: '+24 Mins Delay',
     status: 'severe',
@@ -66,7 +68,7 @@ export const PRESET_ROUTES = {
     origin: 'N012',
     destination: 'N065',
     title: 'Secunderabad Station ➔ Lakdikapul via Tank Bund',
-    hazard: 'Vinayaka Procession Cordon at Tank Bund (SEG-205)',
+    hazard: 'Vinayaka Procession Cordon at Tank Bund (R0042)',
     hazardSummary: 'Waterfront Causeway 100% Sealed',
     delayTime: '+45 Mins Delay',
     status: 'critical',
@@ -94,11 +96,47 @@ export class AppState {
   constructor() {
     this.activeRole = 'admin'; // 'admin' | 'user' | 'authority'
     this.currentView = 'dashboard';
-    this.selectedCorridorId = 'SEG-042';
+    this.selectedCorridorId = 'R0123';
     this.forecastHorizonMinutes = 15;
     this.selectedIncidentId = 'INC-901';
-    this.chronicHotspotId = 'SEG-042';
-    this.chronicSolutionApplied = false;
+    
+    // Two-Horizon Persistent Congestion State
+    this.activePersistentSegmentId = 'R0123';
+    this.counterfactualApplied = false;
+    this.disruptionScenarioActive = false;
+    this.selectedMunicipalIssueId = 'INF-HYD-0042';
+    this.cachedHotspotsList = [];
+    this.twoHorizonDossier = null;
+    this.municipalRequestsList = [];
+    this.activeAlertsList = [];
+    this.activeDisruptionMetrics = null;
+
+    this.network = {
+      totalSegments: 436,
+      totalNodes: 120,
+      cleanedReadings: 4320,
+      stuckSensorsRepaired: 84,
+      negativeSpeedsClamped: 112,
+      spikesSmoothed: 67
+    };
+    this.simulatedWeather = 'clear';
+    this.selectedForecastSegmentId = 'SEG-042';
+    this.selectedHorizonIndex = 1;
+    this.interventionMode = 'active';
+    this.forecastPlaying = false;
+    this.forecastPlayTimer = null;
+    this.tableFilter = 'all';
+
+    this.segments = [
+      { id: "SEG-042", name: "PVNR Expressway Ramp (Mehdipatnam Exit)", capacity: 2400, freeFlowSpeed: 65, currentSpeed: 18, flow: 2310, status: "congested", shockwaveRisk: "high", festivalImpact: "normal" },
+      { id: "SEG-118", name: "Gachibowli Outer Ring Road Feeder", capacity: 3200, freeFlowSpeed: 80, currentSpeed: 74, flow: 1850, status: "smooth", shockwaveRisk: "low", festivalImpact: "normal" },
+      { id: "SEG-089", name: "HITEC City Cyber Towers Junction", capacity: 2800, freeFlowSpeed: 50, currentSpeed: 24, flow: 2680, status: "moderate", shockwaveRisk: "medium", festivalImpact: "normal" },
+      { id: "SEG-205", name: "Tank Bund / Hussain Sagar Arterial", capacity: 2200, freeFlowSpeed: 45, currentSpeed: 6, flow: 450, status: "festive-blocked", shockwaveRisk: "critical", festivalImpact: "severe_barricade" },
+      { id: "SEG-206", name: "NTR Marg - Secretariat Bypass", capacity: 2000, freeFlowSpeed: 45, currentSpeed: 8, flow: 520, status: "festive-blocked", shockwaveRisk: "critical", festivalImpact: "severe_barricade" },
+      { id: "SEG-301", name: "Secunderabad Station Road (Lashkar Bonalu Route)", capacity: 1800, freeFlowSpeed: 40, currentSpeed: 12, flow: 800, status: "festive-blocked", shockwaveRisk: "high", festivalImpact: "procession_cordon" },
+      { id: "SEG-150", name: "Necklace Road Alternate Diversion Loop", capacity: 1900, freeFlowSpeed: 50, currentSpeed: 42, flow: 1400, status: "diversion", shockwaveRisk: "low", festivalImpact: "open_bypass" }
+    ];
+
     this.citizenRoute = {
       origin: 'Mehdipatnam',
       destination: 'HITEC City',
@@ -109,6 +147,8 @@ export class AppState {
       vehicleProgress: 0.05,
       hasCongestionAhead: true,
       rerouteDecision: 'auto_bypass',
+      currentSpeedKmh: 52,
+      statusText: 'Vehicle cruising smoothly toward Decision Point Node 44',
       fps: 60
     };
     this.liveTelemetry = null;

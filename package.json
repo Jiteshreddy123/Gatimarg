@@ -1,0 +1,11 @@
+{
+  "name": "gatimarg-ai",
+  "version": "3.1.0",
+  "description": "GatiMarg AI — Urban Traffic Flow, Incident Intelligence & Two-Horizon Congestion Platform",
+  "scripts": {
+    "start:backend": "uvicorn backend.main:app --host 127.0.0.1 --port 8000 --reload",
+    "start:frontend": "python -m http.server 3000 --directory frontend",
+    "dev:backend": "uvicorn backend.main:app --host 127.0.0.1 --port 8000 --reload",
+    "dev:frontend": "python -m http.server 3000 --directory frontend"
+  }
+}
