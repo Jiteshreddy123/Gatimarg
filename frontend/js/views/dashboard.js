@@ -13,103 +13,188 @@ export function renderDashboardView() {
 
   // Dynamic forecast values based on slider (T+15, T+30, T+45, T+60)
   const horizon = STATE.forecastHorizonMinutes || 15;
-  let speed = 14.2;
-  let flow = 2410;
-  let queue = '2.4 km';
-  let desc = 'Congestion onset; queue propagating upstream towards Pillar 110.';
+  let speed = 60.0;
+  let flow = 228;
+  let queue = '1.85 km';
+  let desc = 'Breakpoint reached: Constricted bottleneck outflow is overwhelmed by 2,410 vph incoming demand. The kinematic shockwave propagates backward into Attapur feeder at -14.2 km/h.';
+  let speedColor = '#10B981';
+  let queueColor = '#F59E0B';
 
   if (horizon === 30) {
+    speed = 14.2;
+    flow = 2410;
+    queue = '2.40 km';
+    desc = 'Congestion onset; queue propagating upstream towards Pillar 110.';
+    speedColor = '#F59E0B';
+  } else if (horizon === 45) {
     speed = 9.8;
     flow = 2580;
-    queue = '3.8 km';
+    queue = '3.80 km';
     desc = 'Peak queue density reached; shockwave backing past Attapur interchange.';
-  } else if (horizon === 45) {
-    speed = 18.5;
-    flow = 2100;
-    queue = '1.6 km';
-    desc = 'Partial diversion dissipation; signal metering active at Pillar 100 on-ramp.';
+    speedColor = '#EF4444';
   } else if (horizon === 60) {
     speed = 34.0;
     flow = 1650;
-    queue = '0.3 km';
+    queue = '0.30 km';
     desc = 'Recovery towards free flow LOS B; residual delay dissipating rapidly.';
+    speedColor = '#34D399';
   }
 
   return `
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
-      <div>
-        <div style="display: flex; align-items: center; gap: 8px;">
-          <span class="badge-live">● LIVE NEURAX METROPOLITAN RADAR</span>
-          ${renderProvenanceBadge('DATA', 'sensor_locations.csv & segments.csv')}
-        </div>
-        <h2 style="font-size: 22px; margin-top: 4px;">Hyderabad Metropolitan Traffic Command Center</h2>
-        <p style="font-size: 12px; color: var(--text-secondary);">
-          Real-time arterial telemetry, multi-horizon gradient boosted forecasting, and spatial shockwave detection
-        </p>
-      </div>
-      <div style="display: flex; gap: 8px;">
-        <button class="btn btn-outline btn-sm" onclick="window.triggerRefresh()">🔄 Refresh Telemetry</button>
-        <button class="btn btn-brand btn-sm" onclick="window.switchView('incidents')">🚨 View Incident Radar →</button>
-      </div>
-    </div>
+    <!-- Top Nav Replacement (Not needed here since it's in app.js, but we'll align the padding) -->
 
     <!-- Live Executive Metrics Grid -->
-    <div class="grid-4" style="margin-bottom: 20px;">
-      <div class="stat-box">
-        <div class="stat-label">
-          <span>Tracked Arterials</span>
-          ${renderProvenanceBadge('DATA', '436 segments in network.csv')}
+    <div class="grid-4" style="margin-bottom: 20px; gap: 12px;">
+      <div class="stat-box" style="background: #0B1120; border: 1px solid #1E293B;">
+        <div class="stat-label" style="display: flex; justify-content: space-between; font-size: 10px; color: #94A3B8; text-transform: uppercase;">
+          <span>NETWORK TOPOLOGY</span>
+          ${renderProvenanceBadge('DATA', 'Network Graph')}
         </div>
-        <div class="stat-value" style="color: #38BDF8;">436 Segments</div>
-        <div class="stat-sub">120 Core Intersection Nodes</div>
+        <div class="stat-value" style="margin: 8px 0;">
+          <span style="color: #38BDF8; font-size: 26px; font-weight: 700;">436</span>
+          <span style="color: #64748B; font-size: 14px; font-weight: 600;">/ 120 Nodes</span>
+        </div>
+        <div class="stat-sub" style="color: #94A3B8; font-size: 11px;">15-day continuous spatial grid (61 turns)</div>
       </div>
-      <div class="stat-box">
-        <div class="stat-label">
-          <span>Active Congestion Index</span>
-          ${renderProvenanceBadge('DERIVED', '1 - (current_speed / free_flow_speed)')}
+      
+      <div class="stat-box" style="background: #0B1120; border: 1px solid #1E293B;">
+        <div class="stat-label" style="display: flex; justify-content: space-between; font-size: 10px; color: #94A3B8; text-transform: uppercase;">
+          <span>MULTI-HORIZON AI</span>
+          ${renderProvenanceBadge('MODEL', 'HistGradientBoosting')}
         </div>
-        <div class="stat-value" style="color: #EF4444;">0.78 <span style="font-size: 13px; color: #F87171;">Severe</span></div>
-        <div class="stat-sub">4 Corridors at Breakpoint</div>
+        <div class="stat-value" style="margin: 8px 0; color: #34D399; font-size: 22px; font-weight: 700;">
+          15, 30, 45, 60m
+        </div>
+        <div class="stat-sub" style="color: #94A3B8; font-size: 11px;">OOS Val MAE: ±1.15 km/h (Zero Leakage)</div>
       </div>
-      <div class="stat-box">
-        <div class="stat-label">
-          <span>Multi-Horizon Model</span>
-          ${renderProvenanceBadge('MODEL', 'HistGradientBoosting (MAE 1.19 km/h)')}
+
+      <div class="stat-box" style="background: #0B1120; border: 1px solid #1E293B;">
+        <div class="stat-label" style="display: flex; justify-content: space-between; font-size: 10px; color: #94A3B8; text-transform: uppercase;">
+          <span>ACTIVE DISRUPTIONS</span>
+          ${renderProvenanceBadge('DATA', 'Incident Logs')}
         </div>
-        <div class="stat-value" style="color: #C084FC;">Zero Leakage</div>
-        <div class="stat-sub">Validated T+15 to T+60</div>
+        <div class="stat-value" style="margin: 8px 0;">
+          <span style="color: #EF4444; font-size: 26px; font-weight: 700;">60 Incidents</span>
+          <span style="color: #EF4444; font-size: 14px; font-weight: 600;">+ Festive</span>
+        </div>
+        <div class="stat-sub" style="color: #94A3B8; font-size: 11px;">Upstream shockwave w = Δq/Δk tracked</div>
       </div>
-      <div class="stat-box">
-        <div class="stat-label">
-          <span>Turn Restrictions</span>
-          ${renderProvenanceBadge('DATA', '61 prohibitions in turn_restrictions.csv')}
+
+      <div class="stat-box" style="background: #0B1120; border: 1px solid #1E293B;">
+        <div class="stat-label" style="display: flex; justify-content: space-between; font-size: 10px; color: #94A3B8; text-transform: uppercase;">
+          <span>TELEMETRY INGESTED</span>
+          ${renderProvenanceBadge('DATA', 'Telemetry Logs')}
         </div>
-        <div class="stat-value" style="color: #10B981;">61 Enforced</div>
-        <div class="stat-sub">100% Legal Route Compliance</div>
+        <div class="stat-value" style="margin: 8px 0;">
+          <span style="color: #F59E0B; font-size: 26px; font-weight: 700;">2,387,472</span>
+          <span style="color: #F59E0B; font-size: 14px; font-weight: 600;">Rows</span>
+        </div>
+        <div class="stat-sub" style="color: #94A3B8; font-size: 11px;">Repaired: 84 stuck - 112 clamped</div>
       </div>
     </div>
 
-    <!-- Main Content: Left interactive forecasting & corridors, Right Live Canvas Map -->
-    <div class="grid-2" style="margin-bottom: 20px;">
-      <!-- Left Column: Multi-Horizon Forecasting Scrubber & Dynamic Curve -->
-      <div class="card">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
-          <div>
-            <h3 style="font-size: 16px; display: flex; align-items: center; gap: 6px;">
-              📈 Multi-Horizon Traffic State Predictions
-            </h3>
-            <span style="font-size: 11px; color: var(--text-secondary);">
-              Calibrated speeds for selected corridor (<strong>${selectedCorridor.name}</strong>)
-            </span>
+    <!-- Main Content: Left Live Canvas Map, Right interactive forecasting -->
+    <div class="grid-2" style="margin-bottom: 20px; gap: 16px;">
+      
+      <!-- Left Column: 60 FPS HTML5 Canvas Map -->
+      <div class="card" style="display: flex; flex-direction: column; background: #0B1120; border: 1px solid #1E293B; padding: 16px;">
+        <div style="margin-bottom: 12px;">
+          <h3 style="font-size: 16px; display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+            🗺️ Hyderabad Spatial Flow & Incident GIS
+            <span class="badge-live" style="background: rgba(16, 185, 129, 0.15); color: #34D399; font-size: 10px; padding: 2px 8px; border: 1px solid rgba(16, 185, 129, 0.3);">60 FPS Particle Stream</span>
+          </h3>
+          <p style="font-size: 11.5px; color: #94A3B8; margin-bottom: 14px;">Real-time vehicle flows, PVNR queue shockwave & Tank Bund festive cordons</p>
+          <div style="display: flex; gap: 8px;">
+            <button class="btn btn-outline btn-sm" onclick="window.showToast('🌧️ Rain Mode: ON (-25% Free Flow)')" style="font-size: 11px; padding: 4px 10px; border-color: #F59E0B; color: #F59E0B;">☀️ Clear Sky (Friction: 1.0)</button>
+            <button class="btn btn-brand btn-sm" onclick="window.switchView('incidents')" style="font-size: 11px; padding: 4px 10px; background: #06B6D4; color: white;">Incident Radar →</button>
           </div>
-          ${renderProvenanceBadge('MODEL', 'HistGradientBoostingRegressor (Zero Target Leakage)')}
+        </div>
+        <!-- Realistic GIS Cartographic Canvas -->
+        <div class="corridor-canvas" id="corridorMapContainer">
+          <canvas id="networkMapCanvas"></canvas>
+          
+          <!-- Floating HUD Tooltip -->
+          <div class="map-hud-tooltip" id="mapTooltip">
+            <div style="font-weight: 800; font-size: 12.5px; color: #38BDF8;" id="ttTitle">PVNR Expressway Ramp</div>
+            <div style="font-size: 10.5px; color: #94A3B8; margin-top: 2px;" id="ttSub">Segment: SEG-042</div>
+            <div style="margin-top: 6px; font-size: 11.5px; line-height: 1.4;" id="ttMetrics">
+              Speed: <strong>18 km/h</strong> (Free: 65 km/h)<br>
+              Flow: <strong>2,310 vph</strong> | Cap: 2,400 vph<br>
+              <span style="color: #F87171;">⚠️ Gridlocked: Stalled Transit Bus</span>
+            </div>
+          </div>
+
+          <!-- Map Controls -->
+          <div class="map-controls-panel">
+            <button class="map-btn" onclick="window.mapZoom(1.1)" title="Zoom In">+</button>
+            <button class="map-btn" onclick="window.mapZoom(0.9)" title="Zoom Out">−</button>
+            <button class="map-btn" onclick="window.resetMapView()" title="Reset View">↺</button>
+          </div>
+
+          <!-- Map Legend Bar -->
+          <div class="map-legend-bar">
+            <span style="display: flex; align-items: center; gap: 5px;"><span style="width: 10px; height: 10px; border-radius: 50%; background: #10B981; display: inline-block;"></span> &gt;60 km/h (Free)</span>
+            <span style="display: flex; align-items: center; gap: 5px;"><span style="width: 10px; height: 10px; border-radius: 50%; background: #06B6D4; display: inline-block;"></span> 35–60 km/h (Fluid)</span>
+            <span style="display: flex; align-items: center; gap: 5px;"><span style="width: 10px; height: 10px; border-radius: 50%; background: #F59E0B; display: inline-block;"></span> 15–35 km/h (Shockwave)</span>
+            <span style="display: flex; align-items: center; gap: 5px;"><span style="width: 10px; height: 10px; border-radius: 50%; background: #EF4444; display: inline-block;"></span> &lt;15 km/h (Incident)</span>
+            <span style="display: flex; align-items: center; gap: 5px;"><span style="width: 10px; height: 10px; background: repeating-linear-gradient(45deg,#DC2626,#DC2626 3px,#000 3px,#000 6px); display: inline-block;"></span> Festive Cordon</span>
+          </div>
+
+          <!-- Map Compass & Coordinate Watermark -->
+          <div class="map-compass-box">
+            <div style="font-weight: 700; color: #38BDF8;">HYDERABAD METRO GIS</div>
+            <div>17.4065° N, 78.4772° E</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Multi-Horizon Forecasting Scrubber & Dynamic Curve -->
+      <div class="card" style="background: #0B1120; border: 1px solid #1E293B; padding: 16px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+          <div>
+            <h3 style="font-size: 16px; display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+              Multi-Horizon Traffic State Predictions
+              <span style="font-size: 10px; color: #10B981; font-weight: normal;">No target Leakage</span>
+            </h3>
+            <p style="font-size: 11px; color: #94A3B8; margin-bottom: 6px;">Calibrated speeds & kinematic queues (15, 30, 45, 60m horizons)</p>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+              <span style="font-size: 9px; padding: 2px 6px; background: rgba(192, 132, 252, 0.15); color: #C084FC; border: 1px solid rgba(192, 132, 252, 0.3); border-radius: 4px;">T+15m MAE: ±1.15 km/h</span>
+              <span style="font-size: 9px; padding: 2px 6px; background: rgba(192, 132, 252, 0.15); color: #C084FC; border: 1px solid rgba(192, 132, 252, 0.3); border-radius: 4px;">T+30m MAE: ±1.15 km/h</span>
+              <span style="font-size: 9px; padding: 2px 6px; background: rgba(192, 132, 252, 0.15); color: #C084FC; border: 1px solid rgba(192, 132, 252, 0.3); border-radius: 4px;">T+45m MAE: ±1.17 km/h</span>
+              <span style="font-size: 9px; padding: 2px 6px; background: rgba(192, 132, 252, 0.15); color: #C084FC; border: 1px solid rgba(192, 132, 252, 0.3); border-radius: 4px;">T+60m MAE: ±1.19 km/h</span>
+            </div>
+          </div>
+          ${renderProvenanceBadge('MODEL', '')}
+        </div>
+
+        <div style="margin: 16px 0;">
+          <select class="route-input" style="width: 100%; max-width: 300px; margin-bottom: 12px; background: #050A15; border: 1px solid #1E293B;">
+            <option>PVNR Ramp (SEG-042 / N032)</option>
+          </select>
+          
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <div style="font-size: 10px; color: #94A3B8;">OPERATIONAL SCENARIO:</div>
+            <div style="font-size: 10px; color: #10B981; font-weight: 700;">✔ HATCHING RATING ACTIVE</div>
+          </div>
+          
+          <div style="display: flex; gap: 8px; margin-bottom: 16px;">
+            <button class="btn btn-outline btn-sm" style="flex: 1; border-color: #10B981; color: #10B981; background: rgba(16, 185, 129, 0.1);">Proactive Gating (Pre-Trip Diverted)</button>
+            <button class="btn btn-outline btn-sm" style="flex: 1; border-color: #F59E0B; color: #F59E0B;">Status Quo (Zero Diversion)</button>
+          </div>
         </div>
 
         <!-- Interactive Horizon Slider Scrubber -->
-        <div class="forecast-slider-container">
-          <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 700;">
-            <span style="color: #38BDF8;">Lookahead Horizon:</span>
-            <span style="color: #fff; font-family: var(--font-mono); font-size: 13px;">T + ${horizon} Minutes</span>
+        <div class="forecast-slider-container" style="margin-bottom: 16px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <span style="color: #94A3B8; font-size: 10px;">FORECAST HORIZON:</span>
+            <button class="btn btn-outline btn-sm" style="font-size: 10px; padding: 2px 8px; background: transparent; border: 1px solid #38BDF8; color: #38BDF8;">▶ Play Timeline (Auto-Step)</button>
+          </div>
+          <div class="forecast-ticks" style="background: #050A15; border: 1px solid #1E293B; border-radius: 8px; padding: 4px; display: flex;">
+            <span class="forecast-tick ${horizon === 0 ? 'active' : ''}" style="flex: 1; text-align: center; border-radius: 6px;">T+0 (Now)</span>
+            <span class="forecast-tick ${horizon === 15 ? 'active' : ''}" style="flex: 1; text-align: center; border-radius: 6px; ${horizon === 15 ? 'background: #06B6D4; color: white;' : ''}">T+15m</span>
+            <span class="forecast-tick ${horizon === 30 ? 'active' : ''}" style="flex: 1; text-align: center; border-radius: 6px; ${horizon === 30 ? 'background: #06B6D4; color: white;' : ''}">T+30m</span>
+            <span class="forecast-tick ${horizon === 45 ? 'active' : ''}" style="flex: 1; text-align: center; border-radius: 6px; ${horizon === 45 ? 'background: #06B6D4; color: white;' : ''}">T+45m</span>
+            <span class="forecast-tick ${horizon === 60 ? 'active' : ''}" style="flex: 1; text-align: center; border-radius: 6px; ${horizon === 60 ? 'background: #06B6D4; color: white;' : ''}">T+60m</span>
           </div>
           <input
             type="range"
@@ -120,141 +205,60 @@ export function renderDashboardView() {
             class="forecast-slider"
             id="horizonSlider"
             oninput="window.setForecastHorizon(this.value)"
+            style="width: 100%; margin-top: 12px;"
           />
-          <div class="forecast-ticks">
-            <span class="forecast-tick ${horizon === 15 ? 'active' : ''}">T + 15m</span>
-            <span class="forecast-tick ${horizon === 30 ? 'active' : ''}">T + 30m</span>
-            <span class="forecast-tick ${horizon === 45 ? 'active' : ''}">T + 45m</span>
-            <span class="forecast-tick ${horizon === 60 ? 'active' : ''}">T + 60m</span>
-          </div>
+        </div>
+
+        <!-- Dynamic SVG Speed Recovery Curve -->
+        <div class="chart-svg-container" style="height: 100px; margin-bottom: 20px;">
+          <svg width="100%" height="100%" viewBox="0 0 500 100" preserveAspectRatio="none">
+            <line x1="40" y1="20" x2="480" y2="20" stroke="#1E293B" stroke-dasharray="4"/>
+            <line x1="40" y1="50" x2="480" y2="50" stroke="#1E293B" stroke-dasharray="4"/>
+            <line x1="40" y1="80" x2="480" y2="80" stroke="#1E293B" stroke-dasharray="4"/>
+            
+            <path d="M 50 20 L 180 80 L 320 60 L 460 30" fill="none" stroke="#06B6D4" stroke-width="2" />
+            
+            <circle cx="50" cy="20" r="5" fill="#10B981" />
+            <circle cx="180" cy="80" r="5" fill="#EF4444" stroke="#fff" stroke-width="1.5" />
+            <circle cx="320" cy="60" r="5" fill="#F59E0B" />
+            <circle cx="460" cy="30" r="5" fill="#38BDF8" />
+            
+            <text x="50" y="10" fill="#94A3B8" font-size="10" text-anchor="middle">T+0</text>
+            <text x="180" y="95" fill="#94A3B8" font-size="10" text-anchor="middle">T+15</text>
+            <text x="320" y="95" fill="#94A3B8" font-size="10" text-anchor="middle">T+30</text>
+            <text x="460" y="10" fill="#94A3B8" font-size="10" text-anchor="middle">T+45</text>
+          </svg>
         </div>
 
         <!-- Forecast Readout Card -->
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 14px;">
-          <div style="background: #070B14; border: 1px solid var(--surface-border); border-radius: 8px; padding: 10px; text-align: center;">
-            <div style="font-size: 10px; color: var(--text-muted); font-weight: 700;">PREDICTED SPEED</div>
-            <div style="font-size: 20px; font-weight: 700; color: ${speed < 15 ? '#EF4444' : (speed < 30 ? '#F59E0B' : '#10B981')}; font-family: var(--font-mono);">
-              ${speed} km/h
-            </div>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 16px; border-bottom: 1px solid #1E293B; padding-bottom: 16px;">
+          <div>
+            <div style="font-size: 9px; color: #94A3B8; margin-bottom: 4px;">CALIBRATED<br>VELOCITY ${renderProvenanceBadge('MODEL', '')}</div>
+            <div style="font-size: 24px; font-weight: 700; color: ${speedColor};">${speed.toFixed(1)} <span style="font-size: 14px; color: #94A3B8; font-weight: normal;">km/h</span></div>
+            <div style="font-size: 10px; color: #10B981;">▲ Restoring Flow (+1.35 km/h)</div>
           </div>
-          <div style="background: #070B14; border: 1px solid var(--surface-border); border-radius: 8px; padding: 10px; text-align: center;">
-            <div style="font-size: 10px; color: var(--text-muted); font-weight: 700;">PREDICTED FLOW</div>
-            <div style="font-size: 20px; font-weight: 700; color: #38BDF8; font-family: var(--font-mono);">
-              ${flow} vph
-            </div>
+          <div>
+            <div style="font-size: 9px; color: #94A3B8; margin-bottom: 4px;">DISCHARGE<br>FLOW ${renderProvenanceBadge('DATA', '')}</div>
+            <div style="font-size: 24px; font-weight: 700; color: #F8FAFC;">${flow} <span style="font-size: 14px; color: #94A3B8; font-weight: normal;">vph</span></div>
+            <div style="font-size: 10px; color: #64748B;">Cap: 2400 vph</div>
           </div>
-          <div style="background: #070B14; border: 1px solid var(--surface-border); border-radius: 8px; padding: 10px; text-align: center;">
-            <div style="font-size: 10px; color: var(--text-muted); font-weight: 700;">QUEUE LENGTH</div>
-            <div style="font-size: 20px; font-weight: 700; color: #F59E0B; font-family: var(--font-mono);">
-              ${queue}
-            </div>
+          <div>
+            <div style="font-size: 9px; color: #94A3B8; margin-bottom: 4px;">UPSTREAM<br>QUEUE ${renderProvenanceBadge('DERIVED', '')}</div>
+            <div style="font-size: 24px; font-weight: 700; color: ${queueColor};">${queue}</div>
+            <div style="font-size: 10px; color: #64748B;">w = -14.2 km/h</div>
           </div>
         </div>
 
-        <p style="font-size: 12px; color: #CBD5E1; background: #070C18; border-left: 3px solid #06B6D4; padding: 8px 12px; border-radius: 4px; margin-bottom: 14px;">
-          💡 <strong>Physical Dynamics:</strong> ${desc}
-        </p>
-
-        <!-- Dynamic SVG Speed Recovery Curve -->
-        <div class="chart-svg-container">
-          <svg width="100%" height="100%" viewBox="0 0 500 180" preserveAspectRatio="none">
-            <defs>
-              <linearGradient id="curveGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#06B6D4" stop-opacity="0.3"/>
-                <stop offset="100%" stop-color="#06B6D4" stop-opacity="0.0"/>
-              </linearGradient>
-            </defs>
-            <!-- Gridlines -->
-            <line x1="40" y1="30" x2="480" y2="30" stroke="#1E293B" stroke-dasharray="4"/>
-            <line x1="40" y1="80" x2="480" y2="80" stroke="#1E293B" stroke-dasharray="4"/>
-            <line x1="40" y1="130" x2="480" y2="130" stroke="#1E293B" stroke-dasharray="4"/>
-            <!-- Area & Path -->
-            <polygon points="50,140 180,160 320,110 460,40 460,165 50,165" fill="url(#curveGrad)" />
-            <path d="M 50 140 Q 180 170 320 110 T 460 40" fill="none" stroke="#06B6D4" stroke-width="3" />
-            <!-- Markers -->
-            <circle cx="50" cy="140" r="4" fill="#EF4444" />
-            <circle cx="180" cy="160" r="4" fill="#EF4444" />
-            <circle cx="320" cy="110" r="4" fill="#F59E0B" />
-            <circle cx="460" cy="40" r="4" fill="#10B981" />
-            <!-- Labels -->
-            <text x="50" y="130" fill="#94A3B8" font-size="9" font-family="monospace">14.2 km/h (T+15)</text>
-            <text x="180" y="150" fill="#94A3B8" font-size="9" font-family="monospace">9.8 km/h (T+30)</text>
-            <text x="320" y="100" fill="#94A3B8" font-size="9" font-family="monospace">18.5 km/h (T+45)</text>
-            <text x="420" y="30" fill="#34D399" font-size="9" font-family="monospace">34.0 km/h (T+60)</text>
-          </svg>
+        <div style="background: rgba(6, 182, 212, 0.05); border: 1px solid rgba(6, 182, 212, 0.2); padding: 12px; border-radius: 6px; margin-bottom: 16px;">
+          <div style="font-size: 11px; color: #38BDF8; font-weight: 700; margin-bottom: 6px;">Real-World Corridor Dynamics (T + ${horizon} Minutes (Breakpoint)):</div>
+          <div style="font-size: 11px; color: #CBD5E1; line-height: 1.5;">${desc}</div>
         </div>
-      </div>
-
-      <!-- Right Column: 60 FPS HTML5 Canvas Map -->
-      <div class="card" style="display: flex; flex-direction: column;">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-          <h3 style="font-size: 16px; display: flex; align-items: center; gap: 6px;">
-            🗺️ Live Hyderabad Arterial GIS Map (60 FPS)
-          </h3>
-          <span class="badge-live">Hardware Accelerated</span>
+        
+        <div style="display: flex; gap: 8px;">
+          <button class="btn btn-brand" style="flex: 1; justify-content: center; background: #06B6D4;">Deploy Inflow Gating (T-40m)</button>
+          <button class="btn btn-outline" style="flex: 1; justify-content: center; border-color: #38BDF8; color: #38BDF8;">🗺️ Show On Map</button>
         </div>
-        <div class="canvas-map-wrapper">
-          <canvas id="networkMapCanvas" class="canvas-map"></canvas>
-          <div class="canvas-map-overlay">
-            <strong>Hyderabad Metropolitan Mesh</strong><br>
-            Showing: PVNR, Mehdipatnam, HITEC City, Tank Bund
-          </div>
-          <div class="canvas-map-legend">
-            <div class="legend-item"><div class="legend-color" style="background: #10B981;"></div> Fluid / Bypass (LOS A-B)</div>
-            <div class="legend-item"><div class="legend-color" style="background: #F59E0B;"></div> Heavy Inflow (LOS C-D)</div>
-            <div class="legend-item"><div class="legend-color" style="background: #EF4444;"></div> Shockwave Bottleneck (LOS F)</div>
-            <div class="legend-item"><div class="legend-color" style="background: #D97706;"></div> Festive Procession Cordon</div>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <!-- Key Arterial Segments Selector Table -->
-    <div class="card">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
-        <h3 style="font-size: 16px;">Key Arterial Segments (Live City Telemetry)</h3>
-        ${renderProvenanceBadge('DATA', 'segments.csv & traffic_train.csv')}
-      </div>
-      <div style="overflow-x: auto;">
-        <table style="width: 100%; border-collapse: collapse; font-size: 12.5px;">
-          <thead>
-            <tr style="border-bottom: 1px solid var(--surface-border); color: var(--text-muted); text-align: left;">
-              <th style="padding: 8px 12px;">SEGMENT ID</th>
-              <th style="padding: 8px 12px;">CORRIDOR NAME</th>
-              <th style="padding: 8px 12px;">CURRENT SPEED</th>
-              <th style="padding: 8px 12px;">FREE FLOW</th>
-              <th style="padding: 8px 12px;">CAPACITY SATURATION</th>
-              <th style="padding: 8px 12px;">STATUS</th>
-              <th style="padding: 8px 12px; text-align: right;">ACTION</th>
-            </tr>
-          </thead>
-          <tbody>
-            ${HYDERABAD_CORRIDORS.map(seg => `
-              <tr style="border-bottom: 1px solid rgba(51, 65, 85, 0.4); ${seg.id === STATE.selectedCorridorId ? 'background: rgba(6, 182, 212, 0.08);' : ''}">
-                <td style="padding: 10px 12px; font-family: var(--font-mono); font-weight: 700; color: #38BDF8;">${seg.id}</td>
-                <td style="padding: 10px 12px; font-weight: 600;">${seg.name}</td>
-                <td style="padding: 10px 12px; font-family: var(--font-mono); color: ${seg.currentSpeed < 15 ? '#EF4444' : (seg.currentSpeed < 30 ? '#F59E0B' : '#10B981')};">
-                  ${seg.currentSpeed} km/h
-                </td>
-                <td style="padding: 10px 12px; font-family: var(--font-mono); color: var(--text-muted);">${seg.freeFlowSpeed} km/h</td>
-                <td style="padding: 10px 12px;">
-                  <div style="width: 120px; background: #1E293B; height: 6px; border-radius: 3px; overflow: hidden; display: inline-block; vertical-align: middle; margin-right: 8px;">
-                    <div style="width: ${Math.min(100, Math.round((seg.flow / seg.capacity) * 100))}%; height: 100%; background: ${seg.currentSpeed < 15 ? '#EF4444' : '#06B6D4'};"></div>
-                  </div>
-                  <span style="font-size: 11px; font-family: var(--font-mono);">${Math.round((seg.flow / seg.capacity) * 100)}%</span>
-                </td>
-                <td style="padding: 10px 12px;">
-                  <span class="badge-live" style="font-size: 9.5px; ${seg.status === 'choked' ? 'background: rgba(239, 68, 68, 0.2); color: #F87171;' : ''}">
-                    ${seg.status.toUpperCase()}
-                  </span>
-                </td>
-                <td style="padding: 10px 12px; text-align: right;">
-                  <button class="btn btn-outline btn-sm" onclick="window.selectCorridor('${seg.id}')">Select</button>
-                </td>
-              </tr>
-            `).join('')}
-          </tbody>
-        </table>
       </div>
     </div>
   `;

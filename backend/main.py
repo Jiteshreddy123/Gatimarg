@@ -1,4 +1,8 @@
 """
+GatiMarg AI Backend
+Team Contributors: [Your Name] (Lead), [Friend 2 Name] (Backend)
+"""
+"""
 backend/main.py
 FastAPI High-Performance REST API for GatiMarg AI / NeuraX Urban Traffic Platform.
 Powered directly by the official NEURAX Smart Cities Training v2 dataset.

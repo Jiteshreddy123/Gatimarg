@@ -320,3 +320,42 @@ document.addEventListener('DOMContentLoaded', async () => {
   await pollBackend();
   setInterval(pollBackend, 15000);
 });
+
+
+// --- Team Credits Feature ---
+window.openTeamCredits = function() {
+  const bodyHtml = `
+    <div style="text-align: center; margin-bottom: 20px;">
+      <div style="font-size: 32px; margin-bottom: 10px;">🏆</div>
+      <h4 style="font-size: 18px; color: #38BDF8; margin-bottom: 5px;">GatiMarg AI Development Team</h4>
+      <p style="font-size: 12px; color: var(--text-secondary);">This project was built collaboratively by an amazing team!</p>
+    </div>
+    
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <div style="background: #090E1D; border: 1px solid var(--surface-border); border-left: 4px solid #06B6D4; padding: 14px; border-radius: 8px;">
+        <strong style="color: #fff; font-size: 14px;">[Your Name]</strong>
+        <div style="font-size: 11px; color: #38BDF8; font-weight: 700; margin-top: 2px;">Project Lead / Full-Stack AI Engineer</div>
+        <p style="font-size: 11px; color: var(--text-muted); margin-top: 6px;">Architected the core system, AI logic, and overall system design.</p>
+      </div>
+
+      <div style="background: #090E1D; border: 1px solid var(--surface-border); border-left: 4px solid #10B981; padding: 14px; border-radius: 8px;">
+        <strong style="color: #fff; font-size: 14px;">[Friend 1 Name]</strong>
+        <div style="font-size: 11px; color: #34D399; font-weight: 700; margin-top: 2px;">Frontend Engineer / UI & UX</div>
+        <p style="font-size: 11px; color: var(--text-muted); margin-top: 6px;">Designed the beautiful GIS Map Canvas, Dashboard UI, and interactive charts.</p>
+      </div>
+
+      <div style="background: #090E1D; border: 1px solid var(--surface-border); border-left: 4px solid #F59E0B; padding: 14px; border-radius: 8px;">
+        <strong style="color: #fff; font-size: 14px;">[Friend 2 Name]</strong>
+        <div style="font-size: 11px; color: #FBBF24; font-weight: 700; margin-top: 2px;">Backend Engineer / FastAPI Analytics</div>
+        <p style="font-size: 11px; color: var(--text-muted); margin-top: 6px;">Engineered the FastAPI backend, NeuraX data pipeline, and API endpoints.</p>
+      </div>
+    </div>
+    
+    <div style="margin-top: 20px; text-align: center;">
+      <p style="font-size: 10px; color: var(--text-muted); font-family: var(--font-mono);">
+        Source Code tracked via Git. Check CONTRIBUTORS.md in the root directory!
+      </p>
+    </div>
+  `;
+  window.openModal("Meet the Team", bodyHtml);
+};

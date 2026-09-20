@@ -1,3 +1,7 @@
+/*
+ * GatiMarg AI API Client
+ * Team Contributors: [Your Name] (Lead), [Friend 1 Name] (Frontend)
+ */
 /**
  * frontend/js/api.js
  * Asynchronous REST Client for GatiMarg AI / NeuraX Urban Traffic Engine.
